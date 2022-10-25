@@ -1,0 +1,39 @@
+[tool.poetry]
+name = "respct"
+version = "0.1.0"
+description = "Residential Solar Pre-Cooling Tool"
+authors = ["Shayan Nader <a.naderi@unsw.edu.au>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+pandas = "^1.5.1"
+dash = {extras = ["diskcache"], version = "^2.6.2"}
+dash-bootstrap-components = "^1.2.1"
+diskcache = "^5.4.0"
+
+
+[tool.poetry.group.style.dependencies]
+# static: flake8 (style)
+# autoformatter: black (style), isort (import sort)
+# pre-commit: tool to configure and install pre-commit hooks
+flake8 = "*"
+black = "^22.6.0"
+isort = "^5.10.1"
+pre-commit = "^2.20.0"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.1.3"
+pytest-cov = "^3"
+
+[tool.poetry.group.docs.dependencies]
+# MyST parser for Sphinx documentation with furo theme
+Sphinx = "^5.0.2"
+furo = "^2022.6.21"
+myst-parser = "^0.18.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
