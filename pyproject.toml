@@ -32,6 +32,7 @@ pytest-cov = "^3"
 Sphinx = "^5.0.2"
 furo = "^2022.6.21"
 myst-parser = "^0.18.0"
+myst-nb = "^0.16.0"
 
 
 [build-system]

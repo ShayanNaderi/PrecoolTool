@@ -1,6 +1,4 @@
-# UNSW CEEM Python Package Template
-
-Replace the heading above with `your_package`.
+# Residential Solar Pre-Cooling Tool (RESPCT)
 
 ---
 
@@ -10,17 +8,12 @@ Badges can go here
 
 ---
 
-## How do I use this template?
-
-1. Hit "*Use this template*" in the top right of this page
-2. Work through as much of the [basic](https://github.com/UNSW-CEEM/ceem-python-template#basic), [intermediate](https://github.com/UNSW-CEEM/ceem-python-template#intermediate) and [advanced](https://github.com/UNSW-CEEM/ceem-python-template#advanced) steps as you like.
-3. Edit this README and make sure you update `your_package`, `your_name` and `licence_type`.
-
 ### References
 
 Nothing helps as much as examples.
 - [This](https://www.marwandebbiche.com/posts/python-package-tooling/) is a great guide that provides a brief overview of all the tools we use in this template.
-- All of the tooling has been implemented in [`nemseer`](https://github.com/UNSW-CEEM/NEMSEER)
+- All of the tooling is based on 
+ [`UNSW CEEM Python Package Template`](https://github.com/UNSW-CEEM/ceem-python-template)
 
 
 ## Usage
@@ -29,10 +22,6 @@ Nothing helps as much as examples.
 
 #### Updating repo info
 
-1. [Choose a license](https://choosealicense.com/), and add the `LICENSE` file to the repo
-2. Update your [code of conduct](CONDUCT.md)
-3. Update the [*Get Started!* section](CONTRIBUTING.md#get-started) of the [contributing guidelines](CONTRIBUTING.md)
-    - Note that this currently has steps you would use to install various dependency groups that are being used by [`nemseer`](https://github.com/UNSW-CEEM/NEMSEER)
 4. (Optional) [Make your software citeable](https://citation-file-format.github.io/)
 
 #### Poetry
@@ -124,11 +113,7 @@ Here are some tutorials:
 
 ##### Examples
 
-The source folder in this template repo contains basics for making docs. There is also an example of the markdown file used to generate the [API section of the `nemseer` docs](docs/source/nemseer_example.md).
 
- You can also refer to:
-  - [nempy's docs](https://nempy.readthedocs.io/en/latest/)
-  - [nemseer's docs](https://nemseer.readthedocs.io/en/latest/)
 
 #### Tool Config
 
@@ -144,7 +129,7 @@ Please note that this project is released with a [Code of Conduct](CONDUCT.md). 
 
 ## License
 
-`your_package` was created by `your_name`. It is licensed under the terms of the `licence_type`.
+`RESPCT` was created by `Shayan Naderi`. It is licensed under the terms of the `MIT`.
 
 ## Credits
 
