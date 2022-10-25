@@ -16,13 +16,16 @@ Nothing helps as much as examples.
  [`UNSW CEEM Python Package Template`](https://github.com/UNSW-CEEM/ceem-python-template)
 
 
-## Usage
+## Documentation
+### Quick start
+
+Check out the [Documentation](https://respct.readthedocs.io/en/latest/index.html) 
+ to understand the algorithms and datasets used in `RESPCT`, and for guide on to use `RESPCT`.
 
 ### Basic
 
 #### Updating repo info
 
-4. (Optional) [Make your software citeable](https://citation-file-format.github.io/)
 
 #### Poetry
 
