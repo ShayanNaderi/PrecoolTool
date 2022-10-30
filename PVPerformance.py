@@ -32,7 +32,7 @@ def calculate_PV_output(
     from ProcessThermalDynamics import read_TMY_weather_files
 
     tmy_manual = read_TMY_weather_files(city, True)
-
+    print("PV simular read TMY")
     # tmy_manual.year = 2020
     # tmy_manual.index = pd.to_datetime(
     #             tmy_manual[["year", "month", "day", "hour"]]
@@ -104,7 +104,7 @@ def calculate_PV_output(
     ac_power_time_series.rename(columns={0: "PV"}, inplace=True)
     ac_power_time_series["date"] = ac_power_time_series.index.date
     ac_power_time_series.reset_index(inplace=True)
-    print(ac_power_time_series[:10])
+    # print(ac_power_time_series[:10])
     # print(ac_power_time_series.columns)
 
     return ac_power_time_series

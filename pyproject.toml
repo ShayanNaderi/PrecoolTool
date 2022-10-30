@@ -12,6 +12,10 @@ pandas = "^1.5.1"
 dash = {extras = ["diskcache"], version = "^2.6.2"}
 dash-bootstrap-components = "^1.2.1"
 diskcache = "^5.4.0"
+statsmodels = "^0.13.2"
+sklearn = "^0.0"
+matplotlib = "^3.6.1"
+pvlib = "^0.9.3"
 
 
 [tool.poetry.group.style.dependencies]

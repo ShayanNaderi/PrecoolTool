@@ -155,33 +155,6 @@ def disable_flat_rate(tariff_structure):
         return False
 
 
-# @app.callback(
-#     [
-#         Output("upload-demand-data-div", "children"),
-#         Output("demand-selection-top-div", "children"),
-#     ],
-#     [
-#         Input("demand-profile-availability-radio", "value"),
-#         Input("demand-profile-collapse", "is_open"),
-#     ],
-# )
-# def update_graphs(availability, is_open):
-#
-#     if availability == "available":
-#         return [
-#             create_upload_data("upload-demand-data"),
-#             "Please upload data",
-#         ], []
-#     elif (availability != "available") & (is_open == True):
-#         fig = create_select_demand_profile_fig()
-#         return [
-#             "Please select items based on your consumption patterns",
-#             html.Br(),
-#             demand_questions_radio_item,
-#         ], fig
-#
-#     elif (availability != "available") & (is_open == False):
-#         return [], []
 
 
 #

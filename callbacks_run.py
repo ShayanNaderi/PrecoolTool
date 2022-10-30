@@ -1,13 +1,9 @@
-import json
-import time
-
 import dash
 import pandas as pd
 from dash import CeleryManager, DiskcacheManager, Input, Output, State, dcc, html
 from dash.exceptions import PreventUpdate
 
 from app import app
-from app_components import make_progress_graph
 from DevelopThermalDynamicsModel import Building, join_PV_load_temp, run_scenarios
 from PVPerformance import calculate_PV_output
 
@@ -47,7 +43,8 @@ from PVPerformance import calculate_PV_output
 def update_thermal_model(
     set_progress, n_clicks, starRating, weight, dwelling_type, size
 ):
-    total = 20
+    print("Callback thermal model before click: OK", "nclicks",n_clicks)
+
     if n_clicks:
         building = Building(
             starRating=starRating,
@@ -55,7 +52,8 @@ def update_thermal_model(
             type=dwelling_type,
             size=size,
             city="Adelaide",
-        )
+            )
+        print("Callback thermal model after click: OK")
         coeffs_df = building.thermal_coefficients.to_frame()
         coeffs_df.to_csv("coefficients.csv")
         coeffs_json = coeffs_df.to_json(date_format="iso", orient="split")
@@ -113,7 +111,7 @@ def update_progress(
 ):
     if n_clicks:
         print(orientation, location, PV_rated_capacity, inverter_efficiency)
-        inverter_efficiency = inverter_efficiency / 100  # number to
+        inverter_efficiency = inverter_efficiency / 100  # number to percent
         PV_rated_capacity = PV_rated_capacity * 1000  # kW to Watt
 
         PV_generation = calculate_PV_output(
@@ -122,7 +120,7 @@ def update_progress(
             PV_capacity_W=PV_rated_capacity,
             inv_efficiency=inverter_efficiency,
         )
-        print(type(PV_generation))
+        print("PV output calculation OK")
         # PV_generation_df = PV_generation.to_frame()
         PV_generation_json = PV_generation.to_json(date_format="iso", orient="split")
         return (["PV performance is ready! Go to next steps!"], PV_generation_json)
@@ -180,12 +178,19 @@ def update_progress(
     AC_made_year,
 ):
     if n_clicks:
+        print("click run simulation OK", n_clicks)
+
+        if hidden_div_thermal is None:
+            return ["No thermal model is available! Please create the thermal model first!"]
+        elif hidden_div_PV is None:
+            return ["No PV simulation is available! Please simulate PV performance first!"]
+        print(hidden_div_thermal)
         df_TMY = pd.read_json(hidden_div_thermal[0], orient="split")
         print("TMY ok")
         df_coeffs = pd.read_json(thermal_coefficients, orient="split")
-
+        print("Coefficient reading OK")
         df_PV = pd.read_json(hidden_div_PV, orient="split")  # check if it is a list
-        # print(df_TMY.head())
+        print("read PV simulation results OK")
         print(
             AC_size,
             PV_size,
@@ -193,18 +198,10 @@ def update_progress(
             # hidden_div_thermal,
             # thermal_coefficients,
         )
-        if df_coeffs is None:
-            return [
-                "No thermal model is available! Please create the thermal model first!"
-            ]
-        elif df_PV is None:
-            return [
-                "No PV simulation is available! please simulate PV performance first! "
-            ]
-        else:
-            ready_df = join_PV_load_temp(df_PV, df_TMY)
-            run_scenarios(ready_df)
-            ready_df.to_csv("ready_df.csv")
-            # print(ready_df.head())
-            # I need thermal coefficients as well with the dataframe to simulate the baseline and SPC scenarios
-            return []
+
+        ready_df = join_PV_load_temp(df_PV, df_TMY)
+        run_scenarios(ready_df)
+        ready_df.to_csv("ready_df.csv")
+
+        # I need thermal coefficients as well with the dataframe to simulate the baseline and SPC scenarios
+        return ["Successful!"]

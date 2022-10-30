@@ -8,9 +8,11 @@ class Building:
         self.type = type
         self.city = city
         self.size = size
-
+        self.cop = 3.5
         self.read_thermal_dynamics_file()
+
         self.thermal_coefficients = self.create_thermal_model(self.thermal_dynamics_df)
+        # print(self.thermal_coefficients)
 
     def read_thermal_dynamics_file(self):
         """
@@ -80,75 +82,163 @@ class Building:
         return model.params
 
     def baseline_summer(self, neutral, upper):
+        """
+        Simulates the baseline scenario during the summer
+        ------
+
+        This funciton is called for each day of the summer,
+        and it returns an hourly daily dataframe for each day containing
+        indoor temperature, AC demand, and imports.
+
+        :param neutral: User's preffered Neutral temperature entered via the GUI
+        :param upper: Upper limit of thermal comfort entered via GUI
+        :return: SH_ahead(DataFrame): DataFrame that contains the solved solution
+        """
+        self.SH_ahead.reset_index(inplace=True,drop=True)
+        self.SH_ahead.loc[:,'T_bs'] = 0
+        self.SH_ahead.loc[:,'Q_bs'] = 1000
+        self.SH_ahead.loc[:,"Q_bs_im"] = 0
+
         T_setpoint = neutral
         for i, row in self.SH_ahead.iterrows():
             if i < 2:
                 self.SH_ahead.at[i, "Q_bs"] = 0
-                self.SH_ahead.at[i, "T_bs"] = self.T_n
+                self.SH_ahead.at[i, "T_bs"] = neutral
                 self.SH_ahead.at[i, "Q_bs_im"] = 0
             else:
 
                 self.SH_ahead.at[i, "Q_bs"] = 0
                 self.SH_ahead.at[i, "T_bs"] = (
-                    self.popt[0] * self.SH_ahead.at[i - 1, "Out"]
-                    + self.popt[1] * self.SH_ahead.at[i - 1, "T_bs"]
-                    + self.popt[2] * self.SH_ahead.at[i - 1, "SR"]
-                    + self.popt[3] * self.SH_ahead.at[i - 1, "Q_bs"]
-                    + self.popt[4] * self.SH_ahead.at[i, "Q_bs"]
-                    + self.popt[5] * self.SH_ahead.at[i, "Out"]
-                    + self.popt[6] * self.SH_ahead.at[i, "SR"]
-                    + self.popt[7] * self.SH_ahead.at[i - 2, "Out"]
-                    + self.popt[8] * self.SH_ahead.at[i - 2, "T_bs"]
-                    + self.popt[9] * self.SH_ahead.at[i - 2, "Q_bs"]
-                    + self.popt[10] * self.SH_ahead.at[i - 2, "SR"]
+                    self.thermal_coefficients['outdoor1'] * self.SH_ahead.at[i - 1, "outdoor"]
+                    + self.thermal_coefficients['agg_temp1'] * self.SH_ahead.at[i - 1, "T_bs"]
+                    + self.thermal_coefficients['SR1'] * self.SH_ahead.at[i - 1, "SR"]
+                    + self.thermal_coefficients['agg_AC1'] * self.SH_ahead.at[i - 1, "Q_bs"]
+                    + self.thermal_coefficients['agg_AC'] * self.SH_ahead.at[i, "Q_bs"]
+                    + self.thermal_coefficients['outdoor'] * self.SH_ahead.at[i, "outdoor"]
+                    + self.thermal_coefficients['SR'] * self.SH_ahead.at[i, "SR"]
+                    + self.thermal_coefficients['outdoor2'] * self.SH_ahead.at[i - 2, "outdoor"]
+                    + self.thermal_coefficients['agg_temp2'] * self.SH_ahead.at[i - 2, "T_bs"]
+                    + self.thermal_coefficients['agg_AC2'] * self.SH_ahead.at[i - 2, "Q_bs"]
+                    + self.thermal_coefficients['SR2'] * self.SH_ahead.at[i - 2, "SR"]
                 )
-                if self.SH_ahead.at[i, "T_bs"] > self.Temperature_range_c[1]:
+                if self.SH_ahead.at[i, "T_bs"] > upper:
                     Q_bs = (
                         -(
                             -T_setpoint
-                            + self.popt[0] * self.SH_ahead.at[i - 1, "Out"]
-                            + self.popt[1] * self.SH_ahead.at[i - 1, "T_bs"]
-                            + self.popt[2] * self.SH_ahead.at[i - 1, "SR"]
-                            + self.popt[3] * self.SH_ahead.at[i - 1, "Q_bs"]
-                            + self.popt[5] * self.SH_ahead.at[i, "Out"]
-                            + self.popt[6] * self.SH_ahead.at[i, "SR"]
-                            + self.popt[7] * self.SH_ahead.at[i - 2, "Out"]
-                            + self.popt[8] * self.SH_ahead.at[i - 2, "T_bs"]
-                            + self.popt[9] * self.SH_ahead.at[i - 2, "Q_bs"]
-                            + self.popt[10] * self.SH_ahead.at[i - 2, "SR"]
+                            + self.thermal_coefficients['outdoor1'] * self.SH_ahead.at[i - 1, "outdoor"]
+                            + self.thermal_coefficients['agg_temp1'] * self.SH_ahead.at[i - 1, "T_bs"]
+                            + self.thermal_coefficients['SR1'] * self.SH_ahead.at[i - 1, "SR"]
+                            + self.thermal_coefficients['agg_AC1'] * self.SH_ahead.at[i - 1, "Q_bs"]
+                            + self.thermal_coefficients['outdoor'] * self.SH_ahead.at[i, "outdoor"]
+                            + self.thermal_coefficients['SR'] * self.SH_ahead.at[i, "SR"]
+                            + self.thermal_coefficients['outdoor2'] * self.SH_ahead.at[i - 2, "outdoor"]
+                            + self.thermal_coefficients['agg_temp2'] * self.SH_ahead.at[i - 2, "T_bs"]
+                            + self.thermal_coefficients['agg_AC2'] * self.SH_ahead.at[i - 2, "Q_bs"]
+                            + self.thermal_coefficients['SR2'] * self.SH_ahead.at[i - 2, "SR"]
                         )
-                        / self.popt[4]
+                        / self.thermal_coefficients['agg_AC']
                     )
                     Q_bs = min(Q_bs, 0)
                     self.SH_ahead.at[i, "Q_bs"] = max(Q_bs, -self.AC_size)
                     self.SH_ahead.at[i, "T_bs"] = (
-                        self.popt[0] * self.SH_ahead.at[i - 1, "Out"]
-                        + self.popt[1] * self.SH_ahead.at[i - 1, "T_bs"]
-                        + self.popt[2] * self.SH_ahead.at[i - 1, "SR"]
-                        + self.popt[3] * self.SH_ahead.at[i - 1, "Q_bs"]
-                        + self.popt[4] * self.SH_ahead.at[i, "Q_bs"]
-                        + self.popt[5] * self.SH_ahead.at[i, "Out"]
-                        + self.popt[6] * self.SH_ahead.at[i, "SR"]
-                        + self.popt[7] * self.SH_ahead.at[i - 2, "Out"]
-                        + self.popt[8] * self.SH_ahead.at[i - 2, "T_bs"]
-                        + self.popt[9] * self.SH_ahead.at[i - 2, "Q_bs"]
-                        + self.popt[10] * self.SH_ahead.at[i - 2, "SR"]
+                            self.thermal_coefficients['outdoor1'] * self.SH_ahead.at[i - 1, "outdoor"]
+                            + self.thermal_coefficients['agg_temp1'] * self.SH_ahead.at[i - 1, "T_bs"]
+                            + self.thermal_coefficients['SR1'] * self.SH_ahead.at[i - 1, "SR"]
+                            + self.thermal_coefficients['agg_AC1'] * self.SH_ahead.at[i - 1, "Q_bs"]
+                            + self.thermal_coefficients['agg_AC'] * self.SH_ahead.at[i, "Q_bs"]
+                            + self.thermal_coefficients['outdoor'] * self.SH_ahead.at[i, "outdoor"]
+                            + self.thermal_coefficients['SR'] * self.SH_ahead.at[i, "SR"]
+                            + self.thermal_coefficients['outdoor2'] * self.SH_ahead.at[i - 2, "outdoor"]
+                            + self.thermal_coefficients['agg_temp2'] * self.SH_ahead.at[i - 2, "T_bs"]
+                            + self.thermal_coefficients['agg_AC2'] * self.SH_ahead.at[i - 2, "Q_bs"]
+                            + self.thermal_coefficients['SR2'] * self.SH_ahead.at[i - 2, "SR"]
                     )
 
-                self.SH_ahead.at[i, "Q_bs_im"] = min(
-                    0,
-                    self.SH_ahead.at[i, "Q_bs"]
-                    + self.SH_ahead.at[i, "Surpluss_PV"] * self.cop,
+        # print(self.SH_ahead.head(24))
+
+
+    def baseline_winter(self,night_setpoint,day_setpoint):
+        print("Miad inja?")
+        self.SH_ahead.reset_index(inplace=True,drop=True)
+        for i, row in self.SH_ahead.iterrows():
+            if i < 2:
+                self.SH_ahead.at[i, 'Q_bs'] = 0
+                self.SH_ahead.at[i, 'T_bs'] = night_setpoint
+                self.SH_ahead.at[i, 'Q_bs_im'] = 0
+                self.SH_ahead.at[i,'W_bs'] = 0
+            else:
+                if (i > 1) & (i < 7):
+                    T_setpoint = night_setpoint
+                elif i > 6:
+                    T_setpoint = day_setpoint
+                self.SH_ahead.at[i, 'Q_bs'] = 0
+                self.SH_ahead.at[i, "T_bs"] = (self.thermal_coefficients['outdoor1'] * self.SH_ahead.at[i - 1, "outdoor"]
+                    + self.thermal_coefficients['agg_temp1'] * self.SH_ahead.at[i - 1, "T_bs"]
+                    + self.thermal_coefficients['SR1'] * self.SH_ahead.at[i - 1, "SR"]
+                    + self.thermal_coefficients['agg_AC1'] * self.SH_ahead.at[i - 1, "Q_bs"]
+                    + self.thermal_coefficients['agg_AC'] * self.SH_ahead.at[i, "Q_bs"]
+                    + self.thermal_coefficients['outdoor'] * self.SH_ahead.at[i, "outdoor"]
+                    + self.thermal_coefficients['SR'] * self.SH_ahead.at[i, "SR"]
+                    + self.thermal_coefficients['outdoor2'] * self.SH_ahead.at[i - 2, "outdoor"]
+                    + self.thermal_coefficients['agg_temp2'] * self.SH_ahead.at[i - 2, "T_bs"]
+                    + self.thermal_coefficients['agg_AC2'] * self.SH_ahead.at[i - 2, "Q_bs"]
+                    + self.thermal_coefficients['SR2'] * self.SH_ahead.at[i - 2, "SR"]
                 )
-
-
+                if self.SH_ahead.at[i, 'T_bs'] < T_setpoint:
+                    # T_setpoint = self.Temperature_range_h_daytime[0]
+                    Q_bs = (
+                        -(-T_setpoint
+                            + self.thermal_coefficients['outdoor1'] * self.SH_ahead.at[i - 1, "outdoor"]
+                            + self.thermal_coefficients['agg_temp1'] * self.SH_ahead.at[i - 1, "T_bs"]
+                            + self.thermal_coefficients['SR1'] * self.SH_ahead.at[i - 1, "SR"]
+                            + self.thermal_coefficients['agg_AC1'] * self.SH_ahead.at[i - 1, "Q_bs"]
+                            + self.thermal_coefficients['outdoor'] * self.SH_ahead.at[i, "outdoor"]
+                            + self.thermal_coefficients['SR'] * self.SH_ahead.at[i, "SR"]
+                            + self.thermal_coefficients['outdoor2'] * self.SH_ahead.at[i - 2, "outdoor"]
+                            + self.thermal_coefficients['agg_temp2'] * self.SH_ahead.at[i - 2, "T_bs"]
+                            + self.thermal_coefficients['agg_AC2'] * self.SH_ahead.at[i - 2, "Q_bs"]
+                            + self.thermal_coefficients['SR2'] * self.SH_ahead.at[i - 2, "SR"]
+                        )/ self.thermal_coefficients['agg_AC'])
+                    Q_bs = max(0,Q_bs)
+                    self.SH_ahead.at[i, 'Q_bs'] = min(Q_bs, self.AC_size)
+                    self.SH_ahead.at[i, "T_bs"] = self.thermal_coefficients['outdoor1'] * self.SH_ahead.at[i - 1, "outdoor"] +\
+                                                  self.thermal_coefficients['agg_temp1'] * self.SH_ahead.at[i - 1, "T_bs"]\
+                                                  + self.thermal_coefficients['SR1'] * self.SH_ahead.at[i - 1, "SR"]+\
+                                                  self.thermal_coefficients['agg_AC1'] * self.SH_ahead.at[i - 1, "Q_bs"]+\
+                                                  self.thermal_coefficients['agg_AC'] * self.SH_ahead.at[i, "Q_bs"]+\
+                                                  self.thermal_coefficients['outdoor'] * self.SH_ahead.at[i, "outdoor"]+\
+                                                  self.thermal_coefficients['SR'] * self.SH_ahead.at[i, "SR"]+\
+                                                  self.thermal_coefficients['outdoor2'] * self.SH_ahead.at[i - 2, "outdoor"]+\
+                                                  self.thermal_coefficients['agg_temp2'] * self.SH_ahead.at[i - 2, "T_bs"]+\
+                                                  self.thermal_coefficients['agg_AC2'] * self.SH_ahead.at[i - 2, "Q_bs"]+\
+                                                  self.thermal_coefficients['SR2'] * self.SH_ahead.at[i - 2, "SR"]
+                # self.SH_ahead.at[i, 'Q_bs_im'] = max(0, self.SH_ahead.at[i, 'Q_bs'] - self.SH_ahead.at[
+                #     i, 'Surpluss_PV'] * self.cop)
+            # if (i > 1) & (i < 7):
+            #     self.SH_ahead.at[i, 'W_bs'] = 0
+            # elif i > 6:
+            #     self.SH_ahead.at[i, 'W_bs'] = day_setpoint - self.SH_ahead.at[i, 'T_bs']
 def join_PV_load_temp(PV, load_temp):
     joined_df = PV.merge(load_temp, on=["month", "day", "hour"])
     return joined_df
 
 
-def run_scenarios(df):
+def run_scenarios(building,df):
+
     available_dates = df.date.unique()
+    for date in available_dates:
+        building.SH_ahead = df[df['date'] == date]
+        datetime= pd.to_datetime(date)
+        if datetime.month in[12,1,2,9,10,11]:
+            building.baseline_summer(neutral=22,upper=25)
+            print(building.SH_ahead.head(20))
+
+        elif datetime.month in[3,4,5,6,7,8]:
+        # if datetime.month in[3,4,5,6,7,8]:
+            pass
+            # building.baseline_winter(18,20)
+            # print(a.month)
+
     return available_dates
 
 
@@ -160,12 +250,13 @@ if __name__ == "__main__":
         size="small",
         city="Adelaide",
     )
-
     ready_df = pd.read_csv("ready_df.csv")
-    unique_dates = run_scenarios(ready_df)
+    building.AC_size = 25
+    # print(type(building.thermal_coefficients['SR2']))
+    unique_dates = run_scenarios(building,ready_df)
     #
     # for date in available dates:
     # simualte baseline
     # simulate SPC
     # quantify metrics
-    print(unique_dates)
+    # print(unique_dates)
