@@ -16,6 +16,8 @@ statsmodels = "^0.13.2"
 sklearn = "^0.0"
 matplotlib = "^3.6.1"
 pvlib = "^0.9.3"
+openpyxl = "^3.0.10"
+jupyter = "^1.0.0"
 
 
 [tool.poetry.group.style.dependencies]

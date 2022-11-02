@@ -209,8 +209,8 @@ app.layout = dbc.Container(
                                             title="PV system rated capacity kW:",
                                             min=2,
                                             max=70,
-                                            value=5,
-                                            step=1,
+                                            value=2.5,
+                                            step=0.5,
                                         ),
                                         generate_select(
                                             id="inverter-efficiency",
@@ -256,7 +256,7 @@ app.layout = dbc.Container(
                         ),
                         dbc.Spinner(html.Div(id="paragraph-id", children=[])),
                         html.Hr(),
-                        dcc.Markdown("##### Aerodynamic Performance"),
+                        dcc.Markdown("#####  What else?"),
                         dbc.Spinner(
                             html.P(id="text_output"),
                             color="primary",
@@ -269,6 +269,18 @@ app.layout = dbc.Container(
                     [
                         html.Div(id="demand-selection-top-div"),
                         html.Div(id="selected-demand-div"),
+                        html.Div(id="selected-demand-div-id",style={"display": "None"}),
+                        dbc.Row([dbc.Col(html.Div(id="PV-simulation-demand-figure"), md=6),
+                                 dbc.Col(html.Div(id="surplus-PV-fig"), md=6)
+                                 ]),
+                        dbc.Row([dbc.Col(html.Div(id="temperature-hourly"),md=6),
+                                dbc.Col(html.Div(id="AC-demand-hourly"),md=6)
+                                 ]),
+                        html.Br(),
+                        dbc.Row([dbc.Col(html.Div(id="discomfort-hourly"), md=6),
+                                 dbc.Col(html.Div(id="PV-grossDemand-hourly"), md=6)
+                                 ]),
+
                     ],
                     width=9,
                     align="start",

@@ -133,18 +133,18 @@ neutral_temp_select = html.Div(
         ),
         generate_select(
             "deviation-up-temp",
-            "Positive deviation °C:",
-            value=1.5,
-            min=0,
-            max=5,
+            "Upper limit °C:",
+            value=24,
+            min=15,
+            max=35,
             step=0.25,
         ),
         generate_select(
             "deviation-low-temp",
-            "Negative deviation °C:",
-            value=2.5,
-            min=0,
-            max=5,
+            "Lower limit °C:",
+            value=18,
+            min=14,
+            max=30,
             step=0.25,
         ),
     ]
@@ -239,8 +239,8 @@ occupancy_checklist = html.Div(
             options=[
                 {"label": "7 am - 10 am", "value": 1},
                 {"label": "10 am - 2 pm", "value": 2},
-                {"label": "2 pm - 5 pm", "value": 3},
-                {"label": "5 pm - 10 pm", "value": 4},
+                {"label": "2 pm - 6 pm", "value": 3},
+                {"label": "6 pm - midnight", "value": 4},
                 {"label": "Overnight", "value": 5},
             ],
             value=[4, 5],
@@ -508,7 +508,7 @@ def create_select_demand_profile_fig(df, title, selected=False):
         font=dict(family="Calibri", size=16, color="white"),
     ),
     fig.update_yaxes(
-        title_text="Net Demand (kW)",
+        title_text="Average AC excluded demand [kW]",
         showline=True,
         showgrid=False,
         linecolor="black",
@@ -518,7 +518,7 @@ def create_select_demand_profile_fig(df, title, selected=False):
         showline=True,
         showgrid=False,
         linecolor="black",
-        title_text="Time",
+        title_text="Time of the day [h]",
     )
     # margin=dict(l=0, r=0, t=0, b=0)
     graph = dcc.Graph(id="select-demand-profile-fig", figure=fig)
@@ -540,7 +540,7 @@ def create_selected_profile_fig(df):
         font=dict(family="Calibri", size=16, color="white"),
     ),
     fig.update_yaxes(
-        title_text="Net Demand (kW)",
+        title_text="Average AC excluded demand [kW]",
         showline=True,
         showgrid=False,
         linecolor="black",
@@ -550,7 +550,7 @@ def create_selected_profile_fig(df):
         showline=True,
         showgrid=False,
         linecolor="black",
-        title_text="Time",
+        title_text="Time of the day [h]",
     )
     # margin=dict(l=0, r=0, t=0, b=0)
     graph = dcc.Graph(id="selected-demand-profile-fig", figure=fig)

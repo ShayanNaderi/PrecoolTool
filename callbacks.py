@@ -200,7 +200,7 @@ def update_graphs(availability, is_open, answer_cluster_question):
     }
     cluster = cluster_dic[answer_cluster_question]
     if (is_open == True) & (availability == "unavailable"):
-        df = pd.read_csv("Data/AC_excluded_and_clusters.csv")
+        df = pd.read_csv("Data/average_demand_and_clusters_for_demand_selection.csv")
         df = df[df["Cluster"].isin(cluster)]
         if (cluster == [1]) | (cluster == [2]):
             unique_ids = df["site_ID"].unique()
@@ -219,6 +219,7 @@ def update_graphs(availability, is_open, answer_cluster_question):
     # [
     Output("dump-selected-div", "children"),
     Output("selected-demand-div", "children"),
+    Output("selected-demand-div-id", "children"),
     # ],
     [
         Input("select-demand-profile-fig", "selectedData"),
@@ -233,16 +234,15 @@ def display_selected_data(
 ):
     print(clickData["points"][0]["customdata"][0])
     site_id = clickData["points"][0]["customdata"][0]
-    print(site_id)
-    df = pd.read_csv("Data/AC_excluded_and_clusters.csv")
+    df = pd.read_csv("Data/average_demand_and_clusters_for_demand_selection.csv")
     df = df[df["site_ID"] == site_id]
     fig = create_selected_profile_fig(df)
 
     if (is_open == True) & (availability == "unavailable"):
-        return json.dumps(clickData, indent=2), fig
+        return json.dumps(clickData, indent=2), fig,site_id
 
     elif (is_open == False) | (availability == "available"):
-        return [], []
+        return [], [],site_id
 
 
 # @app.callback(
@@ -260,6 +260,12 @@ def display_selected_data(
 )
 def update_tables(data):
     """This function return the updated tariff tables when the user edits it"""
+    tariff_df = pd.DataFrame.from_records(data)
+    tariff_df.rename(columns = {"Rate-weekdays":"Tariff"},inplace=True)
+    print(tariff_df.columns)
+
+
+
     return data
 
 
