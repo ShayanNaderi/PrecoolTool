@@ -13,13 +13,22 @@ class Building:
         self.AC_size = AC_size
         self.cop = 3.5
         self.tariff_df = None
+        self.ready_df = None
         self.occupancy_checklist = [1,3,4]
         self.daily_results_dic = {}
         self.final_df = pd.DataFrame()
-
         self.read_thermal_dynamics_file()
-
+        self.upper_limit =0
+        self.neutral_temp = 0
+        self.lower_limit = 0
         self.thermal_coefficients = self.create_thermal_model(self.thermal_dynamics_df)
+
+
+    def update_temperature_preferences(self,ready_df,neutral_temp,upper_limit,lower_limit):
+        self.upper_limit = upper_limit
+        self.neutral_temp = neutral_temp
+        self.lower_limit = lower_limit
+        self.ready_df = ready_df
 
     def read_thermal_dynamics_file(self):
         """

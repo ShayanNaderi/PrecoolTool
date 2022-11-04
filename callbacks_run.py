@@ -234,6 +234,7 @@ def update_progress(
         tariff_df = pd.DataFrame.from_records(tariff_data)
         create_tariff_column(building=building,tariff_type=tariff_structure,tariff_table=tariff_df,flat_rate=flat_rate)
         building = run_scenarios(building,ready_df,neutral_temp,upper_limit,lower_limit)
+        building.update_temperature_preferences(ready_df,neutral_temp,upper_limit,lower_limit)
         print("run scenarios Ok")
 
         fig_PV_demand = line_plot(building.averaged_hourly_results,'hour',["PV","Demand"],

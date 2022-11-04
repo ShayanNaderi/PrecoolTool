@@ -244,9 +244,21 @@ app.layout = dbc.Container(
                         html.Hr(),
                         dcc.Markdown(id="selected-building"),
                         dbc.Button(
-                            id="analyze-button",
-                            children="Run solar pre-cooling!",
+                            id="add-case-study-button",
+                            children="Add the case study",
+                            color="info",
+                            style={"margin": "5px"},
+                        ),
+                        dbc.Button(
+                            id="clean-case-study-button",
+                            children="Clean all case studies",
                             color="danger",
+                            style={"margin": "5px"},
+                        ),
+                        dbc.Button(
+                            id="analyze-button",
+                            children="Run solar pre-cooling for all case studies!",
+                            color="success",
                             style={"margin": "5px"},
                         ),
                         dbc.Button(
