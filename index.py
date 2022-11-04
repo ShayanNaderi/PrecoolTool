@@ -256,7 +256,7 @@ app.layout = dbc.Container(
                         ),
                         dbc.Spinner(html.Div(id="paragraph-id", children=[])),
                         html.Hr(),
-                        dcc.Markdown("#####  What else?"),
+                        dcc.Markdown("##### ..."),
                         dbc.Spinner(
                             html.P(id="text_output"),
                             color="primary",

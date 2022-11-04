@@ -1,7 +1,7 @@
 import pandas as pd
 import plotly
 import plotly.graph_objects as go
-font_color = "black"
+font_color = "white"
 simple_template = dict(
 layout=go.Layout(title_font=dict(family="Rockwell", size=24),
                      plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)',
