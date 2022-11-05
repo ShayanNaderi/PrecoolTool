@@ -243,9 +243,11 @@ app.layout = dbc.Container(
                         ),
                         html.Hr(),
                         dcc.Markdown(id="selected-building"),
+                        dbc.Input(placeholder="Name your case study",id="case-study-name",type='text'),
                         dbc.Button(
                             id="add-case-study-button",
                             children="Add the case study",
+                            n_clicks=0,
                             color="info",
                             style={"margin": "5px"},
                         ),
@@ -253,12 +255,14 @@ app.layout = dbc.Container(
                             id="clean-case-study-button",
                             children="Clean all case studies",
                             color="danger",
+                            n_clicks=0,
                             style={"margin": "5px"},
                         ),
                         dbc.Button(
-                            id="analyze-button",
+                            id="run-button",
                             children="Run solar pre-cooling for all case studies!",
                             color="success",
+                            n_clicks=0,
                             style={"margin": "5px"},
                         ),
                         dbc.Button(
@@ -282,6 +286,10 @@ app.layout = dbc.Container(
                         html.Div(id="demand-selection-top-div"),
                         html.Div(id="selected-demand-div"),
                         html.Div(id="selected-demand-div-id",style={"display": "None"}),
+                        html.Div(id="run-simulation-hidden-div",children = [0,0],style={"display": "None"}),
+                        html.Div(id="list-of-buildings-hidden-div",children = [],style={"display": "None"}),
+                        html.Div(id="single-building-results-div"),
+
                         dbc.Row([dbc.Col(html.Div(id="PV-simulation-demand-figure"), md=6),
                                  dbc.Col(html.Div(id="surplus-PV-fig"), md=6)
                                  ]),
