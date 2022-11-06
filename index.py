@@ -30,6 +30,7 @@ from app_components import (
 #     VALID_USERNAME_PASSWORD_PAIRS
 # )
 
+
 app.layout = dbc.Container(
     [
         dbc.Row(
@@ -286,7 +287,7 @@ app.layout = dbc.Container(
                         html.Div(id="demand-selection-top-div"),
                         html.Div(id="selected-demand-div"),
                         html.Div(id="selected-demand-div-id",style={"display": "None"}),
-                        html.Div(id="run-simulation-hidden-div",children = [0,0],style={"display": "None"}),
+                        html.Div(id="run-simulation-hidden-div",children = [0,0,0],style={"display": "None"}),
                         html.Div(id="list-of-buildings-hidden-div",children = [],style={"display": "None"}),
                         html.Div(id="single-building-results-div"),
 

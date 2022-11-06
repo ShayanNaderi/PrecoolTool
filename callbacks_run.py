@@ -10,6 +10,11 @@ from functions import create_tariff_column,read_demand_from_xlsx_file
 from figures import line_plot
 from dynamicFigures import generate_single_building_graphs
 import os
+
+figure_border_style = {"border-style": "solid",
+                          'border-color': '#ff4d4d', 'border-width': '1px', 'border-radius': "0.25rem"
+                          }
+
 # Create thermal model
 @app.callback(
     output=(
@@ -135,11 +140,13 @@ def update_progress(
 @dash.callback(
     output=(Output("paragraph-id", "children"),
     Output("single-building-results-div", "children"),
+    Output("single-building-results-div", "style"),
     Output("run-simulation-hidden-div", "children"),
     Output("list-of-buildings-hidden-div", "children"),
             ),
     inputs=(
         Input("add-case-study-button", "n_clicks"),
+        Input("clean-case-study-button", "n_clicks"),
         Input("run-button", "n_clicks"),
         State("case-study-name", "value"),
         State("coefficients-thermal-model", "children"),
@@ -162,7 +169,9 @@ def update_progress(
     ),
     background=True,
     running=[
+        (Output("add-case-study-button", "disabled"), True, False),
         (Output("run-button", "disabled"), True, False),
+        (Output("clean-case-study-button", "disabled"), True, False),
         (Output("cancel-button-id", "disabled"), False, True),
         (
             Output("paragraph-id", "style"),
@@ -182,6 +191,7 @@ def update_progress(
 def update_progress(
     set_progress,
     n_click_add,
+    n_cklick_clean_cases,
     n_clicks,
     name_case_study,
     thermal_coefficients,
@@ -217,12 +227,33 @@ def update_progress(
         print("click add simulation OK", n_click_add, hidden_div_run[0])
 
         if hidden_div_thermal is None:
-            return ["No thermal model is available! Please create the thermal model first!"]
+            output_text = "No thermal model is available! Please create the thermal model first!"
+            return (
+            [output_text],[],None,
+            hidden_div_run,
+            []
+            )
         elif hidden_div_PV is None:
-            return ["No PV simulation is available! Please simulate PV performance first!"]
+            output_text = "No PV simulation is available! Please simulate PV performance first!"
+            return (
+            [output_text],[],None,
+            hidden_div_run,
+            []
+            )
         elif site_id is None:
-            return ["No demand profile is selected! Please select a demand profile first!"]
-        print("Selected solar home {}".format(site_id))
+            output_text = "No demand profile is selected! Please select a demand profile first!"
+            return (
+            [output_text],[],None,
+            hidden_div_run,
+            []
+            )
+        elif name_case_study is None:
+            output_text = "Please write a name for the case study!"
+            return (
+            [output_text],[],None,
+            hidden_div_run,
+            []
+            )
 
         df_TMY = pd.read_json(hidden_div_thermal[0], orient="split")
         print("Thermal model ok")
@@ -256,37 +287,59 @@ def update_progress(
 
         list_of_buildings.append(building)
         list_of_buildings_name.append(building.name)
-        hidden_div_run = [n_click_add,n_clicks]
+        hidden_div_run = [n_click_add,n_cklick_clean_cases,n_clicks]
         with open("list_of_buildings.pkl", 'wb') as outp:
             pickle.dump(list_of_buildings, outp, pickle.HIGHEST_PROTOCOL)
         print("Hi, {} is added".format(name_case_study))
 
-        return (["Hi, {} is added".format(name_case_study)],
-                [],
+        return (["Hi, {} is added. number of case studies = {}".format(name_case_study,len(list_of_buildings_name))],
+                [],None,
                 hidden_div_run,
                 list_of_buildings_name
                 )
-    if n_clicks != hidden_div_run[1]:
-        print("click run simulation OK", n_clicks, hidden_div_run[1] )
-        with open('list_of_buildings.pkl', 'rb') as inp:
-            list_of_buildings = pickle.load(inp)
-        print("PKL is opened")
+    if n_cklick_clean_cases != hidden_div_run[1]:
+        hidden_div_run = [n_click_add,n_cklick_clean_cases,n_clicks]
+        list_of_buildings_name = []
+        isExist  = os.path.exists('list_of_buildings.pkl')
+        if isExist == True:
+            os.remove("list_of_buildings.pkl")
 
-        list_of_buildings_name = hidden_div_list_buildings
-        for building in list_of_buildings:
-            print(building.name)
-            building = run_scenarios(building)
-            print("run scenarios Ok")
-
-        with open("list_of_buildings.pkl", 'wb') as outp:
-            pickle.dump(list_of_buildings, outp, pickle.HIGHEST_PROTOCOL)
-        print("figure Ok")
-        hidden_div_run = [n_click_add,n_clicks]
-        return (["Successful!"],
-                generate_single_building_graphs(),
+        return (["All case studies are removed. Number of case studies = {}".format(len(list_of_buildings_name))],
+                [],None,
                 hidden_div_run,
-                hidden_div_list_buildings
+                list_of_buildings_name
                 )
+    if n_clicks != hidden_div_run[2]:
+        print("click run simulation OK. number of case studies = ", n_clicks, hidden_div_run[1],len(list_of_buildings_name))
+
+        if len(list_of_buildings_name) == 0:
+            hidden_div_run = [n_click_add, n_cklick_clean_cases, n_clicks]
+
+            return (["ٔNo case studies to run! Please create case studies"],
+                    [],None,
+                    hidden_div_run,
+                    hidden_div_list_buildings
+                    )
+        else:
+            with open('list_of_buildings.pkl', 'rb') as inp:
+                list_of_buildings = pickle.load(inp)
+            print("PKL is opened")
+
+            list_of_buildings_name = hidden_div_list_buildings
+            for building in list_of_buildings:
+                print(building.name)
+                building = run_scenarios(building)
+                print("run scenarios Ok")
+
+            with open("list_of_buildings.pkl", 'wb') as outp:
+                pickle.dump(list_of_buildings, outp, pickle.HIGHEST_PROTOCOL)
+            print("figure Ok")
+            hidden_div_run = [n_click_add,n_cklick_clean_cases,n_clicks]
+            return (["Successful!"],
+                    generate_single_building_graphs(),figure_border_style,
+                    hidden_div_run,
+                    hidden_div_list_buildings
+                    )
 
 
 

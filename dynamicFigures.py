@@ -25,7 +25,7 @@ def generate_single_building_graphs():
                         ),
                         html.Br(),
 
-                        dcc.Dropdown(
+                        dbc.Select(
                             id="single-building-figure-type",
                             options=[
                                 {"label": i, "value": i} for i in single_building_available_figures
@@ -33,11 +33,8 @@ def generate_single_building_graphs():
                             value=single_building_available_figures[0],
                             style={'width': "50%", 'margin-left': "0px", 'fontColor': 'black', 'fontSize': 15,
                                    'color': 'black'},
-                            multi=False,
-                            searchable=False,
-                            clearable=False,
                         ),
-                        dcc.Dropdown(
+                        dbc.Select(
                             id="select-single-building-name",
                             options=[
                                 {"label": i.name, "value": i.name} for i in list_of_buildings
@@ -45,9 +42,6 @@ def generate_single_building_graphs():
                             value=list_of_buildings[0].name,
                             style={'width': "30%", 'margin-left': "0px", 'fontColor': 'black', 'fontSize': 15,
                                    'color': 'black','display': 'inline-block'},
-                            multi=False,
-                            searchable=False,
-                            clearable=False,
                         ),
                         dbc.Button("Add Figure", color="danger", id='update-single-graph', n_clicks=0,
                                    className="me-1",),
@@ -94,7 +88,6 @@ def update_single_building_figures(n_clicks,clear_canvas,figure_type,building_na
         "PV Generation Vs AC excluded demand":line_plot(building.averaged_hourly_results, 'hour', ["PV", "Demand"],
                                   x_title="Time of the day [h]", y_title="[kW]",
                                   title="PV generation and AC excluded demand"),
-
         "Surplus PV generation":line_plot(building.averaged_hourly_results, 'hour', ["Surplus_PV"],
                                    x_title="Time of the day [h]", y_title="[kW]",
                                    title="Surplus PV generation"),
@@ -118,6 +111,7 @@ def update_single_building_figures(n_clicks,clear_canvas,figure_type,building_na
                         'index': n_clicks
                     },
                     figure=fig,
+                    style={'width': '80vh',"margin":0}
                 ),
             ]
         )
