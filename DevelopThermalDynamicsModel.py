@@ -13,13 +13,23 @@ class Building:
         self.AC_size = AC_size
         self.cop = 3.5
         self.tariff_df = None
+        self.ready_df = None
+        self.name = None
         self.occupancy_checklist = [1,3,4]
         self.daily_results_dic = {}
         self.final_df = pd.DataFrame()
-
         self.read_thermal_dynamics_file()
-
+        self.upper_limit =0
+        self.neutral_temp = 0
+        self.lower_limit = 0
         self.thermal_coefficients = self.create_thermal_model(self.thermal_dynamics_df)
+
+
+    def update_temperature_preferences(self,ready_df,neutral_temp,upper_limit,lower_limit):
+        self.upper_limit = upper_limit
+        self.neutral_temp = neutral_temp
+        self.lower_limit = lower_limit
+        self.ready_df = ready_df
 
     def read_thermal_dynamics_file(self):
         """
@@ -361,19 +371,19 @@ def join_PV_load_temp(PV, load_temp,real_demand):
     return joined_df
 
 
-def run_scenarios(building,df,neutral_temp,upper_limit,lower_limit):
+def run_scenarios(building):
 
-    available_dates = df.date.unique()
-    df['Occupancy'] = 0
+    available_dates = building.ready_df.date.unique()
+    building.ready_df['Occupancy'] = 0
     for date in available_dates:
 
-        building.SH_ahead = df[df['date'] == date]
+        building.SH_ahead = building.ready_df[building.ready_df['date'] == date]
         building.SH_ahead.reset_index(inplace=True,drop=True)
         building.create_occupancy_column()
         datetime= pd.to_datetime(date)
         if datetime.month in[12,1,2,9,10,11]:
-            building.baseline_summer(neutral=neutral_temp,upper=upper_limit,setpoint="Neutral")
-            building.solar_precool(neutral=neutral_temp,lower=lower_limit,upper=upper_limit,setpoint="Neutral")
+            building.baseline_summer(neutral=building.neutral_temp,upper=building.upper_limit,setpoint="Neutral")
+            building.solar_precool(neutral=building.neutral_temp,lower=building.lower_limit,upper=building.upper_limit,setpoint="Neutral")
             building.daily_results_dic[date] = building.SH_ahead
             building.final_df = pd.concat([building.final_df,building.SH_ahead])
 
@@ -390,7 +400,7 @@ def run_scenarios(building,df,neutral_temp,upper_limit,lower_limit):
     building.calculate_savings()
     print("Calculate savings Ok")
 
-    building.final_df.to_csv("Final_df_results.csv")
+    # building.final_df.to_csv("Final_df_results.csv")
 
 
     print("scenarios are successfuly finished!")
@@ -400,6 +410,7 @@ def run_scenarios(building,df,neutral_temp,upper_limit,lower_limit):
 
 
 if __name__ == "__main__":
+    import json
     building = Building(
         starRating="2star",
         weight="heavy",
@@ -408,14 +419,14 @@ if __name__ == "__main__":
         AC_size = 2,
         city="Adelaide",
     )
-    ready_df = pd.read_csv("ready_df.csv")
-    building = run_scenarios(building,ready_df,22,26,18)
-    #
-    # fig =line_plot(building.averaged_hourly_results,'hour',["E_bs","E_spc"],x_title="Time of the day [h]",y_title="Temperature [°C]",title="Indoor temperature trajectory")
-    fig =line_plot(building.averaged_hourly_results,'hour',["W_bs","W_spc"],
-                   x_title="Time of the day [h]",y_title="Temperature [°C]",
-                   title="Indoor temperature trajectory",plot_type="bar_chart")
-    fig.show()
+    # ready_df = pd.read_csv("ready_df.csv")
+    # building = run_scenarios(building,ready_df,22,26,18)
+    # #
+    # # fig =line_plot(building.averaged_hourly_results,'hour',["E_bs","E_spc"],x_title="Time of the day [h]",y_title="Temperature [°C]",title="Indoor temperature trajectory")
+    # fig =line_plot(building.averaged_hourly_results,'hour',["W_bs","W_spc"],
+    #                x_title="Time of the day [h]",y_title="Temperature [°C]",
+    #                title="Indoor temperature trajectory",plot_type="bar_chart")
+    # fig.show()
 
     # df = pd.read_csv("Data/AC_excluded_average_demand.csv")
     # df = df.melt(id_vars = 'Time',var_name = "ID",value_name = "Values")
@@ -425,3 +436,5 @@ if __name__ == "__main__":
     # df.to_csv("Data/average_demand_and_clusters_for_demand_selection.csv")
     # print(building.thermal_coefficients)
 
+    jsonStr = json.to_json(building.__dict__)
+    print(jsonStr)
