@@ -52,12 +52,12 @@ construction_weight_radio_item = html.Div(
     dbc.RadioItems(
         id="construction-weight-radio",
         options=[
-            {"label": "Light", "value": "light"},
-            {"label": "Medium", "value": "medium"},
-            {"label": "Heavy", "value": "heavy"},
+            {"label": "Light", "value": "Light"},
+            {"label": "Medium", "value": "Medium"},
+            {"label": "Heavy", "value": "Heavy"},
             {"label": "Unknown", "value": "unknown"},
         ],
-        value="medium",
+        value="Light",
         inline=True,
         labelCheckedClassName="text-success",
         inputCheckedClassName="border border-success bg-success",

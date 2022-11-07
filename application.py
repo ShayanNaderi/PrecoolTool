@@ -3,7 +3,7 @@ from dash import dcc, html
 
 import callbacks  # noqa: F401
 import callbacks_run  # noqa: F401
-from app import app
+from app import app, application
 from app_components import (
     AC_year_radio_item,
     PV_orientation_radio_item,
@@ -324,7 +324,5 @@ app.layout = dbc.Container(
 
 
 if __name__ == "__main__":
-    # app.run_server(host='0.0.0.0',debug=False,port=8080,dev_tools_ui=False,dev_tools_props_check=False)#MapnaMind
-    app.run_server(
-        debug=True, dev_tools_ui=False, dev_tools_props_check=False
-    )  # ShayanLaptop
+    application.run(
+        debug=True, port =8080)  #ShayanLaptop

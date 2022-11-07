@@ -118,7 +118,9 @@ def construction_weight_toast(n):
 
 
 @app.callback(
-    [Output("floor-area-radio", "options"), Output("floor-area-radio", "value")],
+    [
+       Output("floor-area-radio", "options"),
+     Output("floor-area-radio", "value")],
     [Input("dwelling-type-radio", "value")],
 )
 def floor_area_radio_item_update(dwelling_type):
@@ -126,22 +128,22 @@ def floor_area_radio_item_update(dwelling_type):
         "apartment": [
             {
                 "label": "Small (1-bed, 50-75 m2 floor area)",
-                "value": "small",
+                "value": "Small",
             },
-            {"label": "Medium (3-bed, 80-105 m2 floor area)", "value": "medium"},
-            {"label": "Large (3-bed, 110-130 m2 floor area)", "value": "large"},
+            {"label": "Medium (3-bed, 80-105 m2 floor area)", "value": "Medium"},
+            {"label": "Large (3-bed, 110-130 m2 floor area)", "value": "Large"},
         ],
         "house": [
             {
                 "label": "Small (3-bed, 90-110 m2 floor area",
-                "value": "small",
+                "value": "Small",
             },
-            {"label": "Medium (4-bed, 140-160 m2 floor area)", "value": "medium"},
-            {"label": "Large (5-bed, 170-300 m2 floor area)", "value": "large"},
+            {"label": "Medium (4-bed, 140-160 m2 floor area)", "value": "Medium"},
+            {"label": "Large (5-bed, 170-300 m2 floor area)", "value": "Large"},
         ],
     }
 
-    return options_dictionary[dwelling_type], "small"
+    return options_dictionary[dwelling_type],"Small"
 
 
 @app.callback(

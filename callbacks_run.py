@@ -63,12 +63,11 @@ def update_thermal_model(
             )
         print("Callback thermal model after click: OK")
         coeffs_df = building.thermal_coefficients.to_frame()
-        coeffs_df.to_csv("coefficients.csv")
+        # coeffs_df.to_csv("coefficients.csv")
         coeffs_json = coeffs_df.to_json(date_format="iso", orient="split")
         thermal_dynamics_json = (
             building.thermal_dynamics_df.to_json(date_format="iso", orient="split"),
         )
-        # jsonified_object = json.dumps(building.__dict__)
 
         return (
             "Thermal model is ready! Go to next steps or change the building specifications",

@@ -31,5 +31,9 @@ app = dash.Dash(
     suppress_callback_exceptions=True,
     background_callback_manager=background_callback_manager,
 )
-server = app.server
+application  = app.server
+app.title='RESPCT'
+app.config.suppress_callback_exceptions = True
+
+
 APP_PATH = str(pathlib.Path(__file__).parent.resolve())

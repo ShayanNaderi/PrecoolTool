@@ -224,8 +224,8 @@ def convert_raw_to_csv():
     and aggregates the indoor temperature, then writes .csv files
     in /Data/Processed_thermal_dynamics"""
     for city in ["Adelaide", "Melbourne", "Brisbane", "Sydney"]:
-        for size in ["Small", "Large"]:
-            for type in ["House", "Apartment"]:
+        for size in ["Medium"]:
+            for type in ["Apartment"]:
                 for star in ["2star", "6star", "8star"]:
                     for weight in ["Light", "Medium", "Heavy"]:
                         print(city, size, type, star, weight)

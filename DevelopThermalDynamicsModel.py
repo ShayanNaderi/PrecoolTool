@@ -49,6 +49,10 @@ class Building:
                 self.size, self.type, self.starRating, self.weight, self.city
             )
         )
+        print("Read thermal dynamics file Successful. {}_{}_{}_{}_{}".format(
+                self.size, self.type, self.starRating, self.weight, self.city
+            ))
+
         self.thermal_dynamics_df.drop("Unnamed: 0", inplace=True, axis=1)
 
     def create_lags(self, df, lags):
@@ -411,14 +415,14 @@ def run_scenarios(building):
 
 if __name__ == "__main__":
     import json
-    building = Building(
-        starRating="2star",
-        weight="heavy",
-        type="Apartment",
-        size="small",
-        AC_size = 2,
-        city="Adelaide",
-    )
+    # building = Building(
+    #     starRating="2star",
+    #     weight="heavy",
+    #     type="Apartment",
+    #     size="small",
+    #     AC_size = 2,
+    #     city="Adelaide",
+    # )
     # ready_df = pd.read_csv("ready_df.csv")
     # building = run_scenarios(building,ready_df,22,26,18)
     # #
@@ -436,5 +440,4 @@ if __name__ == "__main__":
     # df.to_csv("Data/average_demand_and_clusters_for_demand_selection.csv")
     # print(building.thermal_coefficients)
 
-    jsonStr = json.to_json(building.__dict__)
-    print(jsonStr)
+
