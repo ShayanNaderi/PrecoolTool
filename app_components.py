@@ -71,10 +71,10 @@ dwelling_type_radio_item = html.Div(
         dbc.RadioItems(
             id="dwelling-type-radio",
             options=[
-                {"label": "Apartment", "value": "apartment"},
-                {"label": "House", "value": "house"},
+                {"label": "Apartment", "value": "Apartment"},
+                {"label": "House", "value": "House"},
             ],
-            value="apartment",
+            value="Apartment",
             inline=True,
             labelCheckedClassName="text-success",
             inputCheckedClassName="border border-success bg-success",

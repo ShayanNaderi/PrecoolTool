@@ -125,7 +125,7 @@ def construction_weight_toast(n):
 )
 def floor_area_radio_item_update(dwelling_type):
     options_dictionary = {
-        "apartment": [
+        "Apartment": [
             {
                 "label": "Small (1-bed, 50-75 m2 floor area)",
                 "value": "Small",
@@ -133,7 +133,7 @@ def floor_area_radio_item_update(dwelling_type):
             {"label": "Medium (3-bed, 80-105 m2 floor area)", "value": "Medium"},
             {"label": "Large (3-bed, 110-130 m2 floor area)", "value": "Large"},
         ],
-        "house": [
+        "House": [
             {
                 "label": "Small (3-bed, 90-110 m2 floor area",
                 "value": "Small",
@@ -223,28 +223,31 @@ def update_graphs(availability, is_open, answer_cluster_question):
     Output("selected-demand-div", "children"),
     Output("selected-demand-div-id", "children"),
     # ],
-    [
-        Input("select-demand-profile-fig", "selectedData"),
-        Input("select-demand-profile-fig", "clickData"),
-        Input("net-demand-questions", "value"),
-        Input("demand-profile-availability-radio", "value"),
-        Input("demand-profile-collapse", "is_open"),
+
+
+       [Input("select-demand-profile-fig", "clickData"),
+       Input("demand-profile-collapse", "is_open")],
+
+    [State("select-demand-profile-fig", "selectedData"),
+        State("net-demand-questions", "value"),
+        State("demand-profile-availability-radio", "value"),
     ],
 )
 def display_selected_data(
-    selectedData, clickData, asnwer_net_demand, availability, is_open
+    clickData,is_open,selectedData, asnwer_net_demand, availability,
 ):
-    print(clickData["points"][0]["customdata"][0])
-    site_id = clickData["points"][0]["customdata"][0]
-    df = pd.read_csv("Data/average_demand_and_clusters_for_demand_selection.csv")
-    df = df[df["site_ID"] == site_id]
-    fig = create_selected_profile_fig(df)
+    if clickData["points"][0]["customdata"][0] !=None:
 
-    if (is_open == True) & (availability == "unavailable"):
-        return json.dumps(clickData, indent=2), fig,site_id
+        site_id = clickData["points"][0]["customdata"][0]
+        df = pd.read_csv("Data/average_demand_and_clusters_for_demand_selection.csv")
+        df = df[df["site_ID"] == site_id]
+        fig = create_selected_profile_fig(df)
 
-    elif (is_open == False) | (availability == "available"):
-        return [], [],site_id
+        if (is_open == True) & (availability == "unavailable"):
+            return json.dumps(clickData, indent=2), fig,site_id
+
+        elif (is_open == False) | (availability == "available"):
+            return [], [],site_id
 
 
 # @app.callback(
@@ -264,10 +267,7 @@ def update_tables(data):
     """This function return the updated tariff tables when the user edits it"""
     tariff_df = pd.DataFrame.from_records(data)
     tariff_df.rename(columns = {"Rate-weekdays":"Tariff"},inplace=True)
-    print(tariff_df.columns)
-
-
-
+    # print(tariff_df.columns)
     return data
 
 

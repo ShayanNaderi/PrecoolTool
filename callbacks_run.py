@@ -28,6 +28,8 @@ figure_border_style = {"border-style": "solid",
         State("construction-weight-radio", "value"),
         State("dwelling-type-radio", "value"),
         State("floor-area-radio", "value"),
+        State("location-radio", "value"),
+
     ),
     background=True,
     running=[
@@ -48,10 +50,8 @@ figure_border_style = {"border-style": "solid",
     prevent_initial_call=True,
 )
 def update_thermal_model(
-    set_progress, n_clicks, starRating, weight, dwelling_type, size
+    set_progress, n_clicks, starRating, weight, dwelling_type, size,location
 ):
-    print("Callback thermal model before click: OK", "nclicks",n_clicks)
-
     if n_clicks:
         building = Building(
             starRating=starRating,
@@ -59,7 +59,7 @@ def update_thermal_model(
             type=dwelling_type,
             size=size,
             AC_size=0,
-            city="Adelaide",
+            city=location,
             )
         print("Callback thermal model after click: OK")
         coeffs_df = building.thermal_coefficients.to_frame()
@@ -117,7 +117,7 @@ def update_progress(
     inverter_efficiency,
 ):
     if n_clicks:
-        print(orientation, location, PV_rated_capacity, inverter_efficiency)
+        # print(orientation, location, PV_rated_capacity, inverter_efficiency)
         inverter_efficiency = inverter_efficiency / 100  # number to percent
         PV_rated_capacity = PV_rated_capacity * 1000  # kW to Watt
 
@@ -132,7 +132,9 @@ def update_progress(
 
         # PV_generation_df = PV_generation.to_frame()
         PV_generation_json = PV_generation.to_json(date_format="iso", orient="split")
-        return (["PV performance is ready! Go to next steps!"], PV_generation_json)
+        print("PV to Json ok")
+        PV_generation.to_csv("PV_generation.csv")
+        return (["PV performance is ready! Go to next steps!"], 1)
 
 
 # Solar pre-cooling main simulation loop
@@ -165,6 +167,11 @@ def update_progress(
         State("flat-tariff-rate", "value"),
         State("run-simulation-hidden-div", "children"),
         State("list-of-buildings-hidden-div", "children"),
+        State("building-type-radio", "value"),
+        State("construction-weight-radio", "value"),
+        State("dwelling-type-radio", "value"),
+        State("floor-area-radio", "value"),
+        State("location-radio", "value"),
     ),
     background=True,
     running=[
@@ -209,7 +216,7 @@ def update_progress(
     tariff_structure,
     flat_rate,
         hidden_div_run,
-        hidden_div_list_buildings
+        hidden_div_list_buildings,starRating,weight,building_type,building_size,location
 ):
 
     list_of_buildings_name = hidden_div_list_buildings
@@ -217,10 +224,13 @@ def update_progress(
         isExist  = os.path.exists('list_of_buildings.pkl')
         if isExist == True:
             os.remove("list_of_buildings.pkl")
+            print("PKL is removed")
         list_of_buildings = []
     else:
+        print("PKL is loading")
         with open('list_of_buildings.pkl', 'rb') as inp:
             list_of_buildings = pickle.load(inp)
+            print("PKL is loaded")
 
     if n_click_add != hidden_div_run[0]:
         print("click add simulation OK", n_click_add, hidden_div_run[0])
@@ -259,8 +269,8 @@ def update_progress(
 
         df_coeffs = pd.read_json(thermal_coefficients, orient="split")
         print("Coefficient reading OK")
-
-        df_PV = pd.read_json(hidden_div_PV, orient="split")  # check if it is a list
+        df_PV= pd.read_csv("PV_generation.csv")
+        # df_PV = pd.read_json(hidden_div_PV, orient="split")  # check if it is a list
         print("read PV simulation results OK")
 
         df_demand = read_demand_from_xlsx_file(site_id)
@@ -271,12 +281,12 @@ def update_progress(
         print("ready df ok")
 
         building = Building(
-            starRating="2star",
-            weight="heavy",
-            type="Apartment",
-            size="small",
+            starRating=starRating,
+            weight=weight,
+            type=building_type,
+            size=building_size,
             AC_size=AC_size,
-            city="Adelaide",
+            city=location,
         )
         building.name = name_case_study
         building.occupancy_checklist = weekdays_occ
