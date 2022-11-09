@@ -36,9 +36,9 @@ star_rating_radio_item = html.Div(
     dbc.RadioItems(
         id="building-type-radio",
         options=[
-            {"label": "2-star", "value": "2star"},
-            {"label": "6-star", "value": "6star"},
-            {"label": "8-star", "value": "8star"},
+            {"label": "1-4 star", "value": "2star"},
+            {"label": "4-6 star", "value": "6star"},
+            {"label": "+6 star", "value": "8star"},
             {"label": "Unknown", "value": "unknown"},
         ],
         value="6star",
@@ -232,7 +232,7 @@ AC_year_radio_item = html.Div(
 
 occupancy_checklist = html.Div(
     [
-        html.Div("Please select occopied periods during weekdays"),
+        html.Div("Please select typical occopied periods during weekdays"),
         html.Br(),
         dbc.Checklist(
             id="weekdays-occupancy-checklist",

@@ -6,14 +6,17 @@ import pickle
 from app import app
 from DevelopThermalDynamicsModel import Building, join_PV_load_temp, run_scenarios
 from PVPerformance import calculate_PV_output
-from functions import create_tariff_column,read_demand_from_xlsx_file
+from functions import create_tariff_column, read_demand_from_xlsx_file
 from figures import line_plot
 from dynamicFigures import generate_single_building_graphs
 import os
 
-figure_border_style = {"border-style": "solid",
-                          'border-color': '#ff4d4d', 'border-width': '1px', 'border-radius': "0.25rem"
-                          }
+figure_border_style = {
+    "border-style": "solid",
+    "border-color": "#ff4d4d",
+    "border-width": "1px",
+    "border-radius": "0.25rem",
+}
 
 # Create thermal model
 @app.callback(
@@ -29,7 +32,6 @@ figure_border_style = {"border-style": "solid",
         State("dwelling-type-radio", "value"),
         State("floor-area-radio", "value"),
         State("location-radio", "value"),
-
     ),
     background=True,
     running=[
@@ -50,7 +52,7 @@ figure_border_style = {"border-style": "solid",
     prevent_initial_call=True,
 )
 def update_thermal_model(
-    set_progress, n_clicks, starRating, weight, dwelling_type, size,location
+    set_progress, n_clicks, starRating, weight, dwelling_type, size, location
 ):
     if n_clicks:
         building = Building(
@@ -60,7 +62,7 @@ def update_thermal_model(
             size=size,
             AC_size=0,
             city=location,
-            )
+        )
         print("Callback thermal model after click: OK")
         coeffs_df = building.thermal_coefficients.to_frame()
         # coeffs_df.to_csv("coefficients.csv")
@@ -87,7 +89,7 @@ def update_thermal_model(
         State("PV-orientation-radio", "value"),
         State("location-radio", "value"),
         State("PV-rated-capacity", "value"),
-        State("inverter-efficiency", "value"),  # should be divided by 100
+        # State("inverter-efficiency", "value"),  # should be divided by 100
     ),
     background=True,
     running=[
@@ -114,8 +116,8 @@ def update_progress(
     orientation,
     location,
     PV_rated_capacity,
-    inverter_efficiency,
 ):
+    inverter_efficiency = 100
     if n_clicks:
         # print(orientation, location, PV_rated_capacity, inverter_efficiency)
         inverter_efficiency = inverter_efficiency / 100  # number to percent
@@ -129,7 +131,6 @@ def update_progress(
         )
         print("PV output calculation OK")
 
-
         # PV_generation_df = PV_generation.to_frame()
         PV_generation_json = PV_generation.to_json(date_format="iso", orient="split")
         print("PV to Json ok")
@@ -139,12 +140,13 @@ def update_progress(
 
 # Solar pre-cooling main simulation loop
 @dash.callback(
-    output=(Output("paragraph-id", "children"),
-    Output("single-building-results-div", "children"),
-    Output("single-building-results-div", "style"),
-    Output("run-simulation-hidden-div", "children"),
-    Output("list-of-buildings-hidden-div", "children"),
-            ),
+    output=(
+        Output("paragraph-id", "children"),
+        Output("single-building-results-div", "children"),
+        Output("single-building-results-div", "style"),
+        Output("run-simulation-hidden-div", "children"),
+        Output("list-of-buildings-hidden-div", "children"),
+    ),
     inputs=(
         Input("add-case-study-button", "n_clicks"),
         Input("clean-case-study-button", "n_clicks"),
@@ -173,7 +175,6 @@ def update_progress(
         State("floor-area-radio", "value"),
         State("location-radio", "value"),
         State("demand-profile-availability-radio", "value"),
-
     ),
     background=True,
     running=[
@@ -218,19 +219,27 @@ def update_progress(
     tariff_structure,
     flat_rate,
     hidden_div_run,
-    hidden_div_list_buildings,starRating,weight,building_type,building_size,location, demand_availability
+    hidden_div_list_buildings,
+    starRating,
+    weight,
+    building_type,
+    building_size,
+    location,
+    demand_availability,
 ):
-
+    AC_size = (
+        AC_size * 3.5
+    )  # user entecttrica capacity and here we convert it to thermal
     list_of_buildings_name = hidden_div_list_buildings
     if len(list_of_buildings_name) == 0:
-        isExist  = os.path.exists('list_of_buildings.pkl')
+        isExist = os.path.exists("list_of_buildings.pkl")
         if isExist == True:
             os.remove("list_of_buildings.pkl")
             print("PKL is removed")
         list_of_buildings = []
     else:
         print("PKL is loading")
-        with open('list_of_buildings.pkl', 'rb') as inp:
+        with open("list_of_buildings.pkl", "rb") as inp:
             list_of_buildings = pickle.load(inp)
             print("PKL is loaded")
 
@@ -238,50 +247,40 @@ def update_progress(
         print("click add simulation OK", n_click_add, hidden_div_run[0])
 
         if hidden_div_thermal is None:
-            output_text = "No thermal model is available! Please create the thermal model first!"
-            return (
-            [output_text],[],None,
-            hidden_div_run,
-            []
+            output_text = (
+                "No thermal model is available! Please create the thermal model first!"
             )
+            return ([output_text], [], None, hidden_div_run, [])
         elif hidden_div_PV is None:
-            output_text = "No PV simulation is available! Please simulate PV performance first!"
-            return (
-            [output_text],[],None,
-            hidden_div_run,
-            []
+            output_text = (
+                "No PV simulation is available! Please simulate PV performance first!"
             )
+            return ([output_text], [], None, hidden_div_run, [])
         elif site_id is None:
-            output_text = "No demand profile is selected! Please select a demand profile first!"
-            return (
-            [output_text],[],None,
-            hidden_div_run,
-            []
+            output_text = (
+                "No demand profile is selected! Please select a demand profile first!"
             )
+            return ([output_text], [], None, hidden_div_run, [])
         elif name_case_study is None:
             output_text = "Please write a name for the case study!"
-            return (
-            [output_text],[],None,
-            hidden_div_run,
-            []
-            )
+            return ([output_text], [], None, hidden_div_run, [])
 
         df_TMY = pd.read_json(hidden_div_thermal[0], orient="split")
         print("Thermal model ok")
 
         df_coeffs = pd.read_json(thermal_coefficients, orient="split")
         print("Coefficient reading OK")
-        df_PV= pd.read_csv("PV_generation.csv")
+        df_PV = pd.read_csv("PV_generation.csv")
         # df_PV = pd.read_json(hidden_div_PV, orient="split")  # check if it is a list
         print("read PV simulation results OK")
-        if demand_availability == 'unavailable':
+        if demand_availability == "unavailable":
             df_demand = read_demand_from_xlsx_file(site_id)
             print("Read demand file Ok")
         else:
             # df_demand =
 
             pass
-        ready_df = join_PV_load_temp(PV=df_PV,load_temp = df_TMY, real_demand=df_demand)
+        ready_df = join_PV_load_temp(PV=df_PV, load_temp=df_TMY, real_demand=df_demand)
         # This df is used for baseline and pre-cooling scenarios
         print("ready df ok")
 
@@ -296,47 +295,73 @@ def update_progress(
         building.name = name_case_study
         building.occupancy_checklist = weekdays_occ
         tariff_df = pd.DataFrame.from_records(tariff_data)
-        print(tariff_structure, "   ",tariff_df,"   ",flat_rate)
-        building.update_temperature_preferences(ready_df,neutral_temp,upper_limit,lower_limit)
-        building = create_tariff_column(building=building,tariff_type=tariff_structure,tariff_table=tariff_df,flat_rate=flat_rate)
+        print(tariff_structure, "   ", tariff_df, "   ", flat_rate)
+        building.update_temperature_preferences(
+            ready_df, neutral_temp, upper_limit, lower_limit
+        )
+        building = create_tariff_column(
+            building=building,
+            tariff_type=tariff_structure,
+            tariff_table=tariff_df,
+            flat_rate=flat_rate,
+        )
 
         list_of_buildings.append(building)
         list_of_buildings_name.append(building.name)
-        hidden_div_run = [n_click_add,n_cklick_clean_cases,n_clicks]
-        with open("list_of_buildings.pkl", 'wb') as outp:
+        hidden_div_run = [n_click_add, n_cklick_clean_cases, n_clicks]
+        with open("list_of_buildings.pkl", "wb") as outp:
             pickle.dump(list_of_buildings, outp, pickle.HIGHEST_PROTOCOL)
         print("Hi, {} is added".format(name_case_study))
 
-        return (["Hi, {} is added. number of case studies = {}".format(name_case_study,len(list_of_buildings_name))],
-                [],None,
-                hidden_div_run,
-                list_of_buildings_name
+        return (
+            [
+                "Hi, {} is added. number of case studies = {}".format(
+                    name_case_study, len(list_of_buildings_name)
                 )
+            ],
+            [],
+            None,
+            hidden_div_run,
+            list_of_buildings_name,
+        )
     if n_cklick_clean_cases != hidden_div_run[1]:
-        hidden_div_run = [n_click_add,n_cklick_clean_cases,n_clicks]
+        hidden_div_run = [n_click_add, n_cklick_clean_cases, n_clicks]
         list_of_buildings_name = []
-        isExist  = os.path.exists('list_of_buildings.pkl')
+        isExist = os.path.exists("list_of_buildings.pkl")
         if isExist == True:
             os.remove("list_of_buildings.pkl")
 
-        return (["All case studies are removed. Number of case studies = {}".format(len(list_of_buildings_name))],
-                [],None,
-                hidden_div_run,
-                list_of_buildings_name
+        return (
+            [
+                "All case studies are removed. Number of case studies = {}".format(
+                    len(list_of_buildings_name)
                 )
+            ],
+            [],
+            None,
+            hidden_div_run,
+            list_of_buildings_name,
+        )
     if n_clicks != hidden_div_run[2]:
-        print("click run simulation OK. number of case studies = ", n_clicks, hidden_div_run[1],len(list_of_buildings_name))
+        print(
+            "click run simulation OK. number of case studies = ",
+            n_clicks,
+            hidden_div_run[1],
+            len(list_of_buildings_name),
+        )
 
         if len(list_of_buildings_name) == 0:
             hidden_div_run = [n_click_add, n_cklick_clean_cases, n_clicks]
 
-            return (["ٔNo case studies to run! Please create case studies"],
-                    [],None,
-                    hidden_div_run,
-                    hidden_div_list_buildings
-                    )
+            return (
+                ["No case studies to run! Please create case studies"],
+                [],
+                None,
+                hidden_div_run,
+                hidden_div_list_buildings,
+            )
         else:
-            with open('list_of_buildings.pkl', 'rb') as inp:
+            with open("list_of_buildings.pkl", "rb") as inp:
                 list_of_buildings = pickle.load(inp)
             print("PKL is opened")
 
@@ -346,15 +371,14 @@ def update_progress(
                 building = run_scenarios(building)
                 print("run scenarios Ok")
 
-            with open("list_of_buildings.pkl", 'wb') as outp:
+            with open("list_of_buildings.pkl", "wb") as outp:
                 pickle.dump(list_of_buildings, outp, pickle.HIGHEST_PROTOCOL)
             print("figure Ok")
-            hidden_div_run = [n_click_add,n_cklick_clean_cases,n_clicks]
-            return (["Successful!"],
-                    generate_single_building_graphs(),figure_border_style,
-                    hidden_div_run,
-                    hidden_div_list_buildings
-                    )
-
-
-
+            hidden_div_run = [n_click_add, n_cklick_clean_cases, n_clicks]
+            return (
+                ["Successful!"],
+                generate_single_building_graphs(),
+                figure_border_style,
+                hidden_div_run,
+                hidden_div_list_buildings,
+            )

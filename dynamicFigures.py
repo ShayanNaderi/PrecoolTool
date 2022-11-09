@@ -184,16 +184,17 @@ def update_single_building_figures(
         new_child = html.Div(
             style={
                 "outline": "thin lightgrey solid",
-                "padding": 5,
-                "marginLeft": 10,
-                "marginRight": 10,
+                "align": "center",
+                # "padding": 5,
+                # "marginLeft": "auto",
+                # "marginRight": "auto",
                 "display": "inline-block",
             },  #
             children=[
                 dcc.Graph(
                     id={"type": "dynamic-graph", "index": n_clicks},
                     figure=fig,
-                    style={"width": "80vh", "margin": 0},
+                    style={"width": "50vh", "margin": 0},
                 ),
             ],
         )

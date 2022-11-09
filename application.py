@@ -95,6 +95,7 @@ app.layout = dbc.Container(
                     [
                         dbc.Button(
                             "Create thermal model of the building",
+                            style={"width": "70%"},
                             id="building-type-button",
                         ),
                         dbc.Collapse(
@@ -143,14 +144,22 @@ app.layout = dbc.Container(
                         ),
                         html.Div(id="store-building-instance"),
                         html.Hr(),
-                        dbc.Button("Occupancy Pattern", id="occupancy-pattern-button"),
+                        dbc.Button(
+                            "Occupancy Pattern",
+                            style={"width": "70%"},
+                            id="occupancy-pattern-button",
+                        ),
                         dbc.Collapse(
                             dbc.Card(dbc.CardBody(occupancy_checklist)),
                             id="occupancy-pattern-collapse",
                             is_open=False,
                         ),
                         html.Hr(),
-                        dbc.Button("Thermal Comfort", id="thermal-comfort-button"),
+                        dbc.Button(
+                            "Thermal Comfort",
+                            style={"width": "70%"},
+                            id="thermal-comfort-button",
+                        ),
                         dbc.Collapse(
                             dbc.Card(
                                 dbc.CardBody(
@@ -164,7 +173,11 @@ app.layout = dbc.Container(
                             is_open=False,
                         ),
                         html.Hr(),
-                        dbc.Button("Electricity Tariff", id="tariff-button"),
+                        dbc.Button(
+                            "Electricity Tariff",
+                            style={"width": "70%"},
+                            id="tariff-button",
+                        ),
                         dbc.Collapse(
                             dbc.Card(
                                 dbc.CardBody(
@@ -185,7 +198,11 @@ app.layout = dbc.Container(
                             is_open=False,
                         ),
                         html.Hr(),
-                        dbc.Button("Demand Profile", id="demand-profile-button"),
+                        dbc.Button(
+                            "Demand Profile",
+                            style={"width": "70%"},
+                            id="demand-profile-button",
+                        ),
                         dbc.Collapse(
                             dbc.Card(
                                 dbc.CardBody(
@@ -204,14 +221,18 @@ app.layout = dbc.Container(
                             is_open=False,
                         ),
                         html.Hr(),
-                        dbc.Button("Simulate PV performance", id="PV-AC-spec-button"),
+                        dbc.Button(
+                            "AC and PV technical specifications",
+                            id="PV-AC-spec-button",
+                            style={"width": "70%"},
+                        ),
                         dbc.Collapse(
                             dbc.Card(
                                 dbc.CardBody(
                                     [
                                         generate_select(
                                             id="AC-rated-capacity",
-                                            title="AC rated thermal capacity kW:",
+                                            title="AC rated electrical capacity kW:",
                                             min=2,
                                             max=70,
                                             value=15,
@@ -230,21 +251,21 @@ app.layout = dbc.Container(
                                             value=2.5,
                                             step=0.5,
                                         ),
-                                        generate_select(
-                                            id="inverter-efficiency",
-                                            title="Inverter efficiency %:",
-                                            min=10,
-                                            max=100,
-                                            value=96,
-                                            step=1,
-                                        ),
+                                        # generate_select(
+                                        #     id="inverter-efficiency",
+                                        #     title="Inverter efficiency %:",
+                                        #     min=10,
+                                        #     max=100,
+                                        #     value=96,
+                                        #     step=1,
+                                        # ),
                                         # html.Br(),
                                         PV_orientation_radio_item,
                                         dbc.Button(
                                             id="PV-simulation-button",
                                             children="Simulate PV generation",
                                             color="danger",
-                                            style={"margin": "5px"},
+                                            style={"margin": "5px", "width": "70%"},
                                         ),
                                     ]
                                 )
@@ -261,32 +282,39 @@ app.layout = dbc.Container(
                         ),
                         html.Hr(),
                         dcc.Markdown(id="selected-building"),
-                        dbc.Input(placeholder="Name your case study",id="case-study-name",type='text'),
+                        dbc.Input(
+                            placeholder="Name your case study",
+                            id="case-study-name",
+                            type="text",
+                            style={"width": "70%"},
+                        ),
                         dbc.Button(
                             id="add-case-study-button",
                             children="Add the case study",
                             n_clicks=0,
                             color="info",
-                            style={"margin": "5px"},
+                            style={"margin": "5px", "width": "30%"},
                         ),
                         dbc.Button(
                             id="clean-case-study-button",
                             children="Clean all case studies",
                             color="danger",
                             n_clicks=0,
-                            style={"margin": "5px"},
+                            style={"margin": "5px", "width": "30%"},
                         ),
+                        html.Hr(),
                         dbc.Button(
                             id="run-button",
-                            children="Run solar pre-cooling for all case studies!",
+                            children="Run solar pre-cooling!",
                             color="success",
                             n_clicks=0,
-                            style={"margin": "5px"},
+                            style={"margin": "5px", "width": "30%"},
                         ),
                         dbc.Button(
                             id="cancel-button-id",
                             children="Cancel!",
                             color="danger",
+                            style={"width": "30%"},
                         ),
                         dbc.Spinner(html.Div(id="paragraph-id", children=[])),
                         html.Hr(),
@@ -303,22 +331,41 @@ app.layout = dbc.Container(
                     [
                         html.Div(id="demand-selection-top-div"),
                         html.Div(id="selected-demand-div"),
-                        html.Div(id="selected-demand-div-id",style={"display": "None"}),
-                        html.Div(id="run-simulation-hidden-div",children = [0,0,0],style={"display": "None"}),
-                        html.Div(id="list-of-buildings-hidden-div",children = [],style={"display": "None"}),
+                        html.Div(
+                            id="selected-demand-div-id", style={"display": "None"}
+                        ),
+                        html.Div(
+                            id="run-simulation-hidden-div",
+                            children=[0, 0, 0],
+                            style={"display": "None"},
+                        ),
+                        html.Div(
+                            id="list-of-buildings-hidden-div",
+                            children=[],
+                            style={"display": "None"},
+                        ),
                         html.Div(id="single-building-results-div"),
-
-                        dbc.Row([dbc.Col(html.Div(id="PV-simulation-demand-figure"), md=6),
-                                 dbc.Col(html.Div(id="surplus-PV-fig"), md=6)
-                                 ]),
-                        dbc.Row([dbc.Col(html.Div(id="temperature-hourly"),md=6),
-                                dbc.Col(html.Div(id="AC-demand-hourly"),md=6)
-                                 ]),
+                        dbc.Row(
+                            [
+                                dbc.Col(
+                                    html.Div(id="PV-simulation-demand-figure"), md=6
+                                ),
+                                dbc.Col(html.Div(id="surplus-PV-fig"), md=6),
+                            ]
+                        ),
+                        dbc.Row(
+                            [
+                                dbc.Col(html.Div(id="temperature-hourly"), md=6),
+                                dbc.Col(html.Div(id="AC-demand-hourly"), md=6),
+                            ]
+                        ),
                         html.Br(),
-                        dbc.Row([dbc.Col(html.Div(id="discomfort-hourly"), md=6),
-                                 dbc.Col(html.Div(id="PV-grossDemand-hourly"), md=6)
-                                 ]),
-
+                        dbc.Row(
+                            [
+                                dbc.Col(html.Div(id="discomfort-hourly"), md=6),
+                                dbc.Col(html.Div(id="PV-grossDemand-hourly"), md=6),
+                            ]
+                        ),
                     ],
                     width=9,
                     align="start",
@@ -349,5 +396,4 @@ app.layout = dbc.Container(
 
 
 if __name__ == "__main__":
-    application.run(
-        debug=True, port =8080)  #ShayanLaptop
+    application.run(debug=True, port=8080)  # ShayanLaptop

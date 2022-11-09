@@ -38,9 +38,16 @@ accuracy of the simulation based on households' behavior. Otherwise, there is a 
 from around 450 Australian households. The user can choose the demand profile that is similar to their household's
 consumption patterns.
 
-For simulating the performance of the rooftop PV system, the user needs to enter the rated capacity of the PV system,
-and the orientaion of the panels.
-### References
+PV generation and the amount of surplus PV generation after meeting households demand must be available for simulating 
+solar pre-cooling. For simulating the performance of the rooftop PV system, the user needs to enter the rated capacity 
+of the PV system, the location (city), and the orientaion of the panels.
+
+At the end, they can add the created case study, and run the simulation. The user can create multiple case studies to compare 
+them. For example, two case that are similar from all aspects but they have different star rating. This helps the user
+understand how much the solar pre-cooling potential changes if they renovate their building and implement some energy 
+efficient measures. 
+
+### Useful links
 
 Nothing helps as much as examples.
 - [This](https://www.marwandebbiche.com/posts/python-package-tooling/) is a great guide that provides a brief overview of all the tools we use in this template.
