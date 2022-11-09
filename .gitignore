@@ -133,7 +133,8 @@ dmypy.json
 *.xlsx
 *.iml
 *.pkl
-
+*.zip
+*.db
 
 Data/
 

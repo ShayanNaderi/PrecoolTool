@@ -118,9 +118,7 @@ def construction_weight_toast(n):
 
 
 @app.callback(
-    [
-       Output("floor-area-radio", "options"),
-     Output("floor-area-radio", "value")],
+    [Output("floor-area-radio", "options"), Output("floor-area-radio", "value")],
     [Input("dwelling-type-radio", "value")],
 )
 def floor_area_radio_item_update(dwelling_type):
@@ -143,7 +141,8 @@ def floor_area_radio_item_update(dwelling_type):
         ],
     }
 
-    return options_dictionary[dwelling_type],"Small"
+    return options_dictionary[dwelling_type], "Small"
+
 
 @app.callback(
     Output("flat-tariff-rate", "disabled"),
@@ -162,7 +161,6 @@ def disable_flat_rate(tariff_structure):
         Input("demand-profile-availability-radio", "value"),
         Input("demand-profile-collapse", "is_open"),
     ],
-
 )
 def update_graphs(availability, is_open):
     if availability == "available":
@@ -190,7 +188,11 @@ def update_graphs(availability, is_open):
         Input("net-demand-questions", "value"),
     ],
 )
-def update_graphs(availability, is_open, answer_cluster_question,):
+def update_graphs(
+    availability,
+    is_open,
+    answer_cluster_question,
+):
     cluster_dic = {
         "no-surplus": [4],
         "surpluss-available": [2],
@@ -220,17 +222,21 @@ def update_graphs(availability, is_open, answer_cluster_question,):
     Output("selected-demand-div", "children"),
     Output("selected-demand-div-id", "children"),
     # ],
-       [Input("select-demand-profile-fig", "clickData"),
-       Input("demand-profile-collapse", "is_open"),
-        ],
-        [State("select-demand-profile-fig", "selectedData"),
-         State("net-demand-questions", "value"),
-         State("demand-profile-availability-radio", "value"),
-         ],
+    [
+        Input("select-demand-profile-fig", "clickData"),
+        Input("demand-profile-collapse", "is_open"),
+    ],
+    [
+        State("select-demand-profile-fig", "selectedData"),
+        State("net-demand-questions", "value"),
+        State("demand-profile-availability-radio", "value"),
+    ],
 )
-def display_selected_data(clickData,is_open, selectedData, asnwer_net_demand, availability):
+def display_selected_data(
+    clickData, is_open, selectedData, asnwer_net_demand, availability
+):
     if clickData is not None:
-    # if clickData["points"][0]["customdata"][0] is not None:
+        # if clickData["points"][0]["customdata"][0] is not None:
 
         site_id = clickData["points"][0]["customdata"][0]
         df = pd.read_csv("Data/average_demand_and_clusters_for_demand_selection.csv")
@@ -238,12 +244,11 @@ def display_selected_data(clickData,is_open, selectedData, asnwer_net_demand, av
         fig = create_selected_profile_fig(df)
 
         if (is_open == True) & (availability == "unavailable"):
-            return json.dumps(clickData, indent=2), fig,site_id
+            return json.dumps(clickData, indent=2), fig, site_id
 
         elif (is_open == False) | (availability == "available"):
             # print(file_name,content)
-            return [], [],site_id
-
+            return [], [], site_id
 
 
 # # Upload Data component
@@ -273,7 +278,6 @@ def display_selected_data(clickData,is_open, selectedData, asnwer_net_demand, av
 #             return [],
 
 
-
 @app.callback(
     Output("table-test", "children"),
     Input("tariff-table", "data"),
@@ -281,7 +285,7 @@ def display_selected_data(clickData,is_open, selectedData, asnwer_net_demand, av
 def update_tables(data):
     """This function return the updated tariff tables when the user edits it"""
     tariff_df = pd.DataFrame.from_records(data)
-    tariff_df.rename(columns = {"Rate-weekdays":"Tariff"},inplace=True)
+    tariff_df.rename(columns={"Rate-weekdays": "Tariff"}, inplace=True)
     # print(tariff_df.columns)
     return data
 

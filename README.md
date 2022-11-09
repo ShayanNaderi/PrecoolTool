@@ -2,24 +2,57 @@
 
 ---
 
+`RESPCT` is an online web application that enables you simulate solar pre-cooling for a range of exsiting buildings
+in Australian building stock.
+
+
+
 Badges can go here
 
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 ---
+## pre-cooling and solar pre-cooling background
 
+Pre-cooling means running the air conditioning (AC) before peak periods, and reducing the indoor temperautre
+below the temperature that is usaully set by occupants. The reduciton of indoor temperature then reduces the temperature
+of thermal mass in the buildings, and the cooled down thermal mass results in lower cooling demand later in the day.
+
+If the surplus PV generation from rooftop PV systems is used to pre-cool the building, instead of the imported
+electricity from the grid, it is defined as solar pre-cooling. to learn more about pre-cooling and solar pre-cooling
+please refer to the following papers:
+
+- [Demand response via pre-cooling and solar pre-cooling: A review](https://www.sciencedirect.com/science/article/pii/S0378778822005114?via%3Dihub)
+- [Consumer cost savings, improved thermal comfort, and reduced peak air conditioning demand through pre-cooling in Australian housing](https://www.sciencedirect.com/science/article/pii/S0378778822003437)
+
+## Overview of the tool
+`RESPCT` is an online web application that allows you simulate pre-cooling and solar pre-cooling for a range of existing
+buildings in Australian building stock. It has a database of the thermal behavior of the available buildings that allows
+you simulate the hourly AC demand, indoor temperature, electricity cost, and the thermal discomfort index.
+
+The user can choose the location, star rating, construction weight, dwelling type, and floor area. There are alos fields
+for the user to enter their typical occupancy patterns, and thermal comfort expectations (preferred indoor temperature
+during occupied hours). The user can also enter the tariff structure and rates.
+If the data from household demand (excluding AC demand) is avaialable, the user can upload it to the tool to increase the
+accuracy of the simulation based on households' behavior. Otherwise, there is a database of AC excluded net demand profile
+from around 450 Australian households. The user can choose the demand profile that is similar to their household's
+consumption patterns.
+
+For simulating the performance of the rooftop PV system, the user needs to enter the rated capacity of the PV system,
+and the orientaion of the panels.
 ### References
 
 Nothing helps as much as examples.
 - [This](https://www.marwandebbiche.com/posts/python-package-tooling/) is a great guide that provides a brief overview of all the tools we use in this template.
-- All of the tooling is based on 
+- All of the tooling is based on
  [`UNSW CEEM Python Package Template`](https://github.com/UNSW-CEEM/ceem-python-template)
 
 
 ## Documentation
+
 ### Quick start
 
-Check out the [Documentation](https://respct.readthedocs.io/en/latest/index.html) 
+Check out the [Documentation](https://respct.readthedocs.io/en/latest/index.html)
  to understand the algorithms and datasets used in `RESPCT`, and for guide on to use `RESPCT`.
 
 ### Basic
@@ -34,7 +67,7 @@ Poetry is used for dependency management, dependency resolution and can also be 
 1. Install [`poetry`](https://python-poetry.org/docs/master/)
     - Edit the project info in [`pyproject.toml`](pyproject.toml), or delete it and use `poetry init` to start from scratch (if you are proceeding to the next few sections, it is best not to delete the existig `pyproject.toml`)
     - You can add dependencies in the [`pyproject.toml`](pyproject.toml) or use the command line:
-      - You can add a core dependency via `poetry add`, e.g. `poetry add pandas` 
+      - You can add a core dependency via `poetry add`, e.g. `poetry add pandas`
       - You can add dependencies to a group (adding to a group is optional) using `poetry add pytest --group test`
       - You can install the dependencies from `poetry.lock`, including optional groups, using `poetry install --with=test`
       - You can update dependencies and create a `poetry.lock` file using `poetry update`
@@ -46,7 +79,7 @@ Poetry is used for dependency management, dependency resolution and can also be 
 1. To install testing dependencies, use `poetry install --with=test`
 2. Put your tests in `tests/`
 3. Run your tests by running `pytest` in the project directory
-4. Test coverage will be in `tests/htmlcov/index.html` 
+4. Test coverage will be in `tests/htmlcov/index.html`
 
 ### Intermediate
 
