@@ -145,7 +145,6 @@ def floor_area_radio_item_update(dwelling_type):
 
     return options_dictionary[dwelling_type],"Small"
 
-
 @app.callback(
     Output("flat-tariff-rate", "disabled"),
     [Input("tariff-structure", "value")],
@@ -157,18 +156,15 @@ def disable_flat_rate(tariff_structure):
         return False
 
 
-
-
-#
 @app.callback(
     Output("upload-demand-data-div", "children"),
     [
         Input("demand-profile-availability-radio", "value"),
         Input("demand-profile-collapse", "is_open"),
     ],
+
 )
 def update_graphs(availability, is_open):
-
     if availability == "available":
         return [
             create_upload_data("upload-demand-data"),
@@ -194,7 +190,7 @@ def update_graphs(availability, is_open):
         Input("net-demand-questions", "value"),
     ],
 )
-def update_graphs(availability, is_open, answer_cluster_question):
+def update_graphs(availability, is_open, answer_cluster_question,):
     cluster_dic = {
         "no-surplus": [4],
         "surpluss-available": [2],
@@ -213,6 +209,7 @@ def update_graphs(availability, is_open, answer_cluster_question):
             title="Click on the most similar net demand profile to your average hourly net demand profile",
         )
         return fig
+
     elif (is_open == False) | (availability == "available"):
         return []
 
@@ -223,20 +220,17 @@ def update_graphs(availability, is_open, answer_cluster_question):
     Output("selected-demand-div", "children"),
     Output("selected-demand-div-id", "children"),
     # ],
-
-
        [Input("select-demand-profile-fig", "clickData"),
-       Input("demand-profile-collapse", "is_open")],
-
-    [State("select-demand-profile-fig", "selectedData"),
-        State("net-demand-questions", "value"),
-        State("demand-profile-availability-radio", "value"),
-    ],
+       Input("demand-profile-collapse", "is_open"),
+        ],
+        [State("select-demand-profile-fig", "selectedData"),
+         State("net-demand-questions", "value"),
+         State("demand-profile-availability-radio", "value"),
+         ],
 )
-def display_selected_data(
-    clickData,is_open,selectedData, asnwer_net_demand, availability,
-):
-    if clickData["points"][0]["customdata"][0] !=None:
+def display_selected_data(clickData,is_open, selectedData, asnwer_net_demand, availability):
+    if clickData is not None:
+    # if clickData["points"][0]["customdata"][0] is not None:
 
         site_id = clickData["points"][0]["customdata"][0]
         df = pd.read_csv("Data/average_demand_and_clusters_for_demand_selection.csv")
@@ -247,16 +241,37 @@ def display_selected_data(
             return json.dumps(clickData, indent=2), fig,site_id
 
         elif (is_open == False) | (availability == "available"):
+            # print(file_name,content)
             return [], [],site_id
 
 
+
+# # Upload Data component
 # @app.callback(
-#     Output("selected-building", "children"),
-#     [Input("tariff-table", "data"), Input("building-type-radio", "value")],
+#     # [
+#     # Output("dump-selected-div", "children"),
+#     # # Output("selected-demand-div", "children"),
+#         Output("selected-demand-div-id", "children"),
+#     # ],
+#         Input('upload-demand-data', 'filename'),
+#         [State("demand-profile-collapse", "is_open"),
+#         State("demand-profile-availability-radio", "value"),
+#         State('upload-demand-data', 'contents'),
+#         State('upload-demand-data', 'last_modified')]
 # )
-# def create_building_class(data):
+# def upload_data(upload_content_list,is_open, availability,upload_name,last_modified):
+#     if upload_content_list is not None:
+#         df = pd.read_csv("Data/average_demand_and_clusters_for_demand_selection.csv")
+#         # df = df[df["site_ID"] == site_id]
+#         fig = create_selected_profile_fig(df)
 #
-#     return "Hiiiiiiiiiii"
+#         if (is_open == True) & (availability == "available"):
+#             return ["Hi"],
+#
+#         elif (is_open == False) & (availability == "available"):
+#             # print(file_name,content)
+#             return [],
+
 
 
 @app.callback(

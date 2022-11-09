@@ -43,11 +43,16 @@ app.layout = dbc.Container(
 
                 By [Shayan Naderi]
                 (https://www.linkedin.com/in/shayan-naderi-461aa097/)
+                
+                [User guide](https://respct.readthedocs.io/en/latest/index.html#)
+                [Source code](https://github.com/ShayanNaderi/RESPCT) 
+
                 """
                         )
                     ],
                     # width=True,
-                    lg=8,
+                    lg=6,
+                    sm=12,
                     md=12,
                 ),
                 dbc.Col(
@@ -57,7 +62,8 @@ app.layout = dbc.Container(
                         ),
                     ],
                     lg=2,
-                    md=12,
+                    sm=12,
+                    md=4,
                 ),
                 dbc.Col(
                     [
@@ -66,7 +72,18 @@ app.layout = dbc.Container(
                         ),
                     ],
                     lg=2,
-                    md=12,
+                    md=4,
+                    sm=12,
+                ),
+                dbc.Col(
+                    [
+                        html.Img(
+                            src="assets/DGFI.gif", alt="DGFI Logo", height="100px"
+                        ),
+                    ],
+                    lg=2,
+                    md=4,
+                    sm=12,
                 ),
             ],
             align="end",
@@ -316,6 +333,14 @@ app.layout = dbc.Container(
              (https://www.linkedin.com/in/shayan-naderi-461aa097/)
              , at [Collaboration on Energy and Environmental Markets
               (CEEM)](https://www.ceem.unsw.edu.au/)
+        """
+        ),
+        html.Br(),
+        dcc.Markdown(
+            """
+            This project is supported and funded buy 
+             [UNSW Digital Grid Future Institute (DGFI)]
+             (https://www.dgfi.unsw.edu.au/)
         """
         ),
     ],

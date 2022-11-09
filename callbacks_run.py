@@ -172,6 +172,8 @@ def update_progress(
         State("dwelling-type-radio", "value"),
         State("floor-area-radio", "value"),
         State("location-radio", "value"),
+        State("demand-profile-availability-radio", "value"),
+
     ),
     background=True,
     running=[
@@ -215,8 +217,8 @@ def update_progress(
     tariff_data,
     tariff_structure,
     flat_rate,
-        hidden_div_run,
-        hidden_div_list_buildings,starRating,weight,building_type,building_size,location
+    hidden_div_run,
+    hidden_div_list_buildings,starRating,weight,building_type,building_size,location, demand_availability
 ):
 
     list_of_buildings_name = hidden_div_list_buildings
@@ -272,10 +274,13 @@ def update_progress(
         df_PV= pd.read_csv("PV_generation.csv")
         # df_PV = pd.read_json(hidden_div_PV, orient="split")  # check if it is a list
         print("read PV simulation results OK")
+        if demand_availability == 'unavailable':
+            df_demand = read_demand_from_xlsx_file(site_id)
+            print("Read demand file Ok")
+        else:
+            # df_demand =
 
-        df_demand = read_demand_from_xlsx_file(site_id)
-        print("Read demand file Ok")
-
+            pass
         ready_df = join_PV_load_temp(PV=df_PV,load_temp = df_TMY, real_demand=df_demand)
         # This df is used for baseline and pre-cooling scenarios
         print("ready df ok")
@@ -291,8 +296,9 @@ def update_progress(
         building.name = name_case_study
         building.occupancy_checklist = weekdays_occ
         tariff_df = pd.DataFrame.from_records(tariff_data)
-        create_tariff_column(building=building,tariff_type=tariff_structure,tariff_table=tariff_df,flat_rate=flat_rate)
+        print(tariff_structure, "   ",tariff_df,"   ",flat_rate)
         building.update_temperature_preferences(ready_df,neutral_temp,upper_limit,lower_limit)
+        building = create_tariff_column(building=building,tariff_type=tariff_structure,tariff_table=tariff_df,flat_rate=flat_rate)
 
         list_of_buildings.append(building)
         list_of_buildings_name.append(building.name)

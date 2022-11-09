@@ -310,7 +310,6 @@ class Building:
                                                   self.thermal_coefficients['SR2'] * self.SH_ahead.at[i - 2, "SR"] + self.thermal_coefficients['const']
 
     def groupby_final_results(self):
-
         self.averaged_hourly_results = self.final_df.groupby("hour").agg({"outdoor":"mean","Demand":"mean","E_spc":"mean",
                                                                           "PV":"mean",
                                                                           "E_bs":"mean", "Surplus_PV":"mean",
@@ -333,10 +332,17 @@ class Building:
         self.final_df["Export_bs"] = -self.final_df["Net_bs"].clip(upper=0)
 
     def calculate_savings(self):
-        self.final_df['cost_bs'] = (self.final_df["Imports_bs"] * 22 - self.final_df["Export_bs"] * 6)/100
-        self.final_df['cost_spc'] = (self.final_df["Imports_spc"] * 22 - self.final_df["Export_spc"] * 6)/100
+        self.final_df['cost_bs'] = (self.final_df["Imports_bs"] * self.final_df["Tariff"] - self.final_df["Export_bs"] * 6)/100
+        self.final_df['cost_spc'] = (self.final_df["Imports_spc"] * self.final_df["Tariff"] - self.final_df["Export_spc"] * 6)/100
         self.final_df['Savings'] = self.final_df['cost_bs'] - self.final_df['cost_spc']
+        self.final_df.to_csv("final_df_after_savings.csv")
+
         self.monthly_saving = self.final_df.groupby("month").agg({"Savings":"sum"})
+        self.monthly_saving.reset_index(inplace=True)
+        self.monthly_saving['month'] = self.monthly_saving['month'].replace([12], 'December')
+        self.monthly_saving['month'] = self.monthly_saving['month'].replace([1], 'January')
+        self.monthly_saving['month'] = self.monthly_saving['month'].replace([2], 'February')
+
         # print(self.monthly_saving)
 
     def create_occupancy_column(self):
@@ -414,19 +420,22 @@ def run_scenarios(building):
 
 
 if __name__ == "__main__":
-    import json
+    pass
+    # import json
     # building = Building(
     #     starRating="2star",
-    #     weight="heavy",
+    #     weight="Heavy",
     #     type="Apartment",
-    #     size="small",
-    #     AC_size = 2,
+    #     size="Large",
+    #     AC_size = 25,
     #     city="Adelaide",
     # )
     # ready_df = pd.read_csv("ready_df.csv")
-    # building = run_scenarios(building,ready_df,22,26,18)
-    # #
-    # # fig =line_plot(building.averaged_hourly_results,'hour',["E_bs","E_spc"],x_title="Time of the day [h]",y_title="Temperature [°C]",title="Indoor temperature trajectory")
+    # building.ready_df = ready_df
+    # building = run_scenarios(building)
+    # print(building.monthly_saving.head())
+    #
+    # fig =line_plot(building.averaged_hourly_results,'hour',["E_bs","E_spc"],x_title="Time of the day [h]",y_title="Temperature [°C]",title="Indoor temperature trajectory")
     # fig =line_plot(building.averaged_hourly_results,'hour',["W_bs","W_spc"],
     #                x_title="Time of the day [h]",y_title="Temperature [°C]",
     #                title="Indoor temperature trajectory",plot_type="bar_chart")

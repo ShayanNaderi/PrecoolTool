@@ -5,7 +5,7 @@ import pickle
 
 from figures import line_plot
 single_building_available_figures = ["Indoor temperature", "AC demand", "Surplus PV generation", "Thermal discomfort",
-                     "PV Generation Vs AC excluded demand"]
+                     "PV Generation Vs AC excluded demand","Monthly savings"]
 
 def generate_single_building_graphs():
     with open('list_of_buildings.pkl', 'rb') as inp:
@@ -99,7 +99,11 @@ def update_single_building_figures(n_clicks,clear_canvas,figure_type,building_na
             "Thermal discomfort":line_plot(building.averaged_hourly_results, 'hour',
                                            ["W_bs", "W_spc"], x_title="Time of the day [h]",
                                            y_title="Thermal discomfort [°C.hour]", title="Thermal discomfort",
-                                           plot_type="bar_chart")
+                                           plot_type="bar_chart"),
+            "Monthly savings":line_plot(building.monthly_saving, 'month',
+                                           ["Savings"], x_title="Month",
+                                           y_title="Cost savings [$]", title="Monthly cost savings",
+                                           plot_type="bar_chart"),
         }
         fig = figures[figure_type]
         new_child = html.Div(
