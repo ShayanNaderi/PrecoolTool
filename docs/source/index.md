@@ -1,4 +1,4 @@
-```{include} readme.md
+```{include} ../../readme.md
 ```
 
 # Full table of contents

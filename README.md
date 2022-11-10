@@ -30,24 +30,42 @@ please refer to the following papers:
 buildings in Australian building stock. It has a database of the thermal behavior of the available buildings that allows
 you simulate the hourly AC demand, indoor temperature, electricity cost, and the thermal discomfort index.
 
-![Loading page](_static/loadingPage.PNG)
+![Loading page](docs/source/_static/loadingPage.PNG)
 
-The user can choose the location, star rating, construction weight, dwelling type, and floor area. There are alos fields
-for the user to enter their typical occupancy patterns, and thermal comfort expectations (preferred indoor temperature
-during occupied hours). The user can also enter the tariff structure and rates.
+The user can choose the location, star rating, construction weight, dwelling type, and floor area.
+
+![Loading page](docs/source/_static/create_thermal_model.PNG)
+
+There are alos fields for the user to enter their typical occupancy patterns, and thermal comfort expectations (preferred indoor temperature
+during occupied hours). 
+
+![Loading page](docs/source/_static/occupancy_pattern.PNG)
+![Loading page](docs/source/_static/thermal_comfort.PNG)
+
+The user can also enter the tariff structure and rates.
+![Loading page](docs/source/_static/tariff.PNG)
+
 If the data from household demand (excluding AC demand) is avaialable, the user can upload it to the tool to increase the
 accuracy of the simulation based on households' behavior. Otherwise, there is a database of AC excluded net demand profile
 from around 450 Australian households. The user can choose the demand profile that is similar to their household's
 consumption patterns.
 
+![Loading page](docs/source/_static/selected_demand.PNG)
+
 PV generation and the amount of surplus PV generation after meeting households demand must be available for simulating 
 solar pre-cooling. For simulating the performance of the rooftop PV system, the user needs to enter the rated capacity 
 of the PV system, the location (city), and the orientaion of the panels.
+
+![Loading page](docs/source/_static/PV.PNG)
 
 At the end, they can add the created case study, and run the simulation. The user can create multiple case studies to compare 
 them. For example, two case that are similar from all aspects but they have different star rating. This helps the user
 understand how much the solar pre-cooling potential changes if they renovate their building and implement some energy 
 efficient measures. 
+
+The user can choose different figures from the dropdown to visualize the result of solar pre-cooling.
+![Loading page](docs/source/_static/results1.PNG)
+
 
 ### Useful links
 
