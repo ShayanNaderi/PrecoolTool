@@ -318,7 +318,6 @@ app.layout = dbc.Container(
                         ),
                         dbc.Spinner(html.Div(id="paragraph-id", children=[])),
                         html.Hr(),
-                        dcc.Markdown("##### ..."),
                         dbc.Spinner(
                             html.P(id="text_output"),
                             color="primary",
@@ -345,34 +344,12 @@ app.layout = dbc.Container(
                             style={"display": "None"},
                         ),
                         html.Div(id="single-building-results-div"),
-                        dbc.Row(
-                            [
-                                dbc.Col(
-                                    html.Div(id="PV-simulation-demand-figure"), md=6
-                                ),
-                                dbc.Col(html.Div(id="surplus-PV-fig"), md=6),
-                            ]
-                        ),
-                        dbc.Row(
-                            [
-                                dbc.Col(html.Div(id="temperature-hourly"), md=6),
-                                dbc.Col(html.Div(id="AC-demand-hourly"), md=6),
-                            ]
-                        ),
-                        html.Br(),
-                        dbc.Row(
-                            [
-                                dbc.Col(html.Div(id="discomfort-hourly"), md=6),
-                                dbc.Col(html.Div(id="PV-grossDemand-hourly"), md=6),
-                            ]
-                        ),
                     ],
                     width=9,
                     align="start",
                 ),
             ]
         ),
-        html.Hr(),
         dcc.Markdown(
             """
             Solar pre-cooling potential assessment tool developed by
@@ -382,7 +359,6 @@ app.layout = dbc.Container(
               (CEEM)](https://www.ceem.unsw.edu.au/)
         """
         ),
-        html.Br(),
         dcc.Markdown(
             """
             This project is supported and funded buy 
