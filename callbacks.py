@@ -10,6 +10,16 @@ from app_components import (
     create_upload_data,
     demand_questions_radio_item,
 )
+from application import simulation_tab_content
+from summaryTab import summaryTabContent
+
+
+@app.callback(Output("Visible-content", "children"), Input("tabs", "active_tab"))
+def switch_tab(tab):
+    if tab == "summary-tab":
+        return summaryTabContent
+    elif tab == "simulation-tab":
+        return simulation_tab_content
 
 
 # Callback to make construction weight menu expand
