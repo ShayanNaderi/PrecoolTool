@@ -18,6 +18,7 @@ matplotlib = "^3.6.1"
 pvlib = "^0.9.3"
 openpyxl = "^3.0.10"
 celery = "^5.2.7"
+jupyter = "^1.0.0"
 
 
 [tool.poetry.group.style.dependencies]

@@ -251,26 +251,6 @@ occupancy_checklist = html.Div(
                 "borderColor": "#ea6258",
             },
         ),
-        html.Hr(),
-        html.Div("Please select occopied periods during weekends"),
-        html.Br(),
-        dbc.Checklist(
-            id="weekend-occupancy-checklist",
-            options=[
-                {"label": "7 am - 10 am", "value": 1},
-                {"label": "10 am - 2 pm", "value": 2},
-                {"label": "2 pm - 6 pm", "value": 3},
-                {"label": "6 pm - 10 pm", "value": 4},
-                {"label": "Overnight", "value": 5},
-            ],
-            value=[1, 4, 5],
-            inline=True,
-            label_checked_style={"color": "red"},
-            input_checked_style={
-                "backgroundColor": "#fa7268",
-                "borderColor": "#ea6258",
-            },
-        ),
     ]
 )
 
@@ -288,6 +268,10 @@ tariff_radio_checklist = html.Div(
         ),
         html.Br(),
         generate_select("flat-tariff-rate", "Flat rate c/kWh:"),
+        html.Br(),
+        generate_select(
+            "FiT", "Solar Feed-in-Tariff c/kWh:", min=0, max=30, step=1, value=6
+        ),
     ]
 )
 

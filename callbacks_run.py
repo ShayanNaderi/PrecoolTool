@@ -159,7 +159,6 @@ def update_progress(
         State("deviation-up-temp", "value"),
         State("deviation-low-temp", "value"),
         State("weekdays-occupancy-checklist", "value"),
-        State("weekend-occupancy-checklist", "value"),
         State("AC-rated-capacity", "value"),
         State("PV-rated-capacity", "value"),
         State("AC-year-radio", "value"),
@@ -175,6 +174,7 @@ def update_progress(
         State("floor-area-radio", "value"),
         State("location-radio", "value"),
         State("demand-profile-availability-radio", "value"),
+        State("FiT", "value"),
     ),
     background=True,
     running=[
@@ -210,7 +210,6 @@ def update_progress(
     upper_limit,
     lower_limit,
     weekdays_occ,
-    weekends_occ,
     AC_size,
     PV_size,
     AC_made_year,
@@ -226,6 +225,7 @@ def update_progress(
     building_size,
     location,
     demand_availability,
+    FiT,
 ):
     AC_size = (
         AC_size * 3.5
@@ -295,7 +295,6 @@ def update_progress(
         building.name = name_case_study
         building.occupancy_checklist = weekdays_occ
         tariff_df = pd.DataFrame.from_records(tariff_data)
-        print(tariff_structure, "   ", tariff_df, "   ", flat_rate)
         building.update_temperature_preferences(
             ready_df, neutral_temp, upper_limit, lower_limit
         )
@@ -304,6 +303,7 @@ def update_progress(
             tariff_type=tariff_structure,
             tariff_table=tariff_df,
             flat_rate=flat_rate,
+            FiT=FiT,
         )
 
         list_of_buildings.append(building)

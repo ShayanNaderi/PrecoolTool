@@ -156,7 +156,7 @@ app.layout = dbc.Container(
                         ),
                         html.Hr(),
                         dbc.Button(
-                            "Thermal Comfort",
+                            "Idead indoor temperature",
                             style={"width": "70%"},
                             id="thermal-comfort-button",
                         ),
@@ -235,7 +235,7 @@ app.layout = dbc.Container(
                                             title="AC rated electrical capacity kW:",
                                             min=2,
                                             max=70,
-                                            value=15,
+                                            value=6,
                                             step=1,
                                         ),
                                         html.P(
@@ -248,7 +248,7 @@ app.layout = dbc.Container(
                                             title="PV system rated capacity kW:",
                                             min=2,
                                             max=70,
-                                            value=2.5,
+                                            value=6,
                                             step=0.5,
                                         ),
                                         # generate_select(
