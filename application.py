@@ -37,15 +37,15 @@ simulation_tab_content = (
                             dbc.CardBody(
                                 [
                                     location_radio_item,
-                                    html.Hr(),
-                                    star_rating_toast,
+                                    # html.Hr(),
+                                    # star_rating_toast,
                                     html.Br(),
                                     html.P(
                                         "Select star rating and construction weight"
                                     ),
                                     star_rating_radio_item,
-                                    html.Hr(),
-                                    construction_weight_toast,
+                                    # html.Hr(),
+                                    # construction_weight_toast,
                                     html.Br(),
                                     construction_weight_radio_item,
                                     html.Hr(),
@@ -90,7 +90,7 @@ simulation_tab_content = (
                     ),
                     html.Hr(),
                     dbc.Button(
-                        "Idead indoor temperature",
+                        "Ideal indoor temperature",
                         style={"width": "70%"},
                         id="thermal-comfort-button",
                     ),
@@ -341,13 +341,13 @@ app.layout = dbc.Container(
         dbc.Tabs(
             [
                 dbc.Tab(
-                    label="Summary",
+                    label="Solar pre-cooling potential in Australia",
                     active_tab_style={"textTransform": "uppercase"},
                     active_label_style={"color": "#FF0000"},
                     tab_id="summary-tab",
                 ),
                 dbc.Tab(
-                    label="Simulation",
+                    label="Simulation tool",
                     active_tab_style={"textTransform": "uppercase"},
                     active_label_style={"color": "#FF0000"},
                     tab_id="simulation-tab",
@@ -355,6 +355,7 @@ app.layout = dbc.Container(
             ],
             id="tabs",
             active_tab="simulation-tab",
+            style={"padding": "1rem" "1rem"},
         ),
         html.Br(),
         html.Div(id="Visible-content"),
