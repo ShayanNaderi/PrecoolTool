@@ -1,0 +1,4531 @@
+[{
+	"Tariffs": [{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022-08",
+			"Distributor": "Off-grid",
+			"Name": "Single Rate (Off-grid) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.1876
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.3011
+				}
+			},
+			"Provider": "Offgrid",
+			"ProviderType": "Retailer",
+			"State": "All",
+			"Tariff ID": "TR0001_offgrid",
+			"Type": "Single_Rate",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022-08",
+			"Distributor": "Initial",
+			"Name": "Initial Tariff",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.09
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.3
+				}
+			},
+			"Provider": "None - initial testing",
+			"ProviderType": "Retailer",
+			"State": "All",
+			"Tariff ID": "TR0001_for_initial_testing",
+			"Type": "Single_Rate",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022-08",
+			"Distributor": "Ausgrid",
+			"Name": "Single Rate (Ausgrid) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 0.88125
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.062667
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.28968
+				}
+			},
+			"Provider": "Origin Energy/AGL/EnergyAustralia",
+			"ProviderType": "Retailer",
+			"State": "NSW",
+			"Tariff ID": "TR0001",
+			"Type": "Single_Rate",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022-08",
+			"Distributor": "Endeavour Energy",
+			"Name": "Single Rate (Endeavour Energy) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 0.92648
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.0652
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.29588
+				}
+			},
+			"Provider": "Origin Energy/AGL/EnergyAustralia",
+			"ProviderType": "Retailer",
+			"State": "NSW",
+			"Tariff ID": "TR0002",
+			"Type": "Single_Rate",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022-08",
+			"Distributor": "Essential Energy",
+			"Name": "Single Rate (Essential Energy) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.59685
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.071
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.31207
+				}
+			},
+			"Provider": "Origin Energy/AGL/EnergyAustralia",
+			"ProviderType": "Retailer",
+			"State": "NSW",
+			"Tariff ID": "TR0003",
+			"Type": "Single_Rate",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022-08",
+			"Distributor": "Ausgrid",
+			"Name": "Single Rate (Ausgrid) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 2.019
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.0612
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.35135
+				}
+			},
+			"Provider": "Origin Energy/AGL/EnergyAustralia",
+			"ProviderType": "Retailer",
+			"State": "NSW",
+			"Tariff ID": "TB0001",
+			"Type": "Single_Rate",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022-08",
+			"Distributor": "Endeavour Energy",
+			"Name": "Single Rate (Endeavour Energy) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.2069
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.0612
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.32465
+				}
+			},
+			"Provider": "Origin Energy/AGL/EnergyAustralia",
+			"ProviderType": "Retailer",
+			"State": "NSW",
+			"Tariff ID": "TB0002",
+			"Type": "Single_Rate",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022-08",
+			"Distributor": "Essential Energy",
+			"Name": "Single Rate (Essential Energy) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.90875
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.0612
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.40815
+				}
+			},
+			"Provider": "Origin Energy/AGL/EnergyAustralia",
+			"ProviderType": "Retailer",
+			"State": "NSW",
+			"Tariff ID": "TB0003",
+			"Type": "Single_Rate",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022-08",
+			"Distributor": "Energex",
+			"Name": "Single Rate (Energex) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.13797
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.0553
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.24349
+				}
+			},
+			"Provider": "Origin Energy/AGL/EnergyAustralia",
+			"ProviderType": "Retailer",
+			"State": "QLD",
+			"Tariff ID": "TR0004",
+			"Type": "Single_Rate",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022-08",
+			"Distributor": "Ergon Energy",
+			"Name": "Single Rate (Ergon Energy) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 0.99449
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.093
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.24349
+				}
+			},
+			"Provider": "Ergon Energy",
+			"ProviderType": "Retailer",
+			"State": "QLD",
+			"Tariff ID": "TR0005",
+			"Type": "Single_Rate",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022-08",
+			"Distributor": "Ergon Energy",
+			"Name": "Single Rate (Ergon Energy) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.3545
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.093
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.2795
+				}
+			},
+			"Provider": "Ergon Energy",
+			"ProviderType": "Retailer",
+			"State": "QLD",
+			"Tariff ID": "TB0004",
+			"Type": "Single_Rate",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022-08",
+			"Distributor": "Energex",
+			"Name": "Single Rate (Energex) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.42132
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.057533
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.2837
+				}
+			},
+			"Provider": "Origin Energy/AGL/EnergyAustralia",
+			"ProviderType": "Retailer",
+			"State": "QLD",
+			"Tariff ID": "TB0005",
+			"Type": "Single_Rate",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022-08",
+			"Distributor": "SA Power Networks",
+			"Name": "Single Rate (SA Power Networks) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 0.94921
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.0725
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.36028
+				}
+			},
+			"Provider": "Origin Energy/AGL/EnergyAustralia",
+			"ProviderType": "Retailer",
+			"State": "SA",
+			"Tariff ID": "TR0006",
+			"Type": "Single_Rate",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022-08",
+			"Distributor": "SA Power Networks",
+			"Name": "Single Rate (SA Power Networks) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.11038
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.0645
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.40645
+				}
+			},
+			"Provider": "Origin Energy/AGL/EnergyAustralia",
+			"ProviderType": "Retailer",
+			"State": "SA",
+			"Tariff ID": "TB0006",
+			"Type": "Single_Rate",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022-08",
+			"Distributor": "CitiPower",
+			"Name": "Single Rate (CitiPower) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.15196
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.06316
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.21385
+				}
+			},
+			"Provider": "Origin Energy/AGL/EnergyAustralia",
+			"ProviderType": "Retailer",
+			"State": "VIC",
+			"Tariff ID": "TR0007",
+			"Type": "Single_Rate",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022-08",
+			"Distributor": "Jemena",
+			"Name": "Single Rate (Jemena) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.14803
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.05833
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.23025
+				}
+			},
+			"Provider": "Origin Energy/AGL/EnergyAustralia",
+			"ProviderType": "Retailer",
+			"State": "VIC",
+			"Tariff ID": "TR0008",
+			"Type": "Single_Rate",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022-08",
+			"Distributor": "Powercor",
+			"Name": "Single Rate (Powercor) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.2927
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.06316
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.23018
+				}
+			},
+			"Provider": "Origin Energy/AGL/EnergyAustralia",
+			"ProviderType": "Retailer",
+			"State": "VIC",
+			"Tariff ID": "TR0009",
+			"Type": "Single_Rate",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022-08",
+			"Distributor": "Ausnet Services",
+			"Name": "Single Rate (Ausnet Services) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.28207
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.05833
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.28543
+				}
+			},
+			"Provider": "Origin Energy/AGL/EnergyAustralia",
+			"ProviderType": "Retailer",
+			"State": "VIC",
+			"Tariff ID": "TR0010",
+			"Type": "Single_Rate",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022-08",
+			"Distributor": "United Energy",
+			"Name": "Single Rate (United Energy) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.06095
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.06317
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.22957
+				}
+			},
+			"Provider": "Origin Energy/AGL/EnergyAustralia",
+			"ProviderType": "Retailer",
+			"State": "VIC",
+			"Tariff ID": "TR0011",
+			"Type": "Single_Rate",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022-08",
+			"Distributor": "CitiPower",
+			"Name": "Single Rate (CitiPower) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.383683
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.05267
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.21623
+				}
+			},
+			"Provider": "Origin Energy/AGL/EnergyAustralia",
+			"ProviderType": "Retailer",
+			"State": "VIC",
+			"Tariff ID": "TB0007",
+			"Type": "Single_Rate",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022-08",
+			"Distributor": "United Energy",
+			"Name": "Single Rate (United Energy) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.21705
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.05267
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.227517
+				}
+			},
+			"Provider": "Origin Energy/AGL/EnergyAustralia",
+			"ProviderType": "Retailer",
+			"State": "VIC",
+			"Tariff ID": "TB0008",
+			"Type": "Single_Rate",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022-08",
+			"Distributor": "Jemena",
+			"Name": "Single Rate (Jemena) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.30652
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.05267
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.24638
+				}
+			},
+			"Provider": "Origin Energy/AGL/EnergyAustralia",
+			"ProviderType": "Retailer",
+			"State": "VIC",
+			"Tariff ID": "TB0009",
+			"Type": "Single_Rate",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022-08",
+			"Distributor": "Ausnet Services",
+			"Name": "Single Rate (Ausnet Services) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.29722
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.05267
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.33025
+				}
+			},
+			"Provider": "Origin Energy/AGL/EnergyAustralia",
+			"ProviderType": "Retailer",
+			"State": "VIC",
+			"Tariff ID": "TB0010",
+			"Type": "Single_Rate",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022-08",
+			"Distributor": "Powercor",
+			"Name": "Single Rate (Powercor) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.4356
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.05267
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.23265
+				}
+			},
+			"Provider": "Origin Energy/AGL/EnergyAustralia",
+			"ProviderType": "Retailer",
+			"State": "VIC",
+			"Tariff ID": "TB0011",
+			"Type": "Single_Rate",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022-08",
+			"Distributor": "Western Power",
+			"Name": "Single Rate (Western Power) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.077685
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.03
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.300601
+				}
+			},
+			"Provider": "Synergy",
+			"ProviderType": "Retailer",
+			"State": "WA",
+			"Tariff ID": "TR0012",
+			"Type": "Single_Rate",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022-08",
+			"Distributor": "Horizon Power",
+			"Name": "Single Rate (Horizon Power) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.07777
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.03
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.300605
+				}
+			},
+			"Provider": "Horizon Power",
+			"ProviderType": "Retailer",
+			"State": "WA",
+			"Tariff ID": "TR0013",
+			"Type": "Single_Rate",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022-08",
+			"Distributor": "Western Power",
+			"Name": "Single Rate (Western Power) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.923907
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.03
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.299391
+				}
+			},
+			"Provider": "Synergy",
+			"ProviderType": "Retailer",
+			"State": "WA",
+			"Tariff ID": "TB0012",
+			"Type": "Single_Rate",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022-08",
+			"Distributor": "Horizon Power",
+			"Name": "Single Rate (Horizon Power) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.9239
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.03
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.299391
+				}
+			},
+			"Provider": "Horizon Power",
+			"ProviderType": "Retailer",
+			"State": "WA",
+			"Tariff ID": "TB0013",
+			"Type": "Single_Rate",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022-08",
+			"Distributor": "EvoEnergy",
+			"Name": "Single Rate (EvoEnergy) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.5066
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.08144
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.36244
+				}
+			},
+			"Provider": "ActewAGL/Energy Australia/Origin Energy",
+			"ProviderType": "Retailer",
+			"State": "ACT",
+			"Tariff ID": "TB0015",
+			"Type": "Single_Rate",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022-08",
+			"Distributor": "EvoEnergy",
+			"Name": "Single Rate (EvoEnergy) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.19675
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.078667
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.270817
+				}
+			},
+			"Provider": "ActewAGL/Energy Australia/Origin Energy",
+			"ProviderType": "Retailer",
+			"State": "ACT",
+			"Tariff ID": "TR0015",
+			"Type": "Single_Rate",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022-09",
+			"Distributor": "PowerWater",
+			"Name": "Single Rate (PowerWater) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 0.5396
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.121
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.273726
+				}
+			},
+			"Provider": "All Retailers",
+			"ProviderType": "Retailer",
+			"State": "NT",
+			"Tariff ID": "TR0016",
+			"Type": "Single_Rate",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022-09",
+			"Distributor": "PowerWater",
+			"Name": "Single Rate (PowerWater) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 0.8426
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.121
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.318557
+				}
+			},
+			"Provider": "All Retailers",
+			"ProviderType": "Retailer",
+			"State": "NT",
+			"Tariff ID": "TB0016",
+			"Type": "Single_Rate",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022-08",
+			"Distributor": "TasNetworks",
+			"Name": "Single Rate (TasNetworks) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 0.100104
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.086332
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.254542
+				}
+			},
+			"Provider": "Aurora Energy/1st Energy/Energy Locals",
+			"ProviderType": "Retailer",
+			"State": "TAS",
+			"Tariff ID": "TR0014",
+			"Type": "Single_Rate",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022-08",
+			"Distributor": "TasNetworks",
+			"Name": "Single Rate (TasNetworks) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 0.10469
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.0887
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.31323
+				}
+			},
+			"Provider": "Aurora Energy/1st Energy/Energy Locals",
+			"ProviderType": "Retailer",
+			"State": "TAS",
+			"Tariff ID": "TB0014",
+			"Type": "Single_Rate",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022-07",
+			"Distributor": "Ausgrid",
+			"Name": "Time of Use (Ausgrid) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.0466
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.075
+				},
+				"TOU": {
+					"Off Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["22:00", "07:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.1586,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Off Peak Weekends": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["22:00", "07:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.1586,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["14:00", "20:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.5337,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Shoulder Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["07:00", "14:00"],
+							"T2": ["20:00", "22:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.2356,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Shoulder Weekends": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["07:00", "22:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.2356,
+						"Weekday": false,
+						"Weekend": true
+					}
+				}
+			},
+			"Provider": "AGL",
+			"ProviderType": "Retailer",
+			"State": "NSW",
+			"Tariff ID": "TT0001",
+			"Type": "TOU",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022-07",
+			"Distributor": "Endeavour Energy",
+			"Name": "Time of Use (Endeavour Energy) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.0599
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.0625
+				},
+				"TOU": {
+					"Off Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["22:00", "07:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.197725,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Off Peak Weekends": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["00:00", "00:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.197725,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["13:00", "20:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.397325,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Shoulder Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["07:00", "13:00"],
+							"T2": ["20:00", "22:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.3307,
+						"Weekday": true,
+						"Weekend": false
+					}
+				}
+			},
+			"Provider": "AGL/Origin Energy",
+			"ProviderType": "Retailer",
+			"State": "NSW",
+			"Tariff ID": "TT0002",
+			"Type": "TOU",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022-08",
+			"Distributor": "Essential Energy",
+			"Name": "Time of Use (Essential Energy) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.6278
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.071
+				},
+				"TOU": {
+					"Off Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["22:00", "07:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.2376,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Off Peak Weekends": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["00:00", "00:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.2376,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["07:00", "09:00"],
+							"T2": ["17:00", "20:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.4152,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Shoulder Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["09:00", "17:00"],
+							"T2": ["20:00", "22:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.3801,
+						"Weekday": true,
+						"Weekend": false
+					}
+				}
+			},
+			"Provider": "AGL/Energy Australia/Origin Energy",
+			"ProviderType": "Retailer",
+			"State": "NSW",
+			"Tariff ID": "TT0003",
+			"Type": "TOU",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022-09",
+			"Distributor": "Ausgrid",
+			"Name": "Time of Use (Ausgrid) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 2.43625
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.05
+				},
+				"TOU": {
+					"Off Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["22:00", "07:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.15505,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Off-Peak Weekend": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["22:00", "07:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.15505,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["14:00", "20:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.5385,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Shoulder Weekday": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["07:00", "14:00"],
+							"T2": ["20:00", "22:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.259125,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Shoulder Weekend": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["07:00", "22:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.259125,
+						"Weekday": false,
+						"Weekend": true
+					}
+				}
+			},
+			"Provider": "AGL/Origin Energy",
+			"ProviderType": "Retailer",
+			"State": "NSW",
+			"Tariff ID": "TBT001",
+			"Type": "TOU",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022-09",
+			"Distributor": "Endeavour Energy",
+			"Name": "Time of Use (Endeavour Energy) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.03325
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.05
+				},
+				"TOU": {
+					"Off Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["22:00", "07:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.1956,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Off-Peak Weekend": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["00:00", "00:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.1956,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["13:00", "20:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.451925,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Shoulder Weekday": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["07:00", "13:00"],
+							"T2": ["20:00", "22:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.395325,
+						"Weekday": true,
+						"Weekend": false
+					}
+				}
+			},
+			"Provider": "AGL/Origin Energy",
+			"ProviderType": "Retailer",
+			"State": "NSW",
+			"Tariff ID": "TBT002",
+			"Type": "TOU",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022-09",
+			"Distributor": "Essential Energy",
+			"Name": "Time of Use (Essential Energy) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 4.9688
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.0612
+				},
+				"TOU": {
+					"Off Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["22:00", "07:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.2361,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Off-Peak Weekend": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["00:00", "00:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.2361,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["17:00", "20:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.42392,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Shoulder Weekday": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["07:00", "17:00"],
+							"T2": ["20:00", "22:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.3834,
+						"Weekday": true,
+						"Weekend": false
+					}
+				}
+			},
+			"Provider": "AGL/Energy Australia/Origin Energy",
+			"ProviderType": "Retailer",
+			"State": "NSW",
+			"Tariff ID": "TBT003",
+			"Type": "TOU",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022-08",
+			"Distributor": "Energex",
+			"Name": "Time of Use (Energex) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.20083
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.0533
+				},
+				"TOU": {
+					"Off Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["22:00", "07:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.2103,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Off-Peak Weekend": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["22:00", "07:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.2103,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["16:00", "20:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.3614,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Shoulder Weekday": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["07:00", "16:00"],
+							"T2": ["20:00", "22:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.2393,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Shoulder Weekend": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["07:00", "22:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.23931,
+						"Weekday": false,
+						"Weekend": true
+					}
+				}
+			},
+			"Provider": "AGL/Energy Australia/Origin Energy",
+			"ProviderType": "Retailer",
+			"State": "QLD",
+			"Tariff ID": "TT0004",
+			"Type": "TOU",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022-08",
+			"Distributor": "Ergon Energy",
+			"Name": "Time of Use (Ergon Energy) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 0.9945
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.093
+				},
+				"TOU": {
+					"Off Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["09:00", "16:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.1896,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Off Peak Weekends": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["09:00", "16:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.1896,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["16:00", "21:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.3293,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Peak Weekends": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["16:00", "21:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.3293,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Shoulder Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["21:00", "09:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.1974,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Shoulder Weekends": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["21:00", "09:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.1974,
+						"Weekday": false,
+						"Weekend": true
+					}
+				}
+			},
+			"Provider": "Ergon Energy Retail",
+			"ProviderType": "Retailer",
+			"State": "QLD",
+			"Tariff ID": "TT0005",
+			"Type": "TOU",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022-09",
+			"Distributor": "Ergon Energy",
+			"Name": "Time of Use (Ergon Energy) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.3545
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.093
+				},
+				"TOU": {
+					"Off Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["09:00", "16:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.2103,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Off-Peak Weekend": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["09:00", "16:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.2103,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["16:00", "21:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.3843,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Shoulder Weekday": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["21:00", "09:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.2708,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Shoulder Weekend": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["16:00", "09:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.2708,
+						"Weekday": false,
+						"Weekend": true
+					}
+				}
+			},
+			"Provider": "Ergon Energy Retail",
+			"ProviderType": "Retailer",
+			"State": "QLD",
+			"Tariff ID": "TBT004",
+			"Type": "TOU",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022-09",
+			"Distributor": "Energex",
+			"Name": "Time of Use (Energex) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.41973
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.05753
+				},
+				"TOU": {
+					"Off Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["21:00", "07:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.2747,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Off-Peak Weekend": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["00:00", "00:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.2747,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["07:00", "21:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.33275,
+						"Weekday": true,
+						"Weekend": false
+					}
+				}
+			},
+			"Provider": "AGL/Energy Australia/Origin Energy",
+			"ProviderType": "Retailer",
+			"State": "QLD",
+			"Tariff ID": "TBT005",
+			"Type": "TOU",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022-09",
+			"Distributor": "SA Power Networks",
+			"Name": "Time of Use (SA Power Networks) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.01263
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.08083
+				},
+				"TOU": {
+					"Off Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["01:00", "06:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.26573,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Off Peak Weekend": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["01:00", "06:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.26573,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["06:00", "10:00"],
+							"T2": ["15:00", "01:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.4391,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Peak Weekend": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["06:00", "10:00"],
+							"T2": ["15:00", "01:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.4391,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Shoulder Weekday": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["10:00", "15:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.1994,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Shoulder Weekend": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["10:00", "15:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.1994,
+						"Weekday": false,
+						"Weekend": true
+					}
+				}
+			},
+			"Provider": "AGL/ Energy Australia/ Origin Energy",
+			"ProviderType": "Retailer",
+			"State": "SA",
+			"Tariff ID": "TT0006",
+			"Type": "TOU",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022-09",
+			"Distributor": "SA Power Networks",
+			"Name": "Time of Use (SA Power Networks) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.14876
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.0674
+				},
+				"TOU": {
+					"Off Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["21:00", "07:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.3009,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Off-Peak Weekend": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["00:00", "00:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.3009,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["07:00", "21:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.48632,
+						"Weekday": true,
+						"Weekend": false
+					}
+				}
+			},
+			"Provider": "AGL/Energy Australia/Origin Energy",
+			"ProviderType": "Retailer",
+			"State": "SA",
+			"Tariff ID": "TBT006",
+			"Type": "TOU",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022-08",
+			"Distributor": "CitiPower",
+			"Name": "Time of Use (CitiPower) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.1468
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.063167
+				},
+				"TOU": {
+					"Off Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["21:00", "15:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.17118,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Off-Peak Weekend": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["21:00", "15:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.17118,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["15:00", "21:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.29808,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Peak Weekend": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["15:00", "21:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.29808,
+						"Weekday": false,
+						"Weekend": true
+					}
+				}
+			},
+			"Provider": "AGL/Energy Australia/Origin Energy",
+			"ProviderType": "Retailer",
+			"State": "VIC",
+			"Tariff ID": "TT0007",
+			"Type": "TOU",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022-08",
+			"Distributor": "Jemena",
+			"Name": "Time of Use (Jemena) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.14223
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.063167
+				},
+				"TOU": {
+					"Off Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["21:00", "15:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.179867,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Off-Peak Weekend": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["21:00", "15:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.179867,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["15:00", "21:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.29275,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Peak Weekend": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["15:00", "21:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.29275,
+						"Weekday": false,
+						"Weekend": true
+					}
+				}
+			},
+			"Provider": "AGL/Energy Australia/Origin Energy",
+			"ProviderType": "Retailer",
+			"State": "VIC",
+			"Tariff ID": "TT0008",
+			"Type": "TOU",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022-08",
+			"Distributor": "Powercor",
+			"Name": "Time of Use (Powercor) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.29272
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.063167
+				},
+				"TOU": {
+					"Off Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["21:00", "15:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.18302,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Off-Peak Weekend": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["21:00", "15:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.18302,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["15:00", "21:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.32243,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Peak Weekend": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["15:00", "21:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.32243,
+						"Weekday": false,
+						"Weekend": true
+					}
+				}
+			},
+			"Provider": "AGL/Energy Australia/Origin Energy",
+			"ProviderType": "Retailer",
+			"State": "VIC",
+			"Tariff ID": "TT0009",
+			"Type": "TOU",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022-08",
+			"Distributor": "Ausnet Services",
+			"Name": "Time of Use (Ausnet Services) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.28207
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.063167
+				},
+				"TOU": {
+					"Off Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["21:00", "15:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.19387,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Off-Peak Weekend": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["21:00", "15:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.19387,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["15:00", "21:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.40265,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Peak Weekend": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["15:00", "21:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.40265,
+						"Weekday": false,
+						"Weekend": true
+					}
+				}
+			},
+			"Provider": "AGL/Energy Australia/Origin Energy",
+			"ProviderType": "Retailer",
+			"State": "VIC",
+			"Tariff ID": "TT0010",
+			"Type": "TOU",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022-08",
+			"Distributor": "United Energy",
+			"Name": "Time of Use (United Energy) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.0315
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.063167
+				},
+				"TOU": {
+					"Off Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["21:00", "15:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.18057,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Off-Peak Weekend": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["21:00", "15:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.18057,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["15:00", "21:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.31805,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Peak Weekend": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["15:00", "21:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.31805,
+						"Weekday": false,
+						"Weekend": true
+					}
+				}
+			},
+			"Provider": "AGL/Energy Australia/Origin Energy",
+			"ProviderType": "Retailer",
+			"State": "VIC",
+			"Tariff ID": "TT0011",
+			"Type": "TOU",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022-09",
+			"Distributor": "CitiPower",
+			"Name": "Time of Use (CitiPower) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.38368
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.052667
+				},
+				"TOU": {
+					"Off Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["21:00", "09:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.157233,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Off-Peak Weekend": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["00:00", "00:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.157233,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["09:00", "21:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.27803,
+						"Weekday": true,
+						"Weekend": false
+					}
+				}
+			},
+			"Provider": "AGL/Energy Australia/Origin Energy",
+			"ProviderType": "Retailer",
+			"State": "VIC",
+			"Tariff ID": "TBT007",
+			"Type": "TOU",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022-09",
+			"Distributor": "United Energy",
+			"Name": "Time of Use (United Energy) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.21705
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.052667
+				},
+				"TOU": {
+					"Off Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["21:00", "09:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.159817,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Off-Peak Weekend": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["00:00", "00:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.15982,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["09:00", "21:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.2955,
+						"Weekday": true,
+						"Weekend": false
+					}
+				}
+			},
+			"Provider": "AGL/Energy Australia/Origin Energy",
+			"ProviderType": "Retailer",
+			"State": "VIC",
+			"Tariff ID": "TBT008",
+			"Type": "TOU",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022-09",
+			"Distributor": "Jemena",
+			"Name": "Time of Use (Jemena) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.64863
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.052667
+				},
+				"TOU": {
+					"Off Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["21:00", "09:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.15453,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Off-Peak Weekend": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["00:00", "00:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.15453,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["09:00", "21:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.28432,
+						"Weekday": true,
+						"Weekend": false
+					}
+				}
+			},
+			"Provider": "AGL/Energy Australia/Origin Energy",
+			"ProviderType": "Retailer",
+			"State": "VIC",
+			"Tariff ID": "TBT009",
+			"Type": "TOU",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022-09",
+			"Distributor": "Ausnet Services",
+			"Name": "Time of Use (Ausnet Services) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.29722
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.052667
+				},
+				"TOU": {
+					"Off Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["21:00", "09:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.1814,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Off-Peak Weekend": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["00:00", "00:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.1814,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["09:00", "21:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.3515,
+						"Weekday": true,
+						"Weekend": false
+					}
+				}
+			},
+			"Provider": "AGL/Energy Australia/Origin Energy",
+			"ProviderType": "Retailer",
+			"State": "VIC",
+			"Tariff ID": "TBT010",
+			"Type": "TOU",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022-09",
+			"Distributor": "Powercor",
+			"Name": "Time of Use (Powercor) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.4356
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.052667
+				},
+				"TOU": {
+					"Off Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["21:00", "09:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.16652,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Off-Peak Weekend": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["00:00", "00:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.16652,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["09:00", "21:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.31327,
+						"Weekday": true,
+						"Weekend": false
+					}
+				}
+			},
+			"Provider": "AGL/Energy Australia/Origin Energy",
+			"ProviderType": "Retailer",
+			"State": "VIC",
+			"Tariff ID": "TBT011",
+			"Type": "TOU",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022-09",
+			"Distributor": "Western Power",
+			"Name": "Time of Use (Western Power) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.2
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.03
+				},
+				"TOU": {
+					"Off Peak All Week": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["21:00", "09:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.22,
+						"Weekday": true,
+						"Weekend": true
+					},
+					"Peak All Week": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["15:00", "21:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.5,
+						"Weekday": true,
+						"Weekend": true
+					},
+					"Super off-peak": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["09:00", "15:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.08,
+						"Weekday": true,
+						"Weekend": true
+					}
+				}
+			},
+			"Provider": "Synergy",
+			"ProviderType": "Retailer",
+			"State": "WA",
+			"Tariff ID": "TT0012",
+			"Type": "TOU",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022-09",
+			"Distributor": "Western Power",
+			"Name": "Time of Use (Western Power) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 3.5975
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.03
+				},
+				"TOU": {
+					"Off Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["22:00", "08:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.117053,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Off-Peak Weekend": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["00:00", "00:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.117053,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["08:00", "22:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.390178,
+						"Weekday": true,
+						"Weekend": false
+					}
+				}
+			},
+			"Provider": "Synergy",
+			"ProviderType": "Retailer",
+			"State": "WA",
+			"Tariff ID": "TBT012",
+			"Type": "TOU",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022-09",
+			"Distributor": "TasNetworks",
+			"Name": "Time of Use (TasNetworks) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.06297
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.08675
+				},
+				"TOU": {
+					"Off Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["10:00", "16:00"],
+							"T2": ["21:00", "07:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.162552,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Off-Peak Weekend": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["00:00", "00:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.1625516,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["07:00", "10:00"],
+							"T2": ["16:00", "21:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.323632,
+						"Weekday": true,
+						"Weekend": false
+					}
+				}
+			},
+			"Provider": "Aurora Energy/1st Energy/Energy Locals",
+			"ProviderType": "Retailer",
+			"State": "TAS",
+			"Tariff ID": "TT0013",
+			"Type": "TOU",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022-09",
+			"Distributor": "TasNetworks",
+			"Name": "Time of Use (TasNetworks) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.14518
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.08871
+				},
+				"TOU": {
+					"Off Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["22:00", "07:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.139867,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Off-Peak Weekend": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["22:00", "07:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.139867,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["07:00", "22:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.2784,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Shoulder Weekend": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["07:00", "22:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.21193,
+						"Weekday": false,
+						"Weekend": true
+					}
+				}
+			},
+			"Provider": "Aurora Energy/1st Energy/Energy Locals",
+			"ProviderType": "Retailer",
+			"State": "TAS",
+			"Tariff ID": "TBT013",
+			"Type": "TOU",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022-09",
+			"Distributor": "EvoEnergy",
+			"Name": "Time of Use (EvoEnergy) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.0244
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.07867
+				},
+				"TOU": {
+					"Off Peak All Week": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["22:00", "07:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.19328,
+						"Weekday": true,
+						"Weekend": true
+					},
+					"Peak All Week": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["07:00", "09:00"],
+							"T2": ["17:00", "20:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.35865,
+						"Weekday": true,
+						"Weekend": true
+					},
+					"Shoulder All Week": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["20:00", "22:00"],
+							"T2": ["09:00", "17:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.25493,
+						"Weekday": true,
+						"Weekend": true
+					}
+				}
+			},
+			"Provider": "ActewAGL/Energy Australia/Origin Energy",
+			"ProviderType": "Retailer",
+			"State": "ACT",
+			"Tariff ID": "TT0014",
+			"Type": "TOU",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022-09",
+			"Distributor": "EvoEnergy",
+			"Name": "Time of Use (EvoEnergy) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.50062
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.08144
+				},
+				"TOU": {
+					"Off Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["22:00", "07:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.2623,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Off-Peak Weekend": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["00:00", "00:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.2623,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["07:00", "17:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.45894,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Shoulder Weekday": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["17:00", "22:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.33698,
+						"Weekday": true,
+						"Weekend": false
+					}
+				}
+			},
+			"Provider": "ActewAGL/Energy Australia/Origin Energy",
+			"ProviderType": "Retailer",
+			"State": "ACT",
+			"Tariff ID": "TBT014",
+			"Type": "TOU",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022-09",
+			"Distributor": "PowerWater",
+			"Name": "Time of Use (PowerWater) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 0.49055
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.121
+				},
+				"TOU": {
+					"Off Peak All Week": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["18:00", "06:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.2462,
+						"Weekday": true,
+						"Weekend": true
+					},
+					"Peak All Week": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["06:00", "18:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.32288,
+						"Weekday": true,
+						"Weekend": true
+					}
+				}
+			},
+			"Provider": "All Retailers",
+			"ProviderType": "Retailer",
+			"State": "NT",
+			"Tariff ID": "TT0015",
+			"Type": "TOU",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022-09",
+			"Distributor": "PowerWater",
+			"Name": "Time of Use (PowerWater) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 0.8426
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.121
+				},
+				"TOU": {
+					"Off Peak All Week": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["18:00", "06:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.22935,
+						"Weekday": true,
+						"Weekend": true
+					},
+					"Peak All Week": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["06:00", "18:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.40758,
+						"Weekday": true,
+						"Weekend": true
+					}
+				}
+			},
+			"Provider": "All Retailers",
+			"ProviderType": "Retailer",
+			"State": "NT",
+			"Tariff ID": "TBT015",
+			"Type": "TOU",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022-07",
+			"Distributor": "Ausgrid",
+			"Name": "Seasonal Time of Use (Ausgrid) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 0.9668
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.069
+				},
+				"TOU": {
+					"Non-Winter/Summer Shoulder Weekdays": {
+						"Month": [4, 5, 9, 10],
+						"TimeIntervals": {
+							"T1": ["07:00", "22:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.269825,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Off Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["22:00", "07:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.174925,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Off Peak Weekends": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["22:00", "07:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.174925,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Shoulder Weekends": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["07:00", "22:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.269825,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Summer Peak Weekdays": {
+						"Month": [1, 2, 3, 11, 12],
+						"TimeIntervals": {
+							"T1": ["14:00", "20:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.577375,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Summer Shoulder Weekdays": {
+						"Month": [1, 2, 3, 11, 12],
+						"TimeIntervals": {
+							"T1": ["07:00", "14:00"],
+							"T2": ["20:00", "22:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.269825,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Winter Peak Weekdays": {
+						"Month": [6, 7, 8],
+						"TimeIntervals": {
+							"T1": ["17:00", "21:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.577375,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Winter Shoulder Weekdays": {
+						"Month": [6, 7, 8],
+						"TimeIntervals": {
+							"T1": ["07:00", "17:00"],
+							"T2": ["21:00", "22:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.269825,
+						"Weekday": true,
+						"Weekend": false
+					}
+				}
+			},
+			"Provider": "Energy Australia/Origin Energy",
+			"ProviderType": "Retailer",
+			"State": "NSW",
+			"Tariff ID": "TS0001",
+			"Type": "STOU",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022-08",
+			"Distributor": "Endeavour Energy",
+			"Name": "Seasonal Time of Use (Endeavour Energy) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.40475
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.075
+				},
+				"TOU": {
+					"Off Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["20:00", "16:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.24275,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Off Peak Weekends": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["00:00", "00:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.24275,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Summer Peak Weekdays": {
+						"Month": [1, 2, 3, 11, 12],
+						"TimeIntervals": {
+							"T1": ["16:00", "20:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.40795,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Winter Peak Weekdays": {
+						"Month": [4, 5, 6, 7, 8, 9, 10],
+						"TimeIntervals": {
+							"T1": ["16:00", "20:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.293,
+						"Weekday": true,
+						"Weekend": false
+					}
+				}
+			},
+			"Provider": "AGL",
+			"ProviderType": "Retailer",
+			"State": "NSW",
+			"Tariff ID": "TS0002",
+			"Type": "STOU",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022-09",
+			"Distributor": "Ausgrid",
+			"Name": "Seasonal Time of Use (Ausgrid) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 2.2088
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.0836
+				},
+				"TOU": {
+					"Non-Winter/Summer Shoulder Weekdays": {
+						"Month": [4, 5, 9, 10],
+						"TimeIntervals": {
+							"T1": ["07:00", "22:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.368,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Off Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["22:00", "07:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.2437,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Off Peak Weekends": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["00:00", "00:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.2437,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Summer Peak Weekdays": {
+						"Month": [1, 2, 3, 11, 12],
+						"TimeIntervals": {
+							"T1": ["14:00", "20:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.6165,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Summer Shoulder Weekdays": {
+						"Month": [1, 2, 3, 11, 12],
+						"TimeIntervals": {
+							"T1": ["07:00", "14:00"],
+							"T2": ["20:00", "22:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.368,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Winter Peak Weekdays": {
+						"Month": [6, 7, 8],
+						"TimeIntervals": {
+							"T1": ["14:00", "20:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.6165,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Winter Shoulder Weekdays": {
+						"Month": [6, 7, 8],
+						"TimeIntervals": {
+							"T1": ["07:00", "14:00"],
+							"T2": ["20:00", "22:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.368,
+						"Weekday": true,
+						"Weekend": false
+					}
+				}
+			},
+			"Provider": "Energy Australia",
+			"ProviderType": "Retailer",
+			"State": "NSW",
+			"Tariff ID": "TBS001",
+			"Type": "STOU",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022-08",
+			"Distributor": "Endeavour Energy",
+			"Name": "Seasonal Time of Use (Endeavour Energy) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.437
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.05
+				},
+				"TOU": {
+					"Off Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["20:00", "16:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.27375,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Off Peak Weekends": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["00:00", "00:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.27375,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Summer Peak Weekdays": {
+						"Month": [1, 2, 3, 11, 12],
+						"TimeIntervals": {
+							"T1": ["16:00", "20:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.43885,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Winter Peak Weekdays": {
+						"Month": [4, 5, 6, 7, 8, 9, 10],
+						"TimeIntervals": {
+							"T1": ["16:00", "20:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.32525,
+						"Weekday": true,
+						"Weekend": false
+					}
+				}
+			},
+			"Provider": "AGL",
+			"ProviderType": "Retailer",
+			"State": "NSW",
+			"Tariff ID": "TBS002",
+			"Type": "STOU",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022 - 09",
+			"Distributor": "SA Power Networks",
+			"Name": "Seasonal Time of Use (SA Power Networks) Business 2",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.317375
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.07175
+				},
+				"TOU": {
+					"Off Peak Weekdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["21:00", "07:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.318825,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Off-Peak Non-Summer Weekend": {
+						"Month": [4, 5, 6, 7, 8, 9, 10],
+						"TimeIntervals": {
+							"T1": ["00:00", "00:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.318825,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Off-Peak Summer Weekend": {
+						"Month": [1, 2, 3, 11, 12],
+						"TimeIntervals": {
+							"T1": ["21:00", "17:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.318825,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Peak Summer All Week": {
+						"Month": [1, 2, 3, 11, 12],
+						"TimeIntervals": {
+							"T1": ["17:00", "21:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.537525,
+						"Weekday": true,
+						"Weekend": true
+					},
+					"Shoulder Non-Summer Weekday": {
+						"Month": [4, 5, 6, 7, 8, 9, 10],
+						"TimeIntervals": {
+							"T1": ["07:00", "21:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.389025,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Shoulder Summer Weekday": {
+						"Month": [1, 2, 3, 11, 12],
+						"TimeIntervals": {
+							"T1": ["07:00", "17:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.389025,
+						"Weekday": true,
+						"Weekend": false
+					}
+				}
+			},
+			"Provider": "AGL/Energy Australia",
+			"ProviderType": "Retailer",
+			"State": "SA",
+			"Tariff ID": "TBS003",
+			"Type": "STOU",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022 - 09",
+			"Distributor": "SA Power Networks",
+			"Name": "Seasonal Time of Use (SA Power Networks) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.13665
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.05
+				},
+				"TOU": {
+					"Off-Peak Non-Summer All Week": {
+						"Month": [4, 5, 6, 7, 8, 9, 10],
+						"TimeIntervals": {
+							"T1": ["21:00", "07:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.3017,
+						"Weekday": true,
+						"Weekend": true
+					},
+					"Peak Summer All Week": {
+						"Month": [1, 2, 3, 11, 12],
+						"TimeIntervals": {
+							"T1": ["17:00", "21:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.47095,
+						"Weekday": true,
+						"Weekend": true
+					},
+					"Shoulder Non-Summer All Week": {
+						"Month": [4, 5, 6, 7, 8, 9, 10],
+						"TimeIntervals": {
+							"T1": ["07:00", "21:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.3883,
+						"Weekday": true,
+						"Weekend": true
+					},
+					"Shoulder Summer All Week": {
+						"Month": [1, 2, 3, 11, 12],
+						"TimeIntervals": {
+							"T1": ["07:00", "17:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.4277,
+						"Weekday": true,
+						"Weekend": true
+					},
+					"Summer Off Peak All Week": {
+						"Month": [1, 2, 3, 11, 12],
+						"TimeIntervals": {
+							"T1": ["21:00", "07:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.3017,
+						"Weekday": true,
+						"Weekend": true
+					}
+				}
+			},
+			"Provider": "Origin Energy",
+			"ProviderType": "Retailer",
+			"State": "SA",
+			"Tariff ID": "TBS004",
+			"Type": "STOU",
+			"Year": 2022
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022",
+			"Discount (%)": 0,
+			"Distributor": "Ausgrid",
+			"Name": "Demand Charge (Ausgrid) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.12315
+				},
+				"Demand": {
+					"Low Season Demand": {
+						"Month": [4, 5, 9, 10, 11],
+						"TimeIntervals": {
+							"T1": ["14:00", "20:00"]
+						},
+						"Unit": "$/kW/Day",
+						"Value": 0.1664,
+						"Weekday": true,
+						"Weekend": true
+					},
+					"Summer Demand": {
+						"Month": [1, 2, 3, 12, 11],
+						"TimeIntervals": {
+							"T1": ["14:00", "20:00"]
+						},
+						"Unit": "$/kW/Day",
+						"Value": 0.2816,
+						"Weekday": true,
+						"Weekend": true
+					},
+					"Winter Demand": {
+						"Month": [6, 7, 8],
+						"TimeIntervals": {
+							"T1": ["17:00", "21:00"]
+						},
+						"Unit": "$/kW/Day",
+						"Value": 0.229,
+						"Weekday": true,
+						"Weekend": true
+					}
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.063
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.21185
+				}
+			},
+			"ProviderType": "Retailer",
+			"State": "NSW",
+			"Tariff ID": "SR_Dem1",
+			"Type": "Demand"
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022",
+			"Discount (%)": 0,
+			"Distributor": "Ausgrid",
+			"Name": "Demand Charge (Ausgrid) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 2.2715
+				},
+				"Demand": {
+					"Low Season Demand": {
+						"Month": [4, 5, 9, 10],
+						"TimeIntervals": {
+							"T1": ["14:00", "20:00"]
+						},
+						"Unit": "$/kW/Day",
+						"Value": 0.2519,
+						"Weekday": true,
+						"Weekend": true
+					},
+					"Summer Demand": {
+						"Month": [1, 2, 3, 12, 11],
+						"TimeIntervals": {
+							"T1": ["14:00", "20:00"]
+						},
+						"Unit": "$/kW/Day",
+						"Value": 0.3359,
+						"Weekday": true,
+						"Weekend": true
+					},
+					"Winter Demand": {
+						"Month": [6, 7, 8],
+						"TimeIntervals": {
+							"T1": ["14:00", "20:00"]
+						},
+						"Unit": "$/kW/Day",
+						"Value": 0.3359,
+						"Weekday": true,
+						"Weekend": true
+					}
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.0836
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.2712
+				}
+			},
+			"ProviderType": "Retailer",
+			"State": "NSW",
+			"Tariff ID": "SR_Dem2",
+			"Type": "Demand"
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022",
+			"Discount (%)": 0,
+			"Distributor": "Endeavour Energy",
+			"Name": "Demand Charge (Endeavour Energy) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.29955
+				},
+				"Demand": {
+					"Low Season Demand": {
+						"Month": [4, 5, 6, 7, 8, 9, 10],
+						"TimeIntervals": {
+							"T1": ["16:00", "20:00"]
+						},
+						"Unit": "$/kW/Day",
+						"Value": 0.0423,
+						"Weekday": true,
+						"Weekend": true
+					},
+					"Summer Demand": {
+						"Month": [1, 2, 3, 12, 11],
+						"TimeIntervals": {
+							"T1": ["16:00", "20:00"]
+						},
+						"Unit": "$/kW/Day",
+						"Value": 0.11985,
+						"Weekday": true,
+						"Weekend": true
+					}
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.0668
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.2647
+				}
+			},
+			"ProviderType": "Retailer",
+			"State": "NSW",
+			"Tariff ID": "SR_Dem3",
+			"Type": "Demand"
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022",
+			"Discount (%)": 0,
+			"Distributor": "Endeavour Energy",
+			"Name": "Demand Charge (Endeavour Energy) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.1183
+				},
+				"Demand": {
+					"Low Season": {
+						"Month": [4, 5, 6, 7, 8, 9, 10],
+						"TimeIntervals": {
+							"T1": ["16:00", "20:00"]
+						},
+						"Unit": "$/kW/Day",
+						"Value": 0.03615,
+						"Weekday": true,
+						"Weekend": true
+					},
+					"Summer Demand": {
+						"Month": [1, 2, 3, 12, 11],
+						"TimeIntervals": {
+							"T1": ["16:00", "20:00"]
+						},
+						"Unit": "$/kW/Day",
+						"Value": 0.09835,
+						"Weekday": true,
+						"Weekend": true
+					}
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.063
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.2715
+				}
+			},
+			"ProviderType": "Retailer",
+			"State": "NSW",
+			"Tariff ID": "SR_Dem4",
+			"Type": "Demand"
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022",
+			"Discount (%)": 0,
+			"Distributor": "SA Power Networks",
+			"Name": "Demand Charge (SA Power Networks) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 0.7667
+				},
+				"Demand": {
+					"Peak Demand": {
+						"Min Demand (kW)": 1.0,
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["16:00", "21:00"]
+						},
+						"Unit": "$/kW/Day",
+						"Value": 0.11985,
+						"Weekday": true,
+						"Weekend": true
+					}
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.05
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.2935
+				}
+			},
+			"ProviderType": "Retailer",
+			"State": "SA",
+			"Tariff ID": "SR_Dem5",
+			"Type": "Demand"
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022",
+			"Discount (%)": 0,
+			"Distributor": "Ausnet Services",
+			"Name": "Demand Charge (Ausnet Services) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.2707
+				},
+				"Demand": {
+					"Summer": {
+						"Month": [1, 2, 3, 12],
+						"TimeIntervals": {
+							"T1": ["15:00", "21:00"]
+						},
+						"Unit": "$/kW/Day",
+						"Value": 0.3093,
+						"Weekday": true,
+						"Weekend": true
+					},
+					"Winter": {
+						"Month": [4, 5, 6, 7, 8, 9, 10, 11],
+						"TimeIntervals": {
+							"T1": ["15:00", "21:00"]
+						},
+						"Unit": "$/kW/Day",
+						"Value": 0.07675,
+						"Weekday": true,
+						"Weekend": true
+					}
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.053
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.35165
+				}
+			},
+			"ProviderType": "Retailer",
+			"State": "VIC",
+			"Tariff ID": "SR_Dem6",
+			"Type": "Demand"
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022",
+			"Discount (%)": 0,
+			"Distributor": "Ausnet Services",
+			"Name": "Demand Charge (Ausnet Services) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.2474
+				},
+				"Demand": {
+					"Summer Demand": {
+						"Month": [1, 2, 3, 12],
+						"TimeIntervals": {
+							"T1": ["15:00", "21:00"]
+						},
+						"Unit": "$/kW/Day",
+						"Value": 0.3938,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Winter": {
+						"Month": [4, 5, 6, 7, 8, 9, 10, 11],
+						"TimeIntervals": {
+							"T1": ["15:00", "21:00"]
+						},
+						"Unit": "$/kW/Day",
+						"Value": 0.0983,
+						"Weekday": true,
+						"Weekend": false
+					}
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.052
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.2255
+				}
+			},
+			"ProviderType": "Retailer",
+			"State": "VIC",
+			"Tariff ID": "SR_Dem7",
+			"Type": "Demand"
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022",
+			"Discount (%)": 0,
+			"Distributor": "SA Power Networks",
+			"Name": "Demand Charge (SA Power Networks) Residential all day",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 0.8271
+				},
+				"Demand": {
+					"Summer Demand": {
+						"Month": [1, 2, 3, 12, 11],
+						"TimeIntervals": {
+							"T1": ["00:00", "00:00"]
+						},
+						"Unit": "$/kW/Day",
+						"Value": 0.4641,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Winter": {
+						"Month": [4, 5, 6, 7, 8, 9, 10],
+						"TimeIntervals": {
+							"T1": ["00:00", "00:00"]
+						},
+						"Unit": "$/kW/Day",
+						"Value": 0.2292,
+						"Weekday": true,
+						"Weekend": false
+					}
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.08
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.3469
+				}
+			},
+			"ProviderType": "Retailer",
+			"State": "SA",
+			"Tariff ID": "SR_Dem8",
+			"Type": "Demand"
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022",
+			"Discount (%)": 0,
+			"Distributor": "SA Power Networks",
+			"Name": "Demand Charge (SA Power Networks) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 2.48175
+				},
+				"Demand": {
+					"Summer Demand": {
+						"Month": [1, 2, 3, 12, 11],
+						"TimeIntervals": {
+							"T1": ["00:00", "00:00"]
+						},
+						"Unit": "$/kW/Day",
+						"Value": 0.44995,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Winter": {
+						"Month": [4, 5, 6, 7, 8, 9, 10],
+						"TimeIntervals": {
+							"T1": ["00:00", "00:00"]
+						},
+						"Unit": "$/kW/Day",
+						"Value": 0.2224,
+						"Weekday": true,
+						"Weekend": false
+					}
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.08
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.2975
+				}
+			},
+			"ProviderType": "Retailer",
+			"State": "SA",
+			"Tariff ID": "SR_Dem9",
+			"Type": "Demand"
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022",
+			"Discount (%)": 0,
+			"Distributor": "Powercor",
+			"Name": "Demand Charge (Powercor) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.2577
+				},
+				"Demand": {
+					"Summer Demand": {
+						"Month": [1, 2, 3, 12, 11],
+						"TimeIntervals": {
+							"T1": ["15:00", "21:00"]
+						},
+						"Unit": "$/kW/Day",
+						"Value": 0.4036,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Winter": {
+						"Month": [4, 5, 6, 7, 8, 9, 10],
+						"TimeIntervals": {
+							"T1": ["15:00", "21:00"]
+						},
+						"Unit": "$/kW/Day",
+						"Value": 0.123,
+						"Weekday": true,
+						"Weekend": false
+					}
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.052
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.1845
+				}
+			},
+			"ProviderType": "Retailer",
+			"State": "VIC",
+			"Tariff ID": "SR_Dem10",
+			"Type": "Demand"
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022",
+			"Discount (%)": 0,
+			"Distributor": "Citipower",
+			"Name": "Demand Charge (Citipower) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.1623
+				},
+				"Demand": {
+					"Summer Demand": {
+						"Month": [1, 2, 3, 12],
+						"TimeIntervals": {
+							"T1": ["15:00", "21:00"]
+						},
+						"Unit": "$/kW/Day",
+						"Value": 0.2874,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Winter": {
+						"Month": [4, 5, 6, 7, 8, 9, 10, 11],
+						"TimeIntervals": {
+							"T1": ["15:00", "21:00"]
+						},
+						"Unit": "$/kW/Day",
+						"Value": 0.0982,
+						"Weekday": true,
+						"Weekend": false
+					}
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.052
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.162
+				}
+			},
+			"ProviderType": "Retailer",
+			"State": "VIC",
+			"Tariff ID": "SR_Dem11",
+			"Type": "Demand"
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022",
+			"Discount (%)": 0,
+			"Distributor": "Jemena",
+			"Name": "Demand Charge (Jemena) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.0432
+				},
+				"Demand": {
+					"Summer Demand": {
+						"Month": [1, 2, 3, 12],
+						"TimeIntervals": {
+							"T1": ["15:00", "21:00"]
+						},
+						"Unit": "$/kW/Day",
+						"Value": 0.1919,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Winter": {
+						"Month": [4, 5, 6, 7, 8, 9, 10, 11],
+						"TimeIntervals": {
+							"T1": ["15:00", "21:00"]
+						},
+						"Unit": "$/kW/Day",
+						"Value": 0.1919,
+						"Weekday": true,
+						"Weekend": false
+					}
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.052
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.1752
+				}
+			},
+			"ProviderType": "Retailer",
+			"State": "VIC",
+			"Tariff ID": "SR_Dem12",
+			"Type": "Demand"
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022",
+			"Discount (%)": 0,
+			"Distributor": "Energex",
+			"Name": "Demand Charge (Energex) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.2008
+				},
+				"Demand": {
+					"Summer Demand": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["16:00", "21:00"]
+						},
+						"Unit": "$/kW/Day",
+						"Value": 0.12755,
+						"Weekday": true,
+						"Weekend": false
+					}
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.058
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.22845
+				}
+			},
+			"ProviderType": "Retailer",
+			"State": "QLD",
+			"Tariff ID": "SR_Dem13",
+			"Type": "Demand"
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022",
+			"Discount (%)": 0,
+			"Distributor": "Ergon Energy",
+			"Name": "Demand Charge (Ergon Energy) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 0.9945
+				},
+				"Demand": {
+					"Summer Demand": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["16:00", "21:00"]
+						},
+						"Unit": "$/kW/Day",
+						"Value": 0.214,
+						"Weekday": true,
+						"Weekend": false
+					}
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.093
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.1902
+				}
+			},
+			"ProviderType": "Retailer",
+			"State": "QLD",
+			"Tariff ID": "SR_Dem14",
+			"Type": "Demand"
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022",
+			"Discount (%)": 0,
+			"Distributor": "TasNetworks",
+			"Name": "Demand Charge (TasNetworks) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 4.54285
+				},
+				"Demand": {
+					"Summer Demand": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["00:00", "00:00"]
+						},
+						"Unit": "$/kW/Day",
+						"Value": 0.39964,
+						"Weekday": true,
+						"Weekend": false
+					}
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.088565
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.2272
+				}
+			},
+			"ProviderType": "Retailer",
+			"State": "TAS",
+			"Tariff ID": "SR_Dem15",
+			"Type": "Demand"
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed": "2022",
+			"Discount (%)": 0,
+			"Distributor": "EvoEnergy",
+			"Name": "Demand Charge (EvoEnergy) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.1344
+				},
+				"Demand": {
+					"Summer Demand": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["17:00", "20:00"]
+						},
+						"Unit": "$/kW/Day",
+						"Value": 0.22595,
+						"Weekday": true,
+						"Weekend": false
+					}
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.078
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.2205
+				}
+			},
+			"ProviderType": "Retailer",
+			"State": "ACT",
+			"Tariff ID": "SR_Dem16",
+			"Type": "Demand"
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022",
+			"Discount (%)": 0,
+			"Distributor": "EvoEnergy",
+			"Name": "Demand Charge (EvoEnergy) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.5235
+				},
+				"Demand": {
+					"Summer Demand": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["07:00", "17:00"]
+						},
+						"Unit": "$/kW/Day",
+						"Value": 0.5424,
+						"Weekday": true,
+						"Weekend": false
+					}
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.0675
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.39355
+				}
+			},
+			"ProviderType": "Retailer",
+			"State": "ACT",
+			"Tariff ID": "SR_Dem17",
+			"Type": "Demand"
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed": "2022",
+			"Discount (%)": 0,
+			"Distributor": "Energex",
+			"Name": "Demand Charge (Energex) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.49785
+				},
+				"Demand": {
+					"Summer Demand": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["16:00", "21:00"]
+						},
+						"Unit": "$/kW/Day",
+						"Value": 0.1268,
+						"Weekday": true,
+						"Weekend": false
+					}
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.0613
+				},
+				"FlatRate": {
+					"Unit": "$/kWh",
+					"Value": 0.26795
+				}
+			},
+			"ProviderType": "Retailer",
+			"State": "QLD",
+			"Tariff ID": "SR_Dem18",
+			"Type": "Demand"
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed ": "2022",
+			"Discount (%)": 0,
+			"Distributor": "Ausgrid",
+			"Name": "Time of Use Demand Charge (Ausgrid) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 6.0876
+				},
+				"Demand": {
+					"Peak Demand": {
+						"Day Average": false,
+						"Demand Window Length": 1,
+						"Min Demand (kW)": 0,
+						"Min Demand Charge ($)": 0,
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"Number of Peaks": 1,
+						"TimeIntervals": {
+							"T1": ["14:00", "20:00"]
+						},
+						"Unit": "$/kW/Day",
+						"Value": 0.385,
+						"Weekday": true,
+						"Weekend": false
+					}
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.05
+				},
+				"TOU": {
+					"Off peak workdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["22:00", "07:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.15375,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Peak workdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["14:00", "20:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.29125,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Shoulder workdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["07:00", "14:00"],
+							"T2": ["20:00", "22:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.2542,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Weekend and public holidays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["00:00", "00:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.15375,
+						"Weekday": false,
+						"Weekend": true
+					}
+				}
+			},
+			"ProviderType": "Retailer",
+			"State": "NSW",
+			"Tariff ID": "TOU_Dem1",
+			"Type": "Demand"
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed ": "2022",
+			"Discount (%)": 0,
+			"Distributor": "Essential Energy",
+			"Name": "Time of Use Demand Charge (Essential Energy) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 2.4366
+				},
+				"Demand": {
+					"Peak": {
+						"Day Average": false,
+						"Demand Window Length": 1,
+						"Min Demand (kW)": 0,
+						"Min Demand Charge ($)": 0,
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"Number of Peaks": 1,
+						"TimeIntervals": {
+							"T1": ["17:00", "20:00"]
+						},
+						"Unit": "$/kW/Day",
+						"Value": 0.2466,
+						"Weekday": true,
+						"Weekend": false
+					}
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.05
+				},
+				"TOU": {
+					"Off peak workdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["22:00", "07:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.2066,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Peak workdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["17:00", "20:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.2565,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Shoulder workdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["07:00", "17:00"],
+							"T2": ["20:00", "22:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.2349,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Weekend and public holidays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["00:00", "00:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.2066,
+						"Weekday": false,
+						"Weekend": true
+					}
+				}
+			},
+			"ProviderType": "Retailer",
+			"State": "NSW",
+			"Tariff ID": "TOU_Dem2",
+			"Type": "Demand"
+		},
+		{
+			"CustomerType": "Residential",
+			"Date_accessed ": "2022",
+			"Discount (%)": 0,
+			"Distributor": "Essential Energy",
+			"Name": "Time of Use Demand Charge (Essential Energy) Residential",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.7853
+				},
+				"Demand": {
+					"Peak": {
+						"Day Average": false,
+						"Demand Window Length": 1,
+						"Min Demand (kW)": 0,
+						"Min Demand Charge ($)": 0,
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"Number of Peaks": 1,
+						"TimeIntervals": {
+							"T1": ["17:00", "20:00"]
+						},
+						"Unit": "$/kW/Day",
+						"Value": 0.1518,
+						"Weekday": true,
+						"Weekend": false
+					}
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.05
+				},
+				"TOU": {
+					"Off peak workdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["22:00", "07:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.2038,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Peak workdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["17:00", "20:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.2257,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Shoulder workdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["07:00", "17:00"],
+							"T2": ["20:00", "22:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.2215,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Weekend and public holidays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["00:00", "00:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.2066,
+						"Weekday": false,
+						"Weekend": true
+					}
+				}
+			},
+			"ProviderType": "Retailer",
+			"State": "NSW",
+			"Tariff ID": "TOU_Dem3",
+			"Type": "Demand"
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed ": "2022",
+			"Discount (%)": 0,
+			"Distributor": "SA Power Networks",
+			"Name": "Time of Use Demand Charge (SA Power Networks) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 1.4563
+				},
+				"Demand": {
+					"Peak": {
+						"Day Average": false,
+						"Demand Window Length": 1,
+						"Min Demand (kW)": 0,
+						"Min Demand Charge ($)": 0,
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"Number of Peaks": 1,
+						"TimeIntervals": {
+							"T1": ["17:00", "20:00"]
+						},
+						"Unit": "$/kW/Day",
+						"Value": 0.0846,
+						"Weekday": true,
+						"Weekend": true
+					}
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.05
+				},
+				"TOU": {
+					"Off peak workdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["21:00", "07:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.2924,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Off-peak Weekend": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["21:00", "17:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.2924,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Peak Weekend": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["17:00", "21:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.4153,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Peak workdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["17:00", "20:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.4153,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Shoulder workdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["07:00", "17:00"],
+							"T2": ["20:00", "21:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.3553,
+						"Weekday": true,
+						"Weekend": false
+					}
+				}
+			},
+			"ProviderType": "Retailer",
+			"State": "SA",
+			"Tariff ID": "TOU_Dem4",
+			"Type": "Demand"
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed ": "2022",
+			"Discount (%)": 0,
+			"Distributor": "EvoEnergy",
+			"Name": "Time of Use Demand Charge (EvoEnergy) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 4.125
+				},
+				"Demand": {
+					"Peak": {
+						"Day Average": false,
+						"Demand Window Length": 1,
+						"Min Demand (kW)": 0,
+						"Min Demand Charge ($)": 0,
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"Number of Peaks": 1,
+						"TimeIntervals": {
+							"T1": ["07:00", "17:00"]
+						},
+						"Unit": "$/kW/Day",
+						"Value": 0.52995,
+						"Weekday": true,
+						"Weekend": false
+					}
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.0675
+				},
+				"TOU": {
+					"Off peak workdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["22:00", "07:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.3247,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Off-peak Weekend": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["00:00", "00:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.3247,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Peak workdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["07:00", "17:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.4192,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Shoulder Weekday": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["17:00", "22:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.35655,
+						"Weekday": true,
+						"Weekend": false
+					}
+				}
+			},
+			"ProviderType": "Retailer",
+			"State": "ACT",
+			"Tariff ID": "TOU_Dem6",
+			"Type": "Demand"
+		},
+		{
+			"CustomerType": "SmallBusiness",
+			"Date_accessed ": "2022",
+			"Discount (%)": 0,
+			"Distributor": "Jemena",
+			"Name": "Time of Use Demand Charge (Jemena) Business",
+			"Parameters": {
+				"Daily": {
+					"Unit": "$/day",
+					"Value": 2.365
+				},
+				"Demand": {
+					"Peak": {
+						"Day Average": false,
+						"Demand Window Length": 1,
+						"Min Demand (kW)": 0,
+						"Min Demand Charge ($)": 0,
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"Number of Peaks": 1,
+						"TimeIntervals": {
+							"T1": ["00:00", "00:00"]
+						},
+						"Unit": "$/kW/Day",
+						"Value": 0.2166,
+						"Weekday": true,
+						"Weekend": false
+					}
+				},
+				"FiT": {
+					"Unit": "$/kWh",
+					"Value": 0.054
+				},
+				"TOU": {
+					"Off peak workdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["21:00", "07:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.1857,
+						"Weekday": true,
+						"Weekend": false
+					},
+					"Off-peak Weekend": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["22:00", "07:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.1857,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Peak Weekend": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["07:00", "22:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.2599,
+						"Weekday": false,
+						"Weekend": true
+					},
+					"Peak workdays": {
+						"Month": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+						"TimeIntervals": {
+							"T1": ["07:00", "21:00"]
+						},
+						"Unit": "$/kWh",
+						"Value": 0.2599,
+						"Weekday": true,
+						"Weekend": false
+					}
+				}
+			},
+			"ProviderType": "Retailer",
+			"State": "VIC",
+			"Tariff ID": "TOU_Dem5",
+			"Type": "Demand"
+		}
+	],
+	"Version": "v7"
+}]
