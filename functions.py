@@ -52,5 +52,11 @@ def parse_data(contents, filename):
     return df
 
 
+def process_tariff_rates(building, tariff_dict):
+    FiT = tariff_dict[0]["Parameters"]["FiT"]["Value"]
+
+    pass
+
+
 if __name__ == "__main__":
     create_occupancy_column()

@@ -572,3 +572,23 @@ PV_orientation_radio_item = html.Div(
         ),
     ]
 )
+
+
+def create_tariff_drpdwn():
+    filtered_tariffs = []
+
+    json = pd.read_json("RetailTariffs.json")
+    tariff_dicts = json.Tariffs[0]
+    for i in tariff_dicts:
+        if "Year" in i.keys():
+            if (i["CustomerType"] == "Residential") & (
+                i["State"] in ["VIC", "QLD", "NSW", "SA", "All"]
+            ):
+                filtered_tariffs.append(i)
+    tariff_drpdwn = dbc.Select(
+        id="dropdown-tariff",
+        required=True,
+        options=[{"label": i["Name"], "value": i} for i in filtered_tariffs],
+        value=filtered_tariffs[0],
+    )
+    return tariff_drpdwn

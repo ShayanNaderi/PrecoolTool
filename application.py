@@ -20,6 +20,7 @@ from app_components import (
     star_rating_toast,
     tariff_radio_checklist,
     tariff_table,
+    create_tariff_drpdwn,
 )
 
 simulation_tab_content = (
@@ -117,6 +118,8 @@ simulation_tab_content = (
                             dbc.CardBody(
                                 [
                                     tariff_radio_checklist,
+                                    html.Hr(),
+                                    create_tariff_drpdwn(),
                                     html.Hr(),
                                     html.P("In case of TOU, please enter hourly rates"),
                                     tariff_table,
