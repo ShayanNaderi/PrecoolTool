@@ -5,11 +5,8 @@ import callbacks  # noqa: F401
 import callbacks_run  # noqa: F401
 from app import app, application
 from app_components import (
-    AC_year_radio_item,
     PV_orientation_radio_item,
     construction_weight_radio_item,
-    construction_weight_toast,
-    # demand_profile_radio_item,
     demand_questions_radio_item,
     dwelling_type_radio_item,
     floor_area_radio_item,
@@ -18,9 +15,6 @@ from app_components import (
     neutral_temp_select,
     occupancy_checklist,
     star_rating_radio_item,
-    star_rating_toast,
-    tariff_radio_checklist,
-    tariff_table,
     create_tariff_drpdwn,
 )
 
@@ -270,8 +264,7 @@ app.layout = dbc.Container(
                 # Solar Pre-cooling Potential Assessment Tool
 
                 
-                [User guide]  (https://respct.readthedocs.io/en/latest/index.html#)
-                  [Source code](https://github.com/ShayanNaderi/RESPCT) 
+                [Source code and user guide](https://github.com/ShayanNaderi/RESPCT) 
 
                 """,
                             style={"color": "green"},

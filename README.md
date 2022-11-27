@@ -15,10 +15,10 @@ Badges can go here
 ## pre-cooling and solar pre-cooling background
 
 Pre-cooling means running the air conditioning (AC) before peak periods, and reducing the indoor temperautre
-below the temperature that is usaully set by occupants. The reduciton of indoor temperature then reduces the temperature
-of thermal mass in the buildings, and the cooled down thermal mass results in lower cooling demand later in the day.
+below the temperature that is usaully set by occupants. The reduction of indoor temperature then reduces the temperature
+of thermal mass in the building, and the cooled down thermal mass results in lower cooling demand later in the day.
 
-If the surplus PV generation from rooftop PV systems is used to pre-cool the building, instead of the imported
+If the surplus PV generation from the rooftop PV system is used to pre-cool the building instead of the imported
 electricity from the grid, it is defined as solar pre-cooling. to learn more about pre-cooling and solar pre-cooling
 please refer to the following papers:
 
@@ -28,42 +28,84 @@ please refer to the following papers:
 ## Overview of the tool
 `RESPCT` is an online web application that allows you simulate pre-cooling and solar pre-cooling for a range of existing
 buildings in Australian building stock. It has a database of the thermal behavior of the available buildings that allows
-you simulate the hourly AC demand, indoor temperature, electricity cost, and the thermal discomfort index.
+you simulate the  AC demand, indoor temperature, electricity cost, and the thermal discomfort index.
 
-![Loading page](./docs/source/_static/loadingPage.PNG)
 
-The user can choose the location, star rating, construction weight, dwelling type, and floor area.
+### Summary page and statistics
+The tool has two tabs. Be selecting the `Solar pre-cooling potential in Australia` at the top left, the user can see
+a range of statistics about the current building in Australia, and their solar pre-cooling potential.
+![tabs](./docs/source/_static/tabs.PNG)
 
-![Loading page](./docs/source/_static/create_thermal_model.PNG)
+![Summary page](./docs/source/_static/summary_page_1.PNG)
 
-There are alos fields for the user to enter their typical occupancy patterns, and thermal comfort expectations (preferred indoor temperature
-during occupied hours). 
+
+![Summary page](./docs/source/_static/savings_summary.PNG)
+
+### How to use the simulation tool
+
+By clicking on `Simulation tool` tab in the top left, the simulation tool appears.
+The user need to answer to a few questions. 
+#### Create thermal model
+The first step is to create the thermal model of the building. The user can
+choose the location, star rating, construction weight, dwelling type, and floor area.
+
+![Thermal model](./docs/source/_static/create_thermal_model.PNG)
+
+#### Define occupied periods
+There are fields for the user to enter their typical occupancy patterns. It is done easily be selecting the occupied periods
+in the checkbox.
 
 ![Loading page](./docs/source/_static/occupancy_pattern.PNG)
+
+#### Define ideal indoor temperature
+
+The preferred indoor temperature during occupied hours and acceptable deviation from the ideal temperature is done under
+the `Ideal indoor temperature button`.
+
 ![Loading page](./docs/source/_static/thermal_comfort.PNG)
 
-The user can also enter the tariff structure and rates.
+#### Tariff structure
+
+There is a database of the available tariffs in Australia, from which the user can choose. 
+
 ![Loading page](docs/source/_static/tariff.PNG)
 
-If the data from household demand (excluding AC demand) is avaialable, the user can upload it to the tool to increase the
-accuracy of the simulation based on households' behavior. Otherwise, there is a database of AC excluded net demand profile
-from around 450 Australian households. The user can choose the demand profile that is similar to their household's
-consumption patterns.
+#### Air conditioning excluded demand
+There is a database of AC excluded net demand profiles from around 450 Australian households.
+The user can choose the demand profile that is similar to their consumption. The result of solar pre-cooling is sensitive
+to the demand profile, and you can try different demand profiles to understand the effect of changing the behaviour on the
+potential savings.
 
 ![Loading page](docs/source/_static/selected_demand.PNG)
 
+
+#### Air condition and PV system
 PV generation and the amount of surplus PV generation after meeting households demand must be available for simulating 
 solar pre-cooling. For simulating the performance of the rooftop PV system, the user needs to enter the rated capacity 
-of the PV system, the location (city), and the orientaion of the panels.
+of the PV system, and the orientaion of the panels.
 
 ![Loading page](docs/source/_static/PV.PNG)
 
-At the end, they can add the created case study, and run the simulation. The user can create multiple case studies to compare 
-them. For example, two case that are similar from all aspects but they have different star rating. This helps the user
+#### Adding the created case study
+
+After entering all the information, the user must choose a name for the case study, and click on `Add the case study`. 
+The user can add as many case studies as they want. For example, two case that are similar from all aspects but they have different star rating. This helps the user
 understand how much the solar pre-cooling potential changes if they renovate their building and implement some energy 
 efficient measures. 
+It is also possible to delete all the case studies by clicking on `Clean all case studies`.
+
+![buttons](docs/source/_static/buttons.PNG)
+
+#### Running the simulation
+
+The last step is to run the solar pre-cooling simulation by clicking on `Run solar pre-cooling`. 
+
+#### Visualization of the reuslts
+
 
 The user can choose different figures from the dropdown to visualize the result of solar pre-cooling.
+The avaialable figures are AC demand, monthly cost savings, thermal discomfort reduction, and surplus PV generation.
+
 ![Loading page](docs/source/_static/results1.PNG)
 
 

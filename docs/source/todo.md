@@ -7,6 +7,7 @@ orphan: true
 ```{todolist}
 ```
 1- Add files for medium sized houses
-2- The load profile limits the duration of simulations. add the load profile for spring as well. It comes
+2- modify the legend labels for results
+3- The load profile limits the duration of simulations. add the load profile for spring as well. It comes
 from the file "three_month_demand.csv".
 
