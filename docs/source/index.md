@@ -1,4 +1,9 @@
-```{include} ../../readme.md
+
+<!-- ```{include} readme2.md
+``` -->
+```{include} ../../README.md
+:relative-docs: docs/source
+:relative-images:
 ```
 
 # Full table of contents

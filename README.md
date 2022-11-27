@@ -30,17 +30,17 @@ please refer to the following papers:
 buildings in Australian building stock. It has a database of the thermal behavior of the available buildings that allows
 you simulate the hourly AC demand, indoor temperature, electricity cost, and the thermal discomfort index.
 
-![Loading page](docs/source/_static/loadingPage.PNG)
+![Loading page](./docs/source/_static/loadingPage.PNG)
 
 The user can choose the location, star rating, construction weight, dwelling type, and floor area.
 
-![Loading page](docs/source/_static/create_thermal_model.PNG)
+![Loading page](./docs/source/_static/create_thermal_model.PNG)
 
 There are alos fields for the user to enter their typical occupancy patterns, and thermal comfort expectations (preferred indoor temperature
 during occupied hours). 
 
-![Loading page](docs/source/_static/occupancy_pattern.PNG)
-![Loading page](docs/source/_static/thermal_comfort.PNG)
+![Loading page](./docs/source/_static/occupancy_pattern.PNG)
+![Loading page](./docs/source/_static/thermal_comfort.PNG)
 
 The user can also enter the tariff structure and rates.
 ![Loading page](docs/source/_static/tariff.PNG)
