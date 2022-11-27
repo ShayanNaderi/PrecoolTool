@@ -163,8 +163,6 @@ def update_progress(
         State("deviation-low-temp", "value"),
         State("weekdays-occupancy-checklist", "value"),
         State("AC-rated-capacity", "value"),
-        State("PV-rated-capacity", "value"),
-        State("AC-year-radio", "value"),
         State("selected-demand-div-id", "children"),
         State("run-simulation-hidden-div", "children"),
         State("list-of-buildings-hidden-div", "children"),
@@ -173,7 +171,6 @@ def update_progress(
         State("dwelling-type-radio", "value"),
         State("floor-area-radio", "value"),
         State("location-radio", "value"),
-        State("demand-profile-availability-radio", "value"),
         State("dropdown-tariff", "value"),
     ),
     background=True,
@@ -211,8 +208,6 @@ def update_progress(
     lower_limit,
     weekdays_occ,
     AC_size,
-    PV_size,
-    AC_made_year,
     site_id,
     hidden_div_run,
     hidden_div_list_buildings,
@@ -221,7 +216,6 @@ def update_progress(
     building_type,
     building_size,
     location,
-    demand_availability,
     tariff_id,
 ):
     AC_size = (
@@ -270,13 +264,9 @@ def update_progress(
         df_PV = pd.read_csv("PV_generation.csv")
         # df_PV = pd.read_json(hidden_div_PV, orient="split")  # check if it is a list
         print("read PV simulation results OK")
-        if demand_availability == "unavailable":
-            df_demand = read_demand_from_xlsx_file(site_id)
-            print("Read demand file Ok")
-        else:
-            # df_demand =
+        df_demand = read_demand_from_xlsx_file(site_id)
+        print("Read demand file Ok")
 
-            pass
         ready_df = join_PV_load_temp(PV=df_PV, load_temp=df_TMY, real_demand=df_demand)
         # This df is used for baseline and pre-cooling scenarios
         print("ready df ok")

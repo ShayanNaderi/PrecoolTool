@@ -154,52 +154,52 @@ def floor_area_radio_item_update(dwelling_type):
     return options_dictionary[dwelling_type], "Small"
 
 
-@app.callback(
-    Output("flat-tariff-rate", "disabled"),
-    [Input("tariff-structure", "value")],
-)
-def disable_flat_rate(tariff_structure):
-    if tariff_structure != "flat-rate":
-        return True
-    else:
-        return False
+# @app.callback(
+#     Output("flat-tariff-rate", "disabled"),
+#     [Input("tariff-structure", "value")],
+# )
+# def disable_flat_rate(tariff_structure):
+#     if tariff_structure != "flat-rate":
+#         return True
+#     else:
+#         return False
 
 
-@app.callback(
-    Output("upload-demand-data-div", "children"),
-    [
-        Input("demand-profile-availability-radio", "value"),
-        Input("demand-profile-collapse", "is_open"),
-    ],
-)
-def update_graphs(availability, is_open):
-    if availability == "available":
-        return [
-            create_upload_data("upload-demand-data"),
-            "Please upload data",
-        ]
-
-    elif (availability != "available") & (is_open == True):
-        return [
-            "Please select items based on your consumption patterns",
-            html.Br(),
-            demand_questions_radio_item,
-        ]
-
-    elif (availability != "available") & (is_open == False):
-        return []
+# @app.callback(
+#     Output("upload-demand-data-div", "children"),
+#     [
+#         Input("demand-profile-availability-radio", "value"),
+#         Input("demand-profile-collapse", "is_open"),
+#     ],
+# )
+# def update_graphs(availability, is_open):
+#     if availability == "available":
+#         return [
+#             create_upload_data("upload-demand-data"),
+#             "Please upload data",
+#         ]
+#
+#     elif (availability != "available") & (is_open == True):
+#         return [
+#             "Please select items based on your consumption patterns",
+#             html.Br(),
+#             demand_questions_radio_item,
+#         ]
+#
+#     elif (availability != "available") & (is_open == False):
+#         return []
 
 
 @app.callback(
     Output("demand-selection-top-div", "children"),
     [
-        Input("demand-profile-availability-radio", "value"),
+        # Input("demand-profile-availability-radio", "value"),
         Input("demand-profile-collapse", "is_open"),
         Input("net-demand-questions", "value"),
     ],
 )
 def update_graphs(
-    availability,
+    # availability,
     is_open,
     answer_cluster_question,
 ):
@@ -209,7 +209,7 @@ def update_graphs(
         "modest-surplus": [1],
     }
     cluster = cluster_dic[answer_cluster_question]
-    if (is_open == True) & (availability == "unavailable"):
+    if is_open == True:
         df = pd.read_csv("Data/average_demand_and_clusters_for_demand_selection.csv")
         df = df[df["Cluster"].isin(cluster)]
         if (cluster == [1]) | (cluster == [2]):
@@ -222,13 +222,13 @@ def update_graphs(
         )
         return fig
 
-    elif (is_open == False) | (availability == "available"):
+    elif is_open == False:
         return []
 
 
 @app.callback(
     # [
-    Output("dump-selected-div", "children"),
+    # Output("dump-selected-div", "children"),
     Output("selected-demand-div", "children"),
     Output("selected-demand-div-id", "children"),
     # ],
@@ -239,11 +239,14 @@ def update_graphs(
     [
         State("select-demand-profile-fig", "selectedData"),
         State("net-demand-questions", "value"),
-        State("demand-profile-availability-radio", "value"),
+        # State("demand-profile-availability-radio", "value"),
     ],
 )
 def display_selected_data(
-    clickData, is_open, selectedData, asnwer_net_demand, availability
+    clickData,
+    is_open,
+    selectedData,
+    asnwer_net_demand,
 ):
     if clickData is not None:
         # if clickData["points"][0]["customdata"][0] is not None:
@@ -253,12 +256,11 @@ def display_selected_data(
         df = df[df["site_ID"] == site_id]
         fig = create_selected_profile_fig(df)
 
-        if (is_open == True) & (availability == "unavailable"):
-            return json.dumps(clickData, indent=2), fig, site_id
+        if is_open == True:
+            return fig, site_id
 
-        elif (is_open == False) | (availability == "available"):
-            # print(file_name,content)
-            return [], [], site_id
+        elif is_open == False:
+            return [], site_id
 
 
 # # Upload Data component
