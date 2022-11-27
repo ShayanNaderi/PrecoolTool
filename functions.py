@@ -24,7 +24,6 @@ def create_tariff_column(building, tariff_type, tariff_table, flat_rate, FiT):
         )
         building.ready_df = building.ready_df.merge(tariff_table, on="hour")
     building.ready_df["FiT"] = FiT
-    building.ready_df.to_csv("tariff_added.csv")
     return building
 
 
@@ -52,10 +51,58 @@ def parse_data(contents, filename):
     return df
 
 
-def process_tariff_rates(building, tariff_dict):
-    FiT = tariff_dict[0]["Parameters"]["FiT"]["Value"]
+def process_tariff_rates(building, tariff_id):
+    json = pd.read_json("RetailTariffs.json")
+    tariff_dicts = json.Tariffs[0]
+    print(tariff_id)
+    building.ready_df["Tariff"] = 0
 
-    pass
+    for t in tariff_dicts:
+        if t["Tariff ID"] == tariff_id:
+            tariff = t
+
+    if tariff["Type"] == "TOU":
+        off_peak_rate = tariff["Parameters"]["TOU"]["Off Peak Weekdays"]["Value"]
+        building.ready_df["Tariff"] = off_peak_rate
+
+        if "Peak Weekdays" in tariff.keys():
+            peak_intervals = tariff["Parameters"]["TOU"]["Peak Weekdays"][
+                "TimeIntervals"
+            ]
+            peak_rate = tariff["Parameters"]["TOU"]["Peak Weekdays"]["Value"]
+            for key in peak_intervals.keys():
+                start = pd.to_datetime(peak_intervals[key][0]).hour
+                end = pd.to_datetime(peak_intervals[key][1]).hour
+                building.ready_df.loc[
+                    (building.ready_df["hour"] < end)
+                    & (building.ready_df["hour"] >= start),
+                    "Tariff",
+                ] = peak_rate
+                print(start, end)
+
+        if "Shoulder Weekdays" in tariff.keys():
+            shoulder_rate = tariff["Parameters"]["TOU"]["Shoulder Weekdays"]["Value"]
+            shoulder_intervals = tariff["Parameters"]["TOU"]["Shoulder Weekdays"][
+                "TimeIntervals"
+            ]
+            for key in shoulder_intervals.keys():
+                start = pd.to_datetime(shoulder_intervals[key][0]).hour
+                end = pd.to_datetime(shoulder_intervals[key][1]).hour
+                building.ready_df.loc[
+                    (building.ready_df["hour"] < end)
+                    & (building.ready_df["hour"] >= start),
+                    "Tariff",
+                ] = shoulder_rate
+                print(start, end)
+
+    elif tariff["Type"] == "Single_Rate":
+        flat_rate = tariff_dicts[0]["Parameters"]["FlatRate"]["Value"]
+        building.ready_df["Tariff"] = flat_rate
+
+    building.ready_df["FiT"] = tariff["Parameters"]["FiT"]["Value"]
+    building.ready_df.to_csv("tariff_added.csv")
+
+    return building
 
 
 if __name__ == "__main__":

@@ -88,8 +88,8 @@ def generate_single_building_graphs():
                             children=[],
                             style={
                                 "margin-top": "15px",
-                                "margin-left": "20px",
-                                "margin-right": "20px",
+                                "margin-left": "0px",
+                                "margin-right": "0px",
                             },
                         ),
                         html.Br(),

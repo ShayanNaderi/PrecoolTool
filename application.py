@@ -117,15 +117,7 @@ simulation_tab_content = (
                         dbc.Card(
                             dbc.CardBody(
                                 [
-                                    tariff_radio_checklist,
-                                    html.Hr(),
                                     create_tariff_drpdwn(),
-                                    html.Hr(),
-                                    html.P("In case of TOU, please enter hourly rates"),
-                                    tariff_table,
-                                    html.Div(
-                                        id="table-test",
-                                    ),
                                 ]
                             )
                         ),
@@ -184,15 +176,6 @@ simulation_tab_content = (
                                         value=6,
                                         step=0.5,
                                     ),
-                                    # generate_select(
-                                    #     id="inverter-efficiency",
-                                    #     title="Inverter efficiency %:",
-                                    #     min=10,
-                                    #     max=100,
-                                    #     value=96,
-                                    #     step=1,
-                                    # ),
-                                    # html.Br(),
                                     PV_orientation_radio_item,
                                     dbc.Button(
                                         id="PV-simulation-button",

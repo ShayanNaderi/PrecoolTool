@@ -490,11 +490,11 @@ class Building:
         self.final_df["cost_bs"] = (
             self.final_df["Imports_bs"] * self.final_df["Tariff"]
             - self.final_df["Export_bs"] * self.final_df["FiT"]
-        ) / 100
+        )
         self.final_df["cost_spc"] = (
             self.final_df["Imports_spc"] * self.final_df["Tariff"]
             - self.final_df["Export_spc"] * self.final_df["FiT"]
-        ) / 100
+        )
         self.final_df["Savings"] = self.final_df["cost_bs"] - self.final_df["cost_spc"]
         self.final_df.to_csv("final_df_after_savings.csv")
 
@@ -509,8 +509,6 @@ class Building:
         self.monthly_saving["month"] = self.monthly_saving["month"].replace(
             [2], "February"
         )
-
-        # print(self.monthly_saving)
 
     def create_occupancy_column(self):
         """This function creates the occupancy column

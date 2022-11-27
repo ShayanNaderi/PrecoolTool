@@ -588,7 +588,9 @@ def create_tariff_drpdwn():
     tariff_drpdwn = dbc.Select(
         id="dropdown-tariff",
         required=True,
-        options=[{"label": i["Name"], "value": i} for i in filtered_tariffs],
-        value=filtered_tariffs[0],
+        options=[
+            {"label": i["Name"], "value": i["Tariff ID"]} for i in filtered_tariffs
+        ],
+        value=filtered_tariffs[0]["Tariff ID"],
     )
     return tariff_drpdwn

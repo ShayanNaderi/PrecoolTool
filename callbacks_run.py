@@ -6,7 +6,10 @@ import pickle
 from app import app
 from DevelopThermalDynamicsModel import Building, join_PV_load_temp, run_scenarios
 from PVPerformance import calculate_PV_output
-from functions import create_tariff_column, read_demand_from_xlsx_file
+from functions import (
+    read_demand_from_xlsx_file,
+    process_tariff_rates,
+)
 from figures import line_plot
 from dynamicFigures import generate_single_building_graphs
 import os
@@ -143,7 +146,7 @@ def update_progress(
     output=(
         Output("paragraph-id", "children"),
         Output("single-building-results-div", "children"),
-        Output("single-building-results-div", "style"),
+        # Output("single-building-results-div", "style"),
         Output("run-simulation-hidden-div", "children"),
         Output("list-of-buildings-hidden-div", "children"),
     ),
@@ -163,9 +166,6 @@ def update_progress(
         State("PV-rated-capacity", "value"),
         State("AC-year-radio", "value"),
         State("selected-demand-div-id", "children"),
-        State("tariff-table", "data"),
-        State("tariff-structure", "value"),
-        State("flat-tariff-rate", "value"),
         State("run-simulation-hidden-div", "children"),
         State("list-of-buildings-hidden-div", "children"),
         State("building-type-radio", "value"),
@@ -174,7 +174,7 @@ def update_progress(
         State("floor-area-radio", "value"),
         State("location-radio", "value"),
         State("demand-profile-availability-radio", "value"),
-        State("FiT", "value"),
+        State("dropdown-tariff", "value"),
     ),
     background=True,
     running=[
@@ -214,9 +214,6 @@ def update_progress(
     PV_size,
     AC_made_year,
     site_id,
-    tariff_data,
-    tariff_structure,
-    flat_rate,
     hidden_div_run,
     hidden_div_list_buildings,
     starRating,
@@ -225,7 +222,7 @@ def update_progress(
     building_size,
     location,
     demand_availability,
-    FiT,
+    tariff_id,
 ):
     AC_size = (
         AC_size * 3.5
@@ -250,20 +247,20 @@ def update_progress(
             output_text = (
                 "No thermal model is available! Please create the thermal model first!"
             )
-            return ([output_text], [], None, hidden_div_run, [])
+            return ([output_text], [], hidden_div_run, [])
         elif hidden_div_PV is None:
             output_text = (
                 "No PV simulation is available! Please simulate PV performance first!"
             )
-            return ([output_text], [], None, hidden_div_run, [])
+            return ([output_text], [], hidden_div_run, [])
         elif site_id is None:
             output_text = (
                 "No demand profile is selected! Please select a demand profile first!"
             )
-            return ([output_text], [], None, hidden_div_run, [])
+            return ([output_text], [], hidden_div_run, [])  # None,
         elif name_case_study is None:
             output_text = "Please write a name for the case study!"
-            return ([output_text], [], None, hidden_div_run, [])
+            return ([output_text], [], hidden_div_run, [])
 
         df_TMY = pd.read_json(hidden_div_thermal[0], orient="split")
         print("Thermal model ok")
@@ -294,17 +291,11 @@ def update_progress(
         )
         building.name = name_case_study
         building.occupancy_checklist = weekdays_occ
-        tariff_df = pd.DataFrame.from_records(tariff_data)
         building.update_temperature_preferences(
             ready_df, neutral_temp, upper_limit, lower_limit
         )
-        building = create_tariff_column(
-            building=building,
-            tariff_type=tariff_structure,
-            tariff_table=tariff_df,
-            flat_rate=flat_rate,
-            FiT=FiT,
-        )
+
+        building = process_tariff_rates(building, tariff_id)
 
         list_of_buildings.append(building)
         list_of_buildings_name.append(building.name)
@@ -320,7 +311,7 @@ def update_progress(
                 )
             ],
             [],
-            None,
+            # None,
             hidden_div_run,
             list_of_buildings_name,
         )
@@ -338,7 +329,7 @@ def update_progress(
                 )
             ],
             [],
-            None,
+            # None,
             hidden_div_run,
             list_of_buildings_name,
         )
@@ -356,7 +347,7 @@ def update_progress(
             return (
                 ["No case studies to run! Please create case studies"],
                 [],
-                None,
+                # None,
                 hidden_div_run,
                 hidden_div_list_buildings,
             )
@@ -378,7 +369,7 @@ def update_progress(
             return (
                 ["Successful!"],
                 generate_single_building_graphs(),
-                figure_border_style,
+                # figure_border_style,
                 hidden_div_run,
                 hidden_div_list_buildings,
             )
