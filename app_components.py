@@ -51,9 +51,9 @@ construction_weight_radio_item = html.Div(
     dbc.RadioItems(
         id="construction-weight-radio",
         options=[
-            {"label": "Light", "value": "Light"},
-            {"label": "Medium", "value": "Medium"},
-            {"label": "Heavy", "value": "Heavy"},
+            {"label": "Light (Timber clad, Fibre cement)", "value": "Light"},
+            {"label": "Medium (Brick veneer)", "value": "Medium"},
+            {"label": "Heavy (Cavity brick)", "value": "Heavy"},
         ],
         value="Light",
         inline=True,
@@ -588,7 +588,9 @@ def create_tariff_drpdwn():
     tariff_drpdwn = dbc.Select(
         id="dropdown-tariff",
         required=True,
-        options=[{"label": i["Name"], "value": i} for i in filtered_tariffs],
-        value=filtered_tariffs[0],
+        options=[
+            {"label": i["Name"], "value": i["Tariff ID"]} for i in filtered_tariffs
+        ],
+        value=filtered_tariffs[0]["Tariff ID"],
     )
     return tariff_drpdwn

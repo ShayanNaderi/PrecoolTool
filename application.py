@@ -9,7 +9,8 @@ from app_components import (
     PV_orientation_radio_item,
     construction_weight_radio_item,
     construction_weight_toast,
-    demand_profile_radio_item,
+    # demand_profile_radio_item,
+    demand_questions_radio_item,
     dwelling_type_radio_item,
     floor_area_radio_item,
     generate_select,
@@ -38,20 +39,15 @@ simulation_tab_content = (
                             dbc.CardBody(
                                 [
                                     location_radio_item,
-                                    # html.Hr(),
-                                    # star_rating_toast,
-                                    html.Br(),
-                                    html.P(
-                                        "Select star rating and construction weight"
-                                    ),
+                                    html.Hr(),
+                                    html.P("Select star rating"),
                                     star_rating_radio_item,
-                                    # html.Hr(),
-                                    # construction_weight_toast,
-                                    html.Br(),
+                                    html.Hr(),
+                                    html.P("Select construction weight (material)"),
                                     construction_weight_radio_item,
                                     html.Hr(),
                                     dwelling_type_radio_item,
-                                    html.Br(),
+                                    html.Hr(),
                                     floor_area_radio_item,
                                     html.Hr(),
                                     dbc.Button(
@@ -100,7 +96,6 @@ simulation_tab_content = (
                             dbc.CardBody(
                                 [
                                     neutral_temp_select,
-                                    html.Br(),
                                 ]
                             )
                         ),
@@ -117,15 +112,7 @@ simulation_tab_content = (
                         dbc.Card(
                             dbc.CardBody(
                                 [
-                                    tariff_radio_checklist,
-                                    html.Hr(),
                                     create_tariff_drpdwn(),
-                                    html.Hr(),
-                                    html.P("In case of TOU, please enter hourly rates"),
-                                    tariff_table,
-                                    html.Div(
-                                        id="table-test",
-                                    ),
                                 ]
                             )
                         ),
@@ -142,11 +129,9 @@ simulation_tab_content = (
                         dbc.Card(
                             dbc.CardBody(
                                 [
-                                    demand_profile_radio_item,
-                                    html.Hr(),
-                                    html.Div(id="upload-demand-data-div", children=[]),
-                                    html.Br(),
-                                    html.Div(id="dump-selected-div"),
+                                    demand_questions_radio_item,
+                                    # html.Div(id="upload-demand-data-div", children=[]),
+                                    # html.Div(id="dump-selected-div"),
                                 ]
                             )
                         ),
@@ -171,10 +156,10 @@ simulation_tab_content = (
                                         value=6,
                                         step=1,
                                     ),
-                                    html.P(
-                                        "Select the model year of the air conditioning unit"
-                                    ),
-                                    AC_year_radio_item,
+                                    # html.P(
+                                    #     "Select the model year of the air conditioning unit"
+                                    # ),
+                                    # AC_year_radio_item,
                                     html.Hr(),
                                     generate_select(
                                         id="PV-rated-capacity",
@@ -184,15 +169,6 @@ simulation_tab_content = (
                                         value=6,
                                         step=0.5,
                                     ),
-                                    # generate_select(
-                                    #     id="inverter-efficiency",
-                                    #     title="Inverter efficiency %:",
-                                    #     min=10,
-                                    #     max=100,
-                                    #     value=96,
-                                    #     step=1,
-                                    # ),
-                                    # html.Br(),
                                     PV_orientation_radio_item,
                                     dbc.Button(
                                         id="PV-simulation-button",
