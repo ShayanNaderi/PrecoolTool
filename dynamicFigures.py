@@ -19,6 +19,7 @@ single_building_available_figures = [
 def generate_single_building_graphs():
     with open("list_of_buildings.pkl", "rb") as inp:
         list_of_buildings = pickle.load(inp)
+
     single_building_graphs = [
         dbc.CardHeader(html.H5("Results for a single building")),
         dbc.CardBody(
@@ -131,56 +132,66 @@ def update_single_building_figures(
         figures = {
             "PV Generation Vs AC excluded demand": line_plot(
                 building.averaged_hourly_results,
-                "hour",
-                ["PV", "Demand"],
+                x_axis="hour",
+                y_axes=["PV", "Demand"],
+                names={"PV": "PV generation", "Demand": "Demand excluding AC"},
                 x_title="Time of the day [h]",
                 y_title="[kW]",
-                title="PV generation and AC excluded demand",
+                title="PV generation and AC excluded demand_{}".format(building_name),
             ),
             "Surplus PV generation": line_plot(
                 building.averaged_hourly_results,
-                "hour",
-                ["Surplus_PV"],
+                x_axis="hour",
+                y_axes=["Surplus_PV"],
+                names={
+                    "Surplus_PV": "Surplus PV generation after meeting demand excluding AC"
+                },
                 x_title="Time of the day [h]",
                 y_title="[kW]",
-                title="Surplus PV generation",
+                title="Surplus PV generation_{}".format(building_name),
             ),
             "Indoor temperature": line_plot(
                 building.averaged_hourly_results,
-                "hour",
-                ["T_bs", "T_spc"],
+                x_axis="hour",
+                y_axes=["T_bs", "T_spc"],
+                names={"T_bs": "Baseline", "T_spc": "Solar pre-cooling"},
                 x_title="Time of the day [h]",
                 y_title="Temperature [°C]",
-                title="Indoor temperature trajectory",
+                title="Indoor temperature trajectory_{}".format(building_name),
             ),
             "AC demand": line_plot(
                 building.averaged_hourly_results,
-                "hour",
-                ["E_bs", "E_spc"],
+                x_axis="hour",
+                y_axes=["E_bs", "E_spc"],
+                names={"E_bs": "Baseline", "E_spc": "Solar pre-cooling"},
                 x_title="Time of the day [h]",
                 y_title="AC demand [kW]",
-                title="AC demand profile",
+                title="AC demand profile_{}".format(building_name),
             ),
             "Thermal discomfort": line_plot(
                 building.averaged_hourly_results,
-                "hour",
-                ["W_bs", "W_spc"],
+                x_axis="hour",
+                y_axes=["W_bs", "W_spc"],
+                names={"W_bs": "Baseline", "W_spc": "Solar pre-cooling"},
                 x_title="Time of the day [h]",
                 y_title="Thermal discomfort [°C.hour]",
-                title="Thermal discomfort",
+                title="Thermal discomfort_{}".format(building_name),
                 plot_type="bar_chart",
             ),
             "Monthly savings": line_plot(
                 building.monthly_saving,
-                "month",
-                ["Savings"],
+                x_axis="month",
+                y_axes=["Savings"],
+                names={"Savings": "Monthly savings"},
                 x_title="Month",
                 y_title="Cost savings [$]",
-                title="Monthly cost savings",
+                title="Monthly cost savings_{}".format(building_name),
                 plot_type="bar_chart",
             ),
         }
+
         fig = figures[figure_type]
+
         new_child = html.Div(
             style={
                 "outline": "thin lightgrey solid",
@@ -198,6 +209,28 @@ def update_single_building_figures(
                 ),
             ],
         )
+        # if (
+        #     (figure_type == "Thermal discomfort")
+        #     & (building.averaged_hourly_results.W_bs.max() == 0)
+        #     & (building.averaged_hourly_results.W_spc.max() == 0)
+        # ):
+        #     new_child = html.Div(
+        #         style={
+        #             "outline": "thin lightgrey solid",
+        #             "align": "center",
+        #             # "padding": 5,
+        #             # "marginLeft": "auto",
+        #             # "marginRight": "auto",
+        #             "display": "inline-block",
+        #         },  #
+        #         children=[
+        #             html.Div(
+        #                 "No thermal discomfort reduction with the selected AC size and demand profile",
+        #                 style={"width": "50vh", "margin": 0},
+        #             )
+        #         ],
+        #     )
+
         dynamic_div_children.append(new_child)
 
     elif clear_canvas != hidden_div[1]:

@@ -19,15 +19,23 @@ simple_template = dict(
 )
 
 
-def line_plot(df, x_axis, y_axes, y_title, x_title, title, plot_type="line_plot"):
+def line_plot(
+    df,
+    x_axis,
+    y_axes,
+    names,
+    y_title,
+    x_title,
+    title,
+    plot_type="line_plot",
+):
 
     fig = go.Figure()
-    print("lineplot started")
     for y in y_axes:
         if plot_type == "line_plot":
-            fig.add_trace(go.Scatter(x=df[x_axis], y=df[y], name=y))
+            fig.add_trace(go.Scatter(x=df[x_axis], y=df[y], name=names[y]))
         elif plot_type == "bar_chart":
-            fig.add_trace(go.Bar(x=df[x_axis], y=df[y], name=y))
+            fig.add_trace(go.Bar(x=df[x_axis], y=df[y], name=names[y]))
 
     fig.update_layout(template=simple_template)
     fig.update_layout(
@@ -35,7 +43,6 @@ def line_plot(df, x_axis, y_axes, y_title, x_title, title, plot_type="line_plot"
         xaxis_title=x_title,
         yaxis_title=y_title,
     )
-    print("lineplot OK")
     return fig
 
 
