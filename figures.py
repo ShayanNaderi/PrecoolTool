@@ -8,10 +8,10 @@ import plotly.express as px
 font_color = "white"
 simple_template = dict(
     layout=go.Layout(
-        title_font=dict(family="Rockwell", size=24),
+        title_font=dict(family="Rockwell", size=20),
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
-        font=dict(family="Calibri", size=16, color=font_color),
+        font=dict(family="Calibri", size=15, color=font_color),
         legend=dict(yanchor="top", y=0.99, xanchor="left", x=0.01),
         xaxis=dict(showgrid=False),
         yaxis=dict(gridcolor="grey"),
@@ -38,11 +38,7 @@ def line_plot(
             fig.add_trace(go.Bar(x=df[x_axis], y=df[y], name=names[y]))
 
     fig.update_layout(template=simple_template)
-    fig.update_layout(
-        title=title,
-        xaxis_title=x_title,
-        yaxis_title=y_title,
-    )
+    fig.update_layout(title=title, xaxis_title=x_title, yaxis_title=y_title, height=300)
     return fig
 
 

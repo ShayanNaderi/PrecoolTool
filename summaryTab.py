@@ -54,7 +54,8 @@ home_distribution_pie = [
                                     md=12,
                                     sm=12,
                                 ),
-                            ]
+                            ],
+                            justify="center",
                         ),
                         style=figure_border_style,
                     ),
@@ -69,7 +70,8 @@ home_distribution_pie = [
                                     ),
                                     style=figure_border_style,
                                 ),
-                                md=6,
+                                md=12,
+                                lg=6,
                             ),
                             dbc.Col(
                                 html.Div(
@@ -81,9 +83,11 @@ home_distribution_pie = [
                                     ),
                                     style=figure_border_style,
                                 ),
-                                md=6,
+                                md=12,
+                                lg=6,
                             ),
-                        ]
+                        ],
+                        justify="center",
                     ),
                     html.Br(),
                     dbc.Row(
@@ -91,10 +95,11 @@ home_distribution_pie = [
                             dbc.Col(figures.create_savings_table(), md=6, sm=12),
                             dbc.Col(
                                 html.Div(figures.table_of_savings(field="saving")),
-                                md=6,
-                                sm=12,
+                                md=12,
+                                lg=6,
                             ),
-                        ]
+                        ],
+                        justify="center",
                     ),
                     html.Br(),
                     dbc.Row(
@@ -103,17 +108,18 @@ home_distribution_pie = [
                                 html.Div(
                                     figures.table_of_savings(field="emission"),
                                 ),
-                                md=6,
-                                sm=12,
+                                md=12,
+                                lg=6,
                             ),
                             dbc.Col(
                                 html.Div(
                                     figures.table_of_savings(field="discomfort"),
                                 ),
-                                md=6,
-                                sm=12,
+                                md=12,
+                                lg=6,
                             ),
-                        ]
+                        ],
+                        justify="center",
                     ),
                     html.Hr(),
                 ],

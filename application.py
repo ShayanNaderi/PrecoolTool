@@ -64,7 +64,6 @@ simulation_tab_content = (
                     ),
                     html.Div(
                         id="hidden-div-df-data-storage",
-                        # children=["Hidden Div"],
                         style={"display": "None"},
                     ),
                     html.Div(id="store-building-instance"),
@@ -124,8 +123,6 @@ simulation_tab_content = (
                             dbc.CardBody(
                                 [
                                     demand_questions_radio_item,
-                                    # html.Div(id="upload-demand-data-div", children=[]),
-                                    # html.Div(id="dump-selected-div"),
                                 ]
                             )
                         ),
@@ -150,10 +147,6 @@ simulation_tab_content = (
                                         value=6,
                                         step=1,
                                     ),
-                                    # html.P(
-                                    #     "Select the model year of the air conditioning unit"
-                                    # ),
-                                    # AC_year_radio_item,
                                     html.Hr(),
                                     generate_select(
                                         id="PV-rated-capacity",
@@ -185,27 +178,6 @@ simulation_tab_content = (
                     ),
                     html.Hr(),
                     dcc.Markdown(id="selected-building"),
-                    dbc.Input(
-                        placeholder="Name your case study",
-                        id="case-study-name",
-                        type="text",
-                        style={"width": "70%"},
-                    ),
-                    dbc.Button(
-                        id="add-case-study-button",
-                        children="Add the case study",
-                        n_clicks=0,
-                        color="info",
-                        style={"margin": "5px", "width": "30%"},
-                    ),
-                    dbc.Button(
-                        id="clean-case-study-button",
-                        children="Clean all case studies",
-                        color="danger",
-                        n_clicks=0,
-                        style={"margin": "5px", "width": "30%"},
-                    ),
-                    html.Hr(),
                     dbc.Button(
                         id="run-button",
                         children="Run solar pre-cooling!",
@@ -236,7 +208,7 @@ simulation_tab_content = (
                     html.Div(id="selected-demand-div-id", style={"display": "None"}),
                     html.Div(
                         id="run-simulation-hidden-div",
-                        children=[0, 0, 0],
+                        children=[0],
                         style={"display": "None"},
                     ),
                     html.Div(
@@ -271,7 +243,7 @@ app.layout = dbc.Container(
                         )
                     ],
                     # width=True,
-                    lg=6,
+                    lg=5,
                     sm=12,
                     md=12,
                 ),
@@ -281,9 +253,9 @@ app.layout = dbc.Container(
                             src="assets/UNSWLogo.png", alt="UNSW Logo", height="100px"
                         ),
                     ],
-                    lg=2,
+                    lg=3,
                     sm=12,
-                    md=4,
+                    md=3,
                 ),
                 dbc.Col(
                     [
@@ -292,7 +264,7 @@ app.layout = dbc.Container(
                         ),
                     ],
                     lg=2,
-                    md=4,
+                    md=3,
                     sm=12,
                 ),
                 dbc.Col(
@@ -302,7 +274,7 @@ app.layout = dbc.Container(
                         ),
                     ],
                     lg=2,
-                    md=4,
+                    md=3,
                     sm=12,
                 ),
             ],
