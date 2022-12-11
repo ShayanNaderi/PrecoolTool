@@ -1,7 +1,5 @@
 from dash import html, dcc
 import dash_bootstrap_components as dbc
-import pandas as pd
-
 import figures
 
 figure_border_style = {

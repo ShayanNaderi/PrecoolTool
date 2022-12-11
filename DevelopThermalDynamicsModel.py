@@ -462,6 +462,7 @@ class Building:
                 "W_spc": "sum",
                 "Q_bs": "mean",
                 "Q_spc": "mean",
+                "Import_reduction": "sum",
             }
         )
         self.averaged_hourly_results["PV"] = self.averaged_hourly_results["PV"]
@@ -486,6 +487,15 @@ class Building:
         self.final_df["Export_spc"] = -self.final_df["Net_spc"].clip(upper=0)
         self.final_df["Export_bs"] = -self.final_df["Net_bs"].clip(upper=0)
 
+        self.final_df["Import_reduction"] = (
+            self.final_df["Imports_bs"] - self.final_df["Imports_spc"]
+        )
+
+        self.final_df["Emission_reduction"] = (
+            self.final_df["Import_reduction"] * self.final_df["Emission_intensity"]
+        )  # kg
+        self.total_emission_reduction = self.final_df["Emission_reduction"].sum()
+
     def calculate_savings(self):
         self.final_df["cost_bs"] = (
             self.final_df["Imports_bs"] * self.final_df["Tariff"]
@@ -497,7 +507,7 @@ class Building:
         )
         self.final_df["Savings"] = self.final_df["cost_bs"] - self.final_df["cost_spc"]
         self.final_df.to_csv("final_df_after_savings.csv")
-
+        self.total_cost_Savings = self.final_df["Savings"].sum()
         self.monthly_saving = self.final_df.groupby("month").agg({"Savings": "sum"})
         self.monthly_saving.reset_index(inplace=True)
         self.monthly_saving["month"] = self.monthly_saving["month"].replace(
@@ -569,12 +579,10 @@ def run_scenarios(building):
             )
             building.daily_results_dic[date] = building.SH_ahead
             building.final_df = pd.concat([building.final_df, building.SH_ahead])
-
-        elif datetime.month in [3, 4, 5, 6, 7, 8]:
-            # if datetime.month in[3,4,5,6,7,8]:
-            pass
-            # building.baseline_winter(18,20)
-
+    print("hi")
+    building = add_emission_column(
+        building,
+    )
     building.calculate_imports_exports()
     print("Imports exports OK")
 
@@ -589,32 +597,49 @@ def run_scenarios(building):
     return building
 
 
+def add_emission_column(building):
+    emission_df = pd.read_csv("Data/hourly_emission_for_SPCaH_average_emissions.csv")
+    emission_df["Region"] = emission_df["Region"].replace(["NSW"], "Sydney")
+    emission_df["Region"] = emission_df["Region"].replace(["VIC"], "Melbourne")
+    emission_df["Region"] = emission_df["Region"].replace(["SA"], "Adelaide")
+    emission_df["Region"] = emission_df["Region"].replace(["QLD"], "Brisbane")
+
+    emission_df = emission_df[emission_df["Region"] == building.city]
+    emission_df.Date = pd.to_datetime(emission_df.Date)
+    emission_df["day"] = emission_df.Date.dt.day
+    emission_df["month"] = emission_df.Date.dt.month
+    emission_df.rename(
+        columns={"Hour": "hour", "Zero": "Emission_intensity"}, inplace=True
+    )
+    # joined_df = PV.merge(load_temp, on=["month", "day", "hour"])
+
+    building.final_df = building.final_df.merge(
+        emission_df[["Emission_intensity", "month", "day", "hour"]],
+        on=["month", "day", "hour"],
+    )
+    print(building.final_df.columns)
+    # print(ready_df[["month", "day", "hour"]].head())
+    # print(emission_df[["month", "day", "hour"]].head())
+
+    return building
+
+
 if __name__ == "__main__":
     pass
-    # import json
-    # building = Building(
-    #     starRating="2star",
-    #     weight="Heavy",
-    #     type="Apartment",
-    #     size="Large",
-    #     AC_size = 25,
-    #     city="Adelaide",
-    # )
-    # ready_df = pd.read_csv("ready_df.csv")
-    # building.ready_df = ready_df
-    # building = run_scenarios(building)
-    # print(building.monthly_saving.head())
-    #
-    # fig =line_plot(building.averaged_hourly_results,'hour',["E_bs","E_spc"],x_title="Time of the day [h]",y_title="Temperature [°C]",title="Indoor temperature trajectory")
-    # fig =line_plot(building.averaged_hourly_results,'hour',["W_bs","W_spc"],
-    #                x_title="Time of the day [h]",y_title="Temperature [°C]",
-    #                title="Indoor temperature trajectory",plot_type="bar_chart")
-    # fig.show()
+    import json
 
-    # df = pd.read_csv("Data/AC_excluded_average_demand.csv")
-    # df = df.melt(id_vars = 'Time',var_name = "ID",value_name = "Values")
-    # df['ID'] = df['ID'].astype(int)
-    # df_class = pd.read_csv("Data/AC_excluded_and_clusters.csv")
-    # df = df.merge(df_class[['site_ID',"Cluster"]],left_on = "ID",right_on="site_ID")
-    # df.to_csv("Data/average_demand_and_clusters_for_demand_selection.csv")
-    # print(building.thermal_coefficients)
+    building = Building(
+        starRating="2star",
+        weight="Heavy",
+        type="Apartment",
+        size="Large",
+        AC_size=25,
+        city="Adelaide",
+    )
+    ready_df = pd.read_csv("ready_df.csv")
+    building.update_temperature_preferences(ready_df, 25, 28, 21)
+    # Add emission column21
+    building = functions.process_tariff_rates(building, "TR0001_offgrid")
+    # building = add_emission_column(building)
+
+    building = run_scenarios(building)

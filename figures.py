@@ -4,6 +4,7 @@ from dash import html, dash_table
 import plotly.graph_objects as go
 import plotly.figure_factory as ff
 import plotly.express as px
+import dash_bootstrap_components as dbc
 
 font_color = "white"
 simple_template = dict(
@@ -38,7 +39,7 @@ def line_plot(
             fig.add_trace(go.Bar(x=df[x_axis], y=df[y], name=names[y]))
 
     fig.update_layout(template=simple_template)
-    fig.update_layout(title=title, xaxis_title=x_title, yaxis_title=y_title, height=300)
+    fig.update_layout(title=title, xaxis_title=x_title, yaxis_title=y_title, height=400)
     return fig
 
 
@@ -321,6 +322,24 @@ if __name__ == "__main__":
 
     app = Dash()
 
-    table = create_savings_table()
-    app.layout = html.Div(table)
+    def generate_card_deck_2():
+
+        cards = dbc.Card(
+            [
+                dbc.CardImg(src="assets/money-bag.png", top=True),
+                dbc.CardBody(
+                    [
+                        html.H4("Savings", className="card-title"),
+                        html.P(
+                            "{} $/Summer",
+                            className="card-text",
+                        ),
+                    ]
+                ),
+            ],
+            style={"width": "18rem"},
+        )
+        return cards
+
+    app.layout = html.Div(dbc.Row(dbc.Col(generate_card_deck_2(), md=3)))
     app.run_server(debug=True)

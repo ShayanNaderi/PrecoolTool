@@ -7,10 +7,8 @@ from app import app
 from app_components import (
     create_select_demand_profile_fig,
     create_selected_profile_fig,
-    create_upload_data,
-    demand_questions_radio_item,
+    simulation_tab_content,
 )
-from application import simulation_tab_content
 from summaryTab import summaryTabContent
 
 
@@ -146,7 +144,7 @@ def floor_area_radio_item_update(dwelling_type):
                 "label": "Small (3-bed, 90-110 m2 floor area",
                 "value": "Small",
             },
-            {"label": "Medium (4-bed, 140-160 m2 floor area)", "value": "Medium"},
+            # {"label": "Medium (4-bed, 140-160 m2 floor area)", "value": "Medium"},
             {"label": "Large (5-bed, 170-300 m2 floor area)", "value": "Large"},
         ],
     }

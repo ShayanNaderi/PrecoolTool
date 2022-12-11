@@ -4,7 +4,12 @@ from dash import CeleryManager, DiskcacheManager, Input, Output, State, dcc, htm
 from dash.exceptions import PreventUpdate
 import pickle
 from app import app
-from DevelopThermalDynamicsModel import Building, join_PV_load_temp, run_scenarios
+from DevelopThermalDynamicsModel import (
+    Building,
+    join_PV_load_temp,
+    run_scenarios,
+    add_emission_column,
+)
 from PVPerformance import calculate_PV_output
 from functions import (
     read_demand_from_xlsx_file,
@@ -255,7 +260,7 @@ def update_progress(
         building.update_temperature_preferences(
             ready_df, neutral_temp, upper_limit, lower_limit
         )
-
+        # Add emission column
         building = process_tariff_rates(building, tariff_id)
         building = run_scenarios(building)
         hidden_div_run = [n_clicks]
