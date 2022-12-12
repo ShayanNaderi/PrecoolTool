@@ -323,5 +323,116 @@ def convert_raw_to_csv():
                         )
 
 
+def process_medium_houses(city, starRating, weight):
+    """Create datetime format from the data"""
+    Areas = {
+        "kitchen": 40.37,
+        "lounge": 29.66,
+        "entry": 7.54,
+        "bed_1": 14.08,
+        "ensuite_1": 3.96,
+        "bed_2": 11.53,
+        "bed_3": 11.99,
+        "bed_4": 11.97,
+        "wir_1": 4.42,
+        "hall": 11.36,
+        "wc": 1.65,
+    }
+    total_area = 148.5
+    climate_zones_list = {"Melbourne": 62, "Brisbane": 10, "Adelaide": 16, "Sydney": 56}
+    climateZone = climate_zones_list[city]
+    main_df = pd.read_csv(
+        "Data/MediumHouse/{}_wc_{}_{}.csv".format(
+            city.lower(), weight.lower(), starRating
+        )
+    )
+    main_df["year"] = 2020
+    main_df["Date"] = pd.to_datetime(main_df[["year", "month", "day", "hour"]])
+    main_df.drop("year", axis="columns", inplace=True)  # Drop year columns
+    main_df.set_index("Date", inplace=True)  # Set index
+    """ Average cooling/heating and temperature columns for all the zones """
+
+    main_df["Cooling_m"] = main_df[
+        [x for x in main_df.columns if x.endswith("_c")]
+    ].sum(axis=1)
+    main_df["Heating_m"] = main_df[
+        [x for x in main_df.columns if x.endswith("_h")]
+    ].sum(axis=1)
+
+    # Area-averaged################################################################################################################
+    dd = main_df[[x for x in main_df.columns if "ac_" in x]]
+    dd.columns = [x.replace("ac_", "") for x in dd.columns]
+    dd = dd[
+        [
+            "kitchen",
+            "lounge",
+            "entry",
+            "bed_1",
+            "ensuite_1",
+            "bed_2",
+            "bed_3",
+            "bed_4",
+            "wir_1",
+            "hall",
+            "wc",
+        ]
+    ]
+    for key, value in Areas.items():
+        dd[key] = dd[key] * value / total_area
+
+    main_df["T_m"] = dd.sum(axis=1)
+    ###############################################################################################################################
+    main_df["agg_AC"] = main_df["Heating_m"] - main_df["Cooling_m"]
+
+    main_df = main_df[["month", "day", "hour", "T_m", "outdoor", "agg_AC"]]
+    weather = pd.read_fwf(
+        "Data/TMY/climat{}.txt".format(climateZone),
+        widths=[
+            2,
+            2,
+            2,
+            2,
+            2,
+            4,
+            3,
+            4,
+            3,
+            2,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            4,
+            3,
+            4,
+            2,
+            3,
+            1,
+            1,
+            5,
+            5,
+            20,
+        ],
+        header=None,
+    )
+    main_df["SR"] = weather[17].values
+    main_df.rename(columns={"T_m": "agg_temp"}, inplace=True)
+    main_df.reset_index(drop=True, inplace=True)
+    # print(main_df.head(25))
+
+    main_df.to_csv(
+        "Data/Processed_thermal_dynamics/Medium_House_{}_{}_{}.csv".format(
+            starRating, weight, city
+        )
+    )
+
+
 if __name__ == "__main__":
-    convert_raw_to_csv()
+
+    for city in ["Adelaide", "Melbourne", "Brisbane", "Sydney"]:
+        for star in ["2star", "6star", "8star"]:
+            for weight in ["Light", "Medium", "Heavy"]:
+                process_medium_houses(city=city, starRating=star, weight=weight)

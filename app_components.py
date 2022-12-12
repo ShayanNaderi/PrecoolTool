@@ -115,7 +115,7 @@ location_radio_item = html.Div(
 
 neutral_temp_select = html.Div(
     [
-        html.P("Preffered indoor temperature during the occupied hours"),
+        html.P("Preferred indoor temperature during the occupied hours"),
         generate_select(
             "neutral-temp",
             "Desired indoor temperature °C:",
@@ -761,14 +761,14 @@ simulation_tab_content = (
                         children="Run solar pre-cooling!",
                         color="success",
                         n_clicks=0,
-                        style={"margin": "5px", "width": "30%"},
+                        style={"margin": "5px", "width": "70%"},
                     ),
-                    dbc.Button(
-                        id="cancel-button-id",
-                        children="Cancel!",
-                        color="danger",
-                        style={"width": "30%"},
-                    ),
+                    # dbc.Button(
+                    #     id="cancel-button-id",
+                    #     children="Cancel!",
+                    #     color="danger",
+                    #     style={"width": "30%"},
+                    # ),
                     dbc.Spinner(html.Div(id="paragraph-id", children=[])),
                     html.Hr(),
                     dbc.Spinner(

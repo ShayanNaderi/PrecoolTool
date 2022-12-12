@@ -31,8 +31,8 @@ app = dash.Dash(
     suppress_callback_exceptions=True,
     background_callback_manager=background_callback_manager,
 )
-application  = app.server
-app.title='RESPCT'
+application = app.server
+app.title = "PrecoolTool"
 app.config.suppress_callback_exceptions = True
 
 

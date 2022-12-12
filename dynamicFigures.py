@@ -6,15 +6,6 @@ from dash import Input, Output, State, dcc, html
 from app import app
 from figures import line_plot
 
-single_building_available_figures = [
-    "Indoor temperature",
-    "AC demand",
-    "Surplus PV generation",
-    "Thermal discomfort",
-    "PV Generation Vs AC excluded demand",
-    "Monthly savings",
-]
-
 
 def generate_card_deck_2(title, unit, value, image):
     cards = dbc.Card(
@@ -82,14 +73,14 @@ def generate_single_building_graphs(building):
             title="Import reduction from the grid",
             plot_type="bar_chart",
         ),
-        "Thermal discomfort": line_plot(
+        "Thermal comfort": line_plot(
             building.averaged_hourly_results,
             x_axis="hour",
             y_axes=["W_bs", "W_spc"],
             names={"W_bs": "Baseline", "W_spc": "Solar pre-cooling"},
             x_title="Time of the day [h]",
             y_title="Thermal discomfort [°C.hour]",
-            title="Thermal discomfort",
+            title="Thermal comfort improvement",
             plot_type="bar_chart",
         ),
         "Monthly savings": line_plot(
@@ -115,7 +106,7 @@ def generate_single_building_graphs(building):
                             value=building.total_cost_Savings,
                             image="money-bag",
                         ),
-                        md=4,
+                        md=5,
                         sm=12,
                     ),
                     dbc.Col(
@@ -123,9 +114,9 @@ def generate_single_building_graphs(building):
                             title="Emission reduction",
                             unit="kg/Summer",
                             value=building.total_emission_reduction,
-                            image="emissions",
+                            image="carbon-dioxide",
                         ),
-                        md=4,
+                        md=5,
                         sm=12,
                     ),
                 ],
@@ -134,10 +125,9 @@ def generate_single_building_graphs(building):
             dbc.Row(
                 [
                     dbc.Col(dcc.Graph(figure=figures["Import reduction"]), md=5, sm=12),
-                    dbc.Col(
-                        dcc.Graph(figure=figures["Thermal discomfort"]), md=5, sm=12
-                    ),
-                ]
+                    dbc.Col(dcc.Graph(figure=figures["Thermal comfort"]), md=5, sm=12),
+                ],
+                justify="center",
             ),
             html.Br(),
         ],

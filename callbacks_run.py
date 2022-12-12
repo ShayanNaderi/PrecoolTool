@@ -55,7 +55,7 @@ figure_border_style = {
             {"visibility": "visible"},
         ),
     ],
-    cancel=[Input("create-thermal-model-button", "n_clicks")],
+    # cancel=[Input("create-thermal-model-button", "n_clicks")],
     progress=Output("thermal-model-creation-result", "children"),
     prevent_initial_call=True,
 )
@@ -102,7 +102,7 @@ def update_thermal_model(
     background=True,
     running=[
         (Output("PV-simulation-button", "disabled"), True, False),
-        (Output("cancel-button-id", "disabled"), False, True),
+        # (Output("cancel-button-id", "disabled"), False, True),
         (
             Output("PV-simulation-result", "style"),
             {"visibility": "visible"},
@@ -114,7 +114,7 @@ def update_thermal_model(
             "",
         ),
     ],
-    cancel=[Input("PV-simulation-button", "n_clicks")],
+    # cancel=[Input("PV-simulation-button", "n_clicks")],
     progress=Output("PV-simulation-result", "children"),
     prevent_initial_call=True,
 )
@@ -176,7 +176,7 @@ def update_progress(
     background=True,
     running=[
         (Output("run-button", "disabled"), True, False),
-        (Output("cancel-button-id", "disabled"), False, True),
+        # (Output("cancel-button-id", "disabled"), False, True),
         (
             Output("paragraph-id", "style"),
             {"visibility": "visible"},
@@ -188,7 +188,7 @@ def update_progress(
             "",
         ),
     ],
-    cancel=[Input("cancel-button-id", "n_clicks")],
+    # cancel=[Input("cancel-button-id", "n_clicks")],
     progress=Output("paragraph-id", "children"),
     prevent_initial_call=True,
 )
