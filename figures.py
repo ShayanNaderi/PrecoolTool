@@ -80,10 +80,12 @@ def table_of_savings(field, year=2022):
         df["% of households"] = df["Percentage of buildings {}".format(year)].cumsum()
         df["% of households"] = df["% of households"].round(1)
         df.rename(
-            columns={"Discomfort reduction": "Discomfort reduction (degree.hour)"},
+            columns={
+                "Discomfort reduction": "Daily discomfort reduction (degree.hour)"
+            },
             inplace=True,
         )
-        df = df[["% of households", "Discomfort reduction (degree.hour)"]]
+        df = df[["% of households", "Daily discomfort reduction (degree.hour)"]]
         # df = df.iloc[:-1]
 
     elif field == "emission":

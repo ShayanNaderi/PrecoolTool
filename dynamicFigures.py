@@ -70,7 +70,7 @@ def generate_single_building_graphs(building):
             },
             x_title="Time of the day [h]",
             y_title="[kWh]",
-            title="Import reduction from the grid",
+            title="Import reduction from the grid per summer",
             plot_type="bar_chart",
         ),
         "Thermal comfort": line_plot(
@@ -80,7 +80,7 @@ def generate_single_building_graphs(building):
             names={"W_bs": "Baseline", "W_spc": "Solar pre-cooling"},
             x_title="Time of the day [h]",
             y_title="Thermal discomfort [°C.hour]",
-            title="Thermal comfort improvement",
+            title="Thermal comfort improvement per summer",
             plot_type="bar_chart",
         ),
         "Monthly savings": line_plot(
