@@ -4,14 +4,15 @@ from dash import html, dash_table
 import plotly.graph_objects as go
 import plotly.figure_factory as ff
 import plotly.express as px
+import dash_bootstrap_components as dbc
 
 font_color = "white"
 simple_template = dict(
     layout=go.Layout(
-        title_font=dict(family="Rockwell", size=24),
+        title_font=dict(family="Rockwell", size=20),
         plot_bgcolor="rgba(0,0,0,0)",
         paper_bgcolor="rgba(0,0,0,0)",
-        font=dict(family="Calibri", size=16, color=font_color),
+        font=dict(family="Calibri", size=15, color=font_color),
         legend=dict(yanchor="top", y=0.99, xanchor="left", x=0.01),
         xaxis=dict(showgrid=False),
         yaxis=dict(gridcolor="grey"),
@@ -38,11 +39,7 @@ def line_plot(
             fig.add_trace(go.Bar(x=df[x_axis], y=df[y], name=names[y]))
 
     fig.update_layout(template=simple_template)
-    fig.update_layout(
-        title=title,
-        xaxis_title=x_title,
-        yaxis_title=y_title,
-    )
+    fig.update_layout(title=title, xaxis_title=x_title, yaxis_title=y_title, height=400)
     return fig
 
 
@@ -83,10 +80,12 @@ def table_of_savings(field, year=2022):
         df["% of households"] = df["Percentage of buildings {}".format(year)].cumsum()
         df["% of households"] = df["% of households"].round(1)
         df.rename(
-            columns={"Discomfort reduction": "Discomfort reduction (degree.hour)"},
+            columns={
+                "Discomfort reduction": "Daily discomfort reduction (degree.hour)"
+            },
             inplace=True,
         )
-        df = df[["% of households", "Discomfort reduction (degree.hour)"]]
+        df = df[["% of households", "Daily discomfort reduction (degree.hour)"]]
         # df = df.iloc[:-1]
 
     elif field == "emission":
@@ -325,6 +324,24 @@ if __name__ == "__main__":
 
     app = Dash()
 
-    table = create_savings_table()
-    app.layout = html.Div(table)
+    def generate_card_deck_2():
+
+        cards = dbc.Card(
+            [
+                dbc.CardImg(src="assets/money-bag.png", top=True),
+                dbc.CardBody(
+                    [
+                        html.H4("Savings", className="card-title"),
+                        html.P(
+                            "{} $/Summer",
+                            className="card-text",
+                        ),
+                    ]
+                ),
+            ],
+            style={"width": "18rem"},
+        )
+        return cards
+
+    app.layout = html.Div(dbc.Row(dbc.Col(generate_card_deck_2(), md=3)))
     app.run_server(debug=True)

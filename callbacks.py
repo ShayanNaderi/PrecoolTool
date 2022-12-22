@@ -7,10 +7,8 @@ from app import app
 from app_components import (
     create_select_demand_profile_fig,
     create_selected_profile_fig,
-    create_upload_data,
-    demand_questions_radio_item,
+    simulation_tab_content,
 )
-from application import simulation_tab_content
 from summaryTab import summaryTabContent
 
 
@@ -107,26 +105,6 @@ def toggle_shape_collapse(n_clicks, is_open):
     return is_open
 
 
-# @app.callback(
-#     Output("star-rating-toast", "is_open"),
-#     [Input("star-rating-toggle", "n_clicks")],
-# )
-# def star_rating_toast(n):
-#     if n:
-#         return True
-#     return False
-#
-#
-# @app.callback(
-#     Output("construction-weight-toast", "is_open"),
-#     [Input("construction-weight-toggle", "n_clicks")],
-# )
-# def construction_weight_toast(n):
-#     if n:
-#         return True
-#     return False
-
-
 @app.callback(
     [Output("floor-area-radio", "options"), Output("floor-area-radio", "value")],
     [Input("dwelling-type-radio", "value")],
@@ -152,42 +130,6 @@ def floor_area_radio_item_update(dwelling_type):
     }
 
     return options_dictionary[dwelling_type], "Small"
-
-
-# @app.callback(
-#     Output("flat-tariff-rate", "disabled"),
-#     [Input("tariff-structure", "value")],
-# )
-# def disable_flat_rate(tariff_structure):
-#     if tariff_structure != "flat-rate":
-#         return True
-#     else:
-#         return False
-
-
-# @app.callback(
-#     Output("upload-demand-data-div", "children"),
-#     [
-#         Input("demand-profile-availability-radio", "value"),
-#         Input("demand-profile-collapse", "is_open"),
-#     ],
-# )
-# def update_graphs(availability, is_open):
-#     if availability == "available":
-#         return [
-#             create_upload_data("upload-demand-data"),
-#             "Please upload data",
-#         ]
-#
-#     elif (availability != "available") & (is_open == True):
-#         return [
-#             "Please select items based on your consumption patterns",
-#             html.Br(),
-#             demand_questions_radio_item,
-#         ]
-#
-#     elif (availability != "available") & (is_open == False):
-#         return []
 
 
 @app.callback(
